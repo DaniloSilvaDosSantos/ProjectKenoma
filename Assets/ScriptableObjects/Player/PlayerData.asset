@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded7e612e8f2bc744b6251b3e4b143c0, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  movementSpeed: 14
+  gravity: -9.81
+  mouseSensitivity: 100
+  minLookAngle: -90
+  maxLookAngle: 90
+  shotgunAngle: 45
+  shotgunMaxRangeD: 12
+  shotgunRangeA: 2
+  shotgunRangeB: 5
+  shotgunRangeC: 8
+  shotgunMaxDamage: 10
+  shotgunCloseDamage: 7
+  shotgunFarDamage: 5
+  shotgunVeryFarDamage: 2
+  maxHealth: 100
+  startingHealth: 100
