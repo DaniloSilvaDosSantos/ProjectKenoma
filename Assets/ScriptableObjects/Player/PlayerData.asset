@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded7e612e8f2bc744b6251b3e4b143c0, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  startingHealth: 100
   movementSpeed: 14
   gravity: -9.81
-  mouseSensitivity: 100
+  mouseSensitivity: 500
   minLookAngle: -90
   maxLookAngle: 90
-  shotgunAngle: 45
-  shotgunMaxRangeD: 12
+  shotgunHalfAngle: 45
+  shotgunCooldown: 2.5
   shotgunRangeA: 2
   shotgunRangeB: 5
   shotgunRangeC: 8
+  shotgunMaxRangeD: 12
   shotgunMaxDamage: 10
   shotgunCloseDamage: 7
   shotgunFarDamage: 5
   shotgunVeryFarDamage: 2
-  maxHealth: 100
-  startingHealth: 100
