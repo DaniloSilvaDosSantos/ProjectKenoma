@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de053acfe5551b4e91523e3c31d4697, type: 3}
   m_Name: GenericEnemyData
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  startingHealth: 100
-  movementSpeed: 14
+  maxHealth: 10
+  startingHealth: 10
+  movementSpeed: 5
   gravity: -9.81
   damage: 10
   attackCooldown: 2
