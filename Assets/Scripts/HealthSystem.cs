@@ -77,7 +77,7 @@ public class HealthSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log($"{gameObject.name} died without a controller.");
+            Debug.Log(gameObject.name + "died without a controller.");
         }
     }
 }
