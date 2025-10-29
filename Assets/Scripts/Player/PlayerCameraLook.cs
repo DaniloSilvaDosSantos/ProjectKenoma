@@ -15,7 +15,11 @@ public class PlayerCameraLook : MonoBehaviour
 
         if (controller == null)
         {
-            Debug.LogError("PlayerController don't have been found in a parent object!");
+            Debug.Log("PlayerController don't have been found in a parent object!");
+        }
+        if (playerBody == null)
+        {
+            Debug.Log("Player Transform Reference don't have been assigned!");
         }
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -36,7 +40,8 @@ public class PlayerCameraLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, minYAngle, maxYAngle);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        playerBody.Rotate(Vector3.up * mouseX);
+
+        if (playerBody != null) playerBody.Rotate(Vector3.up * mouseX);
     }
 }
 
