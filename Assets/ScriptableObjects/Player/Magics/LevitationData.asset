@@ -16,7 +16,7 @@ MonoBehaviour:
   type: 0
   cooldown: 8
   range: 20
-  prefab: {fileID: 0}
+  prefab: {fileID: 4569307640317558073, guid: d8acdb4042bf3074d9bcb60fba8dbe85, type: 3}
   effectDuration: 4
   liftHeight: 4
   sphereStartScale: 0.01

@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour, IEntityController
 
     [Header("Runtime State")]
     public bool isAlive = true;
+    public bool isFreezed = false;
 
     private void Awake()
     {
