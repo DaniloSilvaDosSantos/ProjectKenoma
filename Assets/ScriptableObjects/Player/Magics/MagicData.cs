@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum MagicType { Levitation, Other }
+public enum MagicType { MagicLevitation, Other }
 
 [CreateAssetMenu(fileName = "NewMagicData", menuName = "Game Data/MagicData")]
 public class MagicData : ScriptableObject

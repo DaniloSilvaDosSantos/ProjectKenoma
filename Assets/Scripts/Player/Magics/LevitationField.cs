@@ -65,38 +65,8 @@ public class LevitationField : MonoBehaviour
         if (enemy != null && !affectedEnemies.Contains(enemy))
         {
             affectedEnemies.Add(enemy);
-            StartCoroutine(ApplyLevitationEffect(enemy));
+            Debug.Log(other.gameObject.name + "affected by the Levitation Magic");
+            enemy.ApplyLevitationEffect(magicData);
         }
-    }
-
-    private IEnumerator ApplyLevitationEffect(EnemyController enemy)
-    {
-        if (enemy == null || !enemy.isAlive) yield break;
-
-        if (enemy.agent != null)
-        {
-            enemy.agent.isStopped = true;
-            enemy.isFreezed = true;
-        } 
-
-        Vector3 startPos = enemy.transform.position;
-        Vector3 targetPos = startPos + Vector3.up * magicData.liftHeight;
-
-        float duration = magicData.effectDuration;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            if (enemy == null) yield break;
-            enemy.transform.position = Vector3.Lerp(startPos, targetPos, Mathf.PingPong(elapsed, duration / 2f) / (duration / 2f));
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        if (enemy != null && enemy.agent != null)
-        {
-            enemy.agent.isStopped = false;
-            enemy.isFreezed = false;
-        } 
     }
 }

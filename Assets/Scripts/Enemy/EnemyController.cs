@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,8 @@ public class EnemyController : MonoBehaviour, IEntityController
     [Header("Runtime State")]
     public bool isAlive = true;
     public bool isFreezed = false;
+
+    private Coroutine levitationCoroutine;
 
     private void Awake()
     {
@@ -67,6 +70,68 @@ public class EnemyController : MonoBehaviour, IEntityController
         {
             Destroy(gameObject, 1f);
         }
+    }
+
+        public void ApplyLevitationEffect(MagicData magicData)
+    {
+        if (levitationCoroutine != null)
+            StopCoroutine(levitationCoroutine);
+
+        levitationCoroutine = StartCoroutine(LevitationEffectRoutine(magicData));
+    }
+
+    private IEnumerator LevitationEffectRoutine(MagicData magicData)
+    {
+        if (!isAlive) yield break;
+
+        Debug.Log(gameObject.name + " is levitating!");
+
+        isFreezed = true;
+        agent.isStopped = true;
+
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = startPos + Vector3.up * magicData.liftHeight;
+
+        float duration = magicData.effectDuration;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, targetPos,
+                Mathf.PingPong(elapsed, duration / 2f) / (duration / 2f));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        float fallTime = 0.5f;
+        Vector3 fallStart = transform.position;
+        Vector3 fallEnd = new Vector3(fallStart.x, startPos.y, fallStart.z);
+        elapsed = 0f;
+
+        while (elapsed < fallTime)
+        {
+            transform.position = Vector3.Lerp(fallStart, fallEnd, elapsed / fallTime);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, 2f, NavMesh.AllAreas))
+        {
+            transform.position = hit.position;
+            agent.nextPosition = hit.position;
+        }
+
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        agent.isStopped = false;
+        isFreezed = false;
+        levitationCoroutine = null;
+
+        Debug.Log(gameObject.name + " recovered from levitation.");
     }
 }
 

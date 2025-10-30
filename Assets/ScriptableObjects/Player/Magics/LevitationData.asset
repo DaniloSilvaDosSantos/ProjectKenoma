@@ -20,6 +20,6 @@ MonoBehaviour:
   effectDuration: 4
   liftHeight: 4
   sphereStartScale: 0.01
-  sphereFinalScale: 5
-  sphereGrowSpeed: 4
+  sphereFinalScale: 25
+  sphereGrowSpeed: 20
   sphereFadeSpeed: 1.5
