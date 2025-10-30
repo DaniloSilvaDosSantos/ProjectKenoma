@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e49cf36113df441a9cfb72a15c97ea, type: 3}
   m_Name: LevitationData
   m_EditorClassIdentifier: 
-  magicName: Unnamed
-  type: 1
+  magicName: Levitation
+  type: 0
   cooldown: 8
   range: 20
   prefab: {fileID: 0}
