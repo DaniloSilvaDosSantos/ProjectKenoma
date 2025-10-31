@@ -16,6 +16,8 @@ public class EnemyStateMachine : MonoBehaviour
     private void Update()
     {
         if (!controller.isAlive) return;
+        if (controller.isFreezed) return;
+
         currentState?.UpdateState();
     }
 

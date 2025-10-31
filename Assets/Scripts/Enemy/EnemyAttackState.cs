@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyAttackState : EnemyBaseState
 {
     private float attackTimer = 0f;
-    private bool isAttacking = false;
+    //private bool isAttacking = false;
     private HealthSystem playerHealth;
 
     public EnemyAttackState(EnemyController controller, EnemyStateMachine sm) : base(controller, sm) { }
@@ -14,7 +14,7 @@ public class EnemyAttackState : EnemyBaseState
 
         attackTimer = 0f;
 
-        isAttacking = true;
+        //isAttacking = true;
 
         if (controller.playerTarget != null)
         {
