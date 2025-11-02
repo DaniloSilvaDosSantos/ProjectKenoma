@@ -14,6 +14,7 @@ public class MagicData : ScriptableObject
 
     [Header("Levitation Settings")]
     public float effectDuration = 4f;
+    public float riseTime = 1f; 
     public float liftHeight = 4f;
     public float sphereStartScale = 0.01f;
     public float sphereFinalScale = 5f;

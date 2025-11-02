@@ -89,44 +89,40 @@ public class EnemyController : MonoBehaviour, IEntityController
         isFreezed = true;
         agent.isStopped = true;
 
-        agent.updatePosition = false;
-        agent.updateRotation = false;
-
-        Vector3 startPos = transform.position;
-        Vector3 targetPos = startPos + Vector3.up * magicData.liftHeight;
+        float startOffset = agent.baseOffset;
+        float targetOffset = startOffset + magicData.liftHeight;
 
         float duration = magicData.effectDuration;
         float elapsed = 0f;
 
+        float riseElapsed = 0f;
+        while (riseElapsed < magicData.riseTime)
+        {
+            agent.baseOffset = Mathf.Lerp(startOffset, targetOffset, riseElapsed / magicData.riseTime);
+            riseElapsed += Time.deltaTime;
+            yield return null;
+        }
+        agent.baseOffset = targetOffset;
+
         while (elapsed < duration)
         {
-            transform.position = Vector3.Lerp(startPos, targetPos,
-                Mathf.PingPong(elapsed, duration / 2f) / (duration / 2f));
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        float fallTime = 0.5f;
-        Vector3 fallStart = transform.position;
-        Vector3 fallEnd = new Vector3(fallStart.x, startPos.y, fallStart.z);
-        elapsed = 0f;
+        float vel = 0f;
+        float gravity = enemyData.gravity;
+        float current = agent.baseOffset;
 
-        while (elapsed < fallTime)
+        while (current > startOffset)
         {
-            transform.position = Vector3.Lerp(fallStart, fallEnd, elapsed / fallTime);
-            elapsed += Time.deltaTime;
+            vel += gravity * Time.deltaTime;
+            current += vel * Time.deltaTime;
+            agent.baseOffset = current;
             yield return null;
         }
 
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(transform.position, out hit, 2f, NavMesh.AllAreas))
-        {
-            transform.position = hit.position;
-            agent.nextPosition = hit.position;
-        }
-
-        agent.updatePosition = true;
-        agent.updateRotation = true;
+        agent.baseOffset = startOffset;
         agent.isStopped = false;
         isFreezed = false;
         levitationCoroutine = null;
