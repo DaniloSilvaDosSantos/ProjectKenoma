@@ -61,12 +61,13 @@ public class LevitationField : MonoBehaviour
     {
         if (!other.CompareTag("Enemy")) return;
 
-        EnemyController enemy = other.GetComponent<EnemyController>();
-        if (enemy != null && !affectedEnemies.Contains(enemy))
+        EnemyController enemyController = other.GetComponent<EnemyController>();
+        StatusEffectHandler statusHandler = other.GetComponent<StatusEffectHandler>();
+        if (enemyController != null && statusHandler != null && !affectedEnemies.Contains(enemyController))
         {
-            affectedEnemies.Add(enemy);
+            affectedEnemies.Add(enemyController);
             Debug.Log(other.gameObject.name + "affected by the Levitation Magic");
-            enemy.ApplyLevitationEffect(magicData);
+            statusHandler.ApplyStatus(new LevitationEffect(magicData.effectDuration, magicData.levitationDuration, magicData.liftHeight, enemyController.enemyData.gravity));
         }
     }
 }
