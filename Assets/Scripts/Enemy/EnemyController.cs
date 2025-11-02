@@ -20,8 +20,6 @@ public class EnemyController : MonoBehaviour, IEntityController
     public bool isAlive = true;
     public bool isFreezed = false;
 
-    private Coroutine levitationCoroutine;
-
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -70,64 +68,6 @@ public class EnemyController : MonoBehaviour, IEntityController
         {
             Destroy(gameObject, 1f);
         }
-    }
-
-        public void ApplyLevitationEffect(MagicData magicData)
-    {
-        if (levitationCoroutine != null)
-            StopCoroutine(levitationCoroutine);
-
-        levitationCoroutine = StartCoroutine(LevitationEffectRoutine(magicData));
-    }
-
-    private IEnumerator LevitationEffectRoutine(MagicData magicData)
-    {
-        if (!isAlive) yield break;
-
-        Debug.Log(gameObject.name + " is levitating!");
-
-        isFreezed = true;
-        agent.isStopped = true;
-
-        float startOffset = agent.baseOffset;
-        float targetOffset = startOffset + magicData.liftHeight;
-
-        float duration = magicData.effectDuration;
-        float elapsed = 0f;
-
-        float riseElapsed = 0f;
-        while (riseElapsed < magicData.riseTime)
-        {
-            agent.baseOffset = Mathf.Lerp(startOffset, targetOffset, riseElapsed / magicData.riseTime);
-            riseElapsed += Time.deltaTime;
-            yield return null;
-        }
-        agent.baseOffset = targetOffset;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        float vel = 0f;
-        float gravity = enemyData.gravity;
-        float current = agent.baseOffset;
-
-        while (current > startOffset)
-        {
-            vel += gravity * Time.deltaTime;
-            current += vel * Time.deltaTime;
-            agent.baseOffset = current;
-            yield return null;
-        }
-
-        agent.baseOffset = startOffset;
-        agent.isStopped = false;
-        isFreezed = false;
-        levitationCoroutine = null;
-
-        Debug.Log(gameObject.name + " recovered from levitation.");
     }
 }
 
