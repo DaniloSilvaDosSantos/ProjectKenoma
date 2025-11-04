@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyData : EntityData
 {
     [Header("Enemy Settings")]
+    public GameObject enemyPrefab;
     public float damage = 10f;
     public float attackCooldown = 2f;
     public float attackRange = 2f;
