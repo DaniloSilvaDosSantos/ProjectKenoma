@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5de053acfe5551b4e91523e3c31d4697, type: 3}
-  m_Name: GenericEnemyData
+  m_Name: GenericBigEnemyData
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  startingHealth: 10
-  movementSpeed: 5
+  maxHealth: 14
+  startingHealth: 14
+  movementSpeed: 4
   gravity: -9.81
-  enemyPrefab: {fileID: 7696954026112510574, guid: e7e5372216d06b140a8aa14f99ac55b9, type: 3}
+  enemyPrefab: {fileID: 7513506072273049954, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
   damage: 10
-  attackCooldown: 2.5
+  attackCooldown: 3
   attackRange: 4

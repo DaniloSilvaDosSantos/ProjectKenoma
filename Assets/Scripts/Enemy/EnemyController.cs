@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour, IEntityController
     public bool isAlive = true;
     public bool isFreezed = false;
 
+    private void OnEnable() => EnemyCounter.aliveEnemies++;
+    private void OnDisable() => EnemyCounter.aliveEnemies--;
+    private void OnDestroy() => EnemyCounter.aliveEnemies--;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -41,7 +45,7 @@ public class EnemyController : MonoBehaviour, IEntityController
         }
         else
         {
-            Debug.LogWarning("EnemyController: No player found in scene!");
+            //Debug.LogWarning("EnemyController: No player found in scene!");
         }
 
         if (stateMachine != null)
@@ -57,7 +61,7 @@ public class EnemyController : MonoBehaviour, IEntityController
         if (!isAlive) return;
         isAlive = false;
 
-        Debug.Log($"{gameObject.name} died!");
+        //Debug.Log($"{gameObject.name} died!");
         agent.isStopped = true;
 
         if (stateMachine != null)

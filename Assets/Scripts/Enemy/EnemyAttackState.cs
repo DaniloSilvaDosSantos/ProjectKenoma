@@ -10,7 +10,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Enemy is attacking");
+        //Debug.Log("Enemy is attacking");
 
         attackTimer = 0f;
 
@@ -22,7 +22,7 @@ public class EnemyAttackState : EnemyBaseState
 
             if (playerHealth == null)
             {
-                Debug.LogWarning("Player target" + controller.playerTarget.name + " don't have a HealthSystem!");
+                //Debug.LogWarning("Player target" + controller.playerTarget.name + " don't have a HealthSystem!");
             }
         }
     }
@@ -57,11 +57,11 @@ public class EnemyAttackState : EnemyBaseState
         if (distance <= controller.enemyData.attackRange)
         {
             playerHealth.TakeDamage(controller.enemyData.damage);
-            Debug.Log(controller.name + " deal " + controller.enemyData.damage + " damage to the player!");
+            //Debug.Log(controller.name + " deal " + controller.enemyData.damage + " damage to the player!");
         }
         else
         {
-            Debug.Log(controller.name + " attack has missed the player!");
+            //Debug.Log(controller.name + " attack has missed the player!");
         }
     }
 }
