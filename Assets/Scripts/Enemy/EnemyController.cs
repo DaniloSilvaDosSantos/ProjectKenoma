@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour, IEntityController
     public bool isAlive = true;
     public bool isFreezed = false;
 
+    private void OnEnable() => EnemyCounter.aliveEnemies++;
+    private void OnDisable() => EnemyCounter.aliveEnemies--;
+    private void OnDestroy() => EnemyCounter.aliveEnemies--;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
