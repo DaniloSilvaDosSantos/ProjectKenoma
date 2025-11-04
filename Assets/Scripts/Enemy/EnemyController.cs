@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour, IEntityController
         }
         else
         {
-            Debug.LogWarning("EnemyController: No player found in scene!");
+            //Debug.LogWarning("EnemyController: No player found in scene!");
         }
 
         if (stateMachine != null)
@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour, IEntityController
         if (!isAlive) return;
         isAlive = false;
 
-        Debug.Log($"{gameObject.name} died!");
+        //Debug.Log($"{gameObject.name} died!");
         agent.isStopped = true;
 
         if (stateMachine != null)

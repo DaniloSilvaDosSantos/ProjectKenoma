@@ -6,7 +6,7 @@ public class EnemyDeadState : EnemyBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Enemy is dying!");
+        //Debug.Log("Enemy is dying!");
 
         if (controller.agent != null) controller.agent.isStopped = true;
 

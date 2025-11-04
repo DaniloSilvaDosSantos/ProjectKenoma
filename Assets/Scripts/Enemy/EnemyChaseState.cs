@@ -12,7 +12,7 @@ public class EnemyChaseState : EnemyBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Enemy is Chasing");
+        //Debug.Log("Enemy is Chasing");
 
         if (agent == null) agent = controller.agent;
 
