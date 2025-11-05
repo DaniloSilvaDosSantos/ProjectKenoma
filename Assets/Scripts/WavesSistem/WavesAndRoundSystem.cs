@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 
 public class WavesAndRoundSystem : MonoBehaviour
 {
@@ -14,17 +15,46 @@ public class WavesAndRoundSystem : MonoBehaviour
     public Transform player;
     public float minSpawnDist = 9f;
     public float maxSpawnDist = 36f;
+
+    [Header("Limit Settings")]
+    public int maxAliveEnemies = 80;
+    private Queue<EnemyData> pendingSpawns = new Queue<EnemyData>();
     [Space]
     [Space]
 
     [SerializeField] private int currentWaveIndex;
     [SerializeField] private int currentRound;
+    [SerializeField] private int totalAliveEnemies;
 
     private void Start()
     {
         player = FindAnyObjectByType<PlayerController>().gameObject.transform;
 
+        if(wavesDB != null)
+        {
+            minSpawnDist = wavesDB.minSpawnDist;
+            maxSpawnDist = wavesDB.maxSpawnDist;
+            maxAliveEnemies = wavesDB.maxAliveEnemies;
+        }
+
         StartCoroutine(RunWaves());
+    }
+
+    private void Update()
+    {
+        totalAliveEnemies = EnemyCounter.aliveEnemies;
+
+        TrySpawnPending();
+    }
+
+    private void TrySpawnPending()
+    {
+        if (pendingSpawns.Count == 0) return;
+
+        if (EnemyCounter.aliveEnemies >= maxAliveEnemies) return;
+
+        EnemyData enemyData = pendingSpawns.Dequeue();
+        SpawnEnemy(enemyData);
     }
 
     private IEnumerator RunWaves()
@@ -65,17 +95,22 @@ public class WavesAndRoundSystem : MonoBehaviour
 
             int total = enemiesToSpawnInfo.count;
             int rounds = Mathf.Max(1, wave.numberOfRounds);
-
             int basePerRound = total / rounds;
             int remainder = total % rounds;
-
             int amountThisRound = basePerRound + (roundIndex == rounds - 1 ? remainder : 0);
 
             if (amountThisRound <= 0) continue;
 
             for (int i = 0; i < amountThisRound; i++)
             {
-                SpawnEnemy(enemiesToSpawnInfo.enemy);
+                if (EnemyCounter.aliveEnemies < maxAliveEnemies)
+                {
+                    SpawnEnemy(enemiesToSpawnInfo.enemy);
+                }
+                else
+                {
+                    pendingSpawns.Enqueue(enemiesToSpawnInfo.enemy);
+                }
             }
         }
     }

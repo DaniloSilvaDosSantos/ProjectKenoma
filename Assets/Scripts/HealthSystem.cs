@@ -6,13 +6,20 @@ public class HealthSystem : MonoBehaviour
     [Header("References")]
     [SerializeField] private IEntityController controller;
 
+    [Header("Damage FX")]
+    [SerializeField] private bool spawnDamageParticles = true;
+    [SerializeField] private GameObject damageParticlesPrefab;
+    private ParticleSystem damageParticles;
+
     [Header("Variables")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
+    
 
     [Header("Events")]
     public UnityEvent OnDeath;
     public UnityEvent<float> OnHealthChanged;
+    public UnityEvent<float> OnDamaged;
 
     private void Awake()
     {
@@ -39,6 +46,8 @@ public class HealthSystem : MonoBehaviour
             maxHealth = 100f;
             currentHealth = 100f;
         }
+
+        SpawnDamageParticles();
     }
 
     public void Initialize(float value)
@@ -53,6 +62,14 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
+
+        if(spawnDamageParticles && damageParticles != null)
+        {
+            damageParticles.Play();
+        }
+
+        OnDamaged?.Invoke(amount);
+
         OnHealthChanged?.Invoke(currentHealth);
 
         if (currentHealth <= 0)
@@ -78,6 +95,21 @@ public class HealthSystem : MonoBehaviour
         else
         {
             Debug.Log(gameObject.name + "died without a controller.");
+        }
+    }
+
+    private void SpawnDamageParticles()
+    {
+        if (spawnDamageParticles && damageParticlesPrefab != null)
+        {
+            GameObject instance = Instantiate(damageParticlesPrefab, transform.position, transform.rotation);
+            instance.transform.SetParent(transform);
+            damageParticles = instance.GetComponent<ParticleSystem>();
+
+            if (damageParticles == null)
+            {
+                Debug.LogWarning("damageParticlesPrefab don't have a ParticleSystem!");
+            }
         }
     }
 }

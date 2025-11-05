@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2501596d154d87146a71308625ddb668, type: 3}
   m_Name: testWavesDatabase
   m_EditorClassIdentifier: 
+  minSpawnDist: 20
+  maxSpawnDist: 120
+  maxAliveEnemies: 80
   waves:
   - {fileID: 11400000, guid: e8d66c2fa1494f644814e94a125e9aad, type: 2}
   - {fileID: 11400000, guid: 4db0bc8835476654ea0a6231d7c2c1be, type: 2}
