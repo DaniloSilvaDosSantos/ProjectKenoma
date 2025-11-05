@@ -5,10 +5,12 @@ public class HealthSystem : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private IEntityController controller;
+    [SerializeField] private GameObject damageParticles;
 
     [Header("Variables")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
+    [SerializeField] private bool spawnDamageParticles = true;
 
     [Header("Events")]
     public UnityEvent OnDeath;
@@ -55,6 +57,11 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
+
+        if(spawnDamageParticles)
+        {
+            Instantiate(damageParticles, transform.position, Quaternion.identity);
+        }
 
         OnDamaged?.Invoke(amount);
 
