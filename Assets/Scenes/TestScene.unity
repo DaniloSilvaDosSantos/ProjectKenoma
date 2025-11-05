@@ -1492,6 +1492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1c3b99bce2d464d8416ddd00481834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &1298650870 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: dd8360fa9cbb52c43ad56c1ce0bad1d0, type: 3}
+  m_PrefabInstance: {fileID: 1815050120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1310611124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,6 +1679,7 @@ GameObject:
   - component: {fileID: 1395606915}
   - component: {fileID: 1395606912}
   - component: {fileID: 1395606916}
+  - component: {fileID: 1395606919}
   - component: {fileID: 1395606918}
   - component: {fileID: 1395606917}
   m_Layer: 0
@@ -1713,12 +1719,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf9b0ca65ea8b8409f7fc846c12d35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDamageParticles: 1
+  damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
   maxHealth: 0
   currentHealth: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
   OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDamaged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1395606913
@@ -1834,6 +1845,24 @@ MonoBehaviour:
   unlockedMagics:
   - {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
   inputLevitationMagic: 49
+--- !u!114 &1395606919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395606910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234237a7c2def0041bef763578113aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1395606912}
+  renderersToFlash:
+  - {fileID: 992679757}
+  - {fileID: 1298650870}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.2
 --- !u!114 &1468682744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8864694175589995324, guid: 57231888e07f2294481987daa7c76194, type: 3}
@@ -2244,7 +2273,11 @@ PrefabInstance:
       objectReference: {fileID: 1395606911}
     - target: {fileID: 4251379131220172812, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
       propertyPath: maxSpawnDist
-      value: 120
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251379131220172812, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
+      propertyPath: maxAliveEnemies
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4251379131220172812, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
       propertyPath: spawners.Array.size

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 113978847848214760}
   - component: {fileID: 2814296184921301263}
   - component: {fileID: 879300166461847113}
+  - component: {fileID: 8125017890894735124}
   - component: {fileID: 7829463482154673100}
   m_Layer: 0
   m_Name: BigBaseEnemy
@@ -178,12 +179,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf9b0ca65ea8b8409f7fc846c12d35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDamageParticles: 1
+  damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
   maxHealth: 0
   currentHealth: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
   OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDamaged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2814296184921301263
@@ -218,6 +224,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2814296184921301263}
+--- !u!114 &8125017890894735124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513506072273049954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234237a7c2def0041bef763578113aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 113978847848214760}
+  renderersToFlash:
+  - {fileID: 2926842668794106555}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.2
 --- !u!114 &7829463482154673100
 MonoBehaviour:
   m_ObjectHideFlags: 0
