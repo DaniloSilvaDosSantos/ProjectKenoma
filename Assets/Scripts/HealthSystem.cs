@@ -5,18 +5,21 @@ public class HealthSystem : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private IEntityController controller;
-    [SerializeField] private GameObject damageParticles;
+
+    [Header("Damage FX")]
+    [SerializeField] private bool spawnDamageParticles = true;
+    [SerializeField] private GameObject damageParticlesPrefab;
+    private ParticleSystem damageParticles;
 
     [Header("Variables")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
-    [SerializeField] private bool spawnDamageParticles = true;
+    
 
     [Header("Events")]
     public UnityEvent OnDeath;
     public UnityEvent<float> OnHealthChanged;
     public UnityEvent<float> OnDamaged;
-
 
     private void Awake()
     {
@@ -43,6 +46,8 @@ public class HealthSystem : MonoBehaviour
             maxHealth = 100f;
             currentHealth = 100f;
         }
+
+        SpawnDamageParticles();
     }
 
     public void Initialize(float value)
@@ -58,9 +63,9 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
-        if(spawnDamageParticles)
+        if(spawnDamageParticles && damageParticles != null)
         {
-            Instantiate(damageParticles, transform.position, Quaternion.identity);
+            damageParticles.Play();
         }
 
         OnDamaged?.Invoke(amount);
@@ -90,6 +95,21 @@ public class HealthSystem : MonoBehaviour
         else
         {
             Debug.Log(gameObject.name + "died without a controller.");
+        }
+    }
+
+    private void SpawnDamageParticles()
+    {
+        if (spawnDamageParticles && damageParticlesPrefab != null)
+        {
+            GameObject instance = Instantiate(damageParticlesPrefab, transform.position, transform.rotation);
+            instance.transform.SetParent(transform);
+            damageParticles = instance.GetComponent<ParticleSystem>();
+
+            if (damageParticles == null)
+            {
+                Debug.LogWarning("damageParticlesPrefab don't have a ParticleSystem!");
+            }
         }
     }
 }

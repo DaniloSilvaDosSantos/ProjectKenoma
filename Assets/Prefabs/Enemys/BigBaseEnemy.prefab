@@ -178,10 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf9b0ca65ea8b8409f7fc846c12d35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageParticles: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
+  spawnDamageParticles: 1
+  damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
   maxHealth: 0
   currentHealth: 0
-  spawnDamageParticles: 1
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
