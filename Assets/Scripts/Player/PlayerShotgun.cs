@@ -28,7 +28,14 @@ public class PlayerShotgun : MonoBehaviour
     {
         if (!controller.isAlive) return;
 
-        if(cooldownTimer <= controller.playerData.shotgunCooldown)cooldownTimer += Time.deltaTime;
+        if (cooldownTimer <= controller.playerData.shotgunCooldown)
+        {
+            cooldownTimer += Time.deltaTime;
+        }
+        else
+        {
+            controller.cameraAnimator.SetBool("isShoting", false);
+        } 
 
         if (Input.GetMouseButtonDown(0) && cooldownTimer >= controller.playerData.shotgunCooldown)
         {
@@ -75,6 +82,8 @@ public class PlayerShotgun : MonoBehaviour
                 }
             }
         }
+
+        controller.cameraAnimator.SetBool("isShoting", true);
     }
 
     private float DetermineShotgunDamage(float distance, PlayerData data)
