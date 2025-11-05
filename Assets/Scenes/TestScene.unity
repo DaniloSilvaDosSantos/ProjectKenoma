@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 330585545}
-  maxShakeStrenght: 0.25
+  maxShakeStrenght: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,8 +1769,6 @@ MonoBehaviour:
   cameraShakeSystem: {fileID: 330585550}
   spawnDamageParticles: 1
   damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
-  screenShakeDuration: 0.25
-  screenShakeStrenght: 0.5
   maxHealth: 0
   currentHealth: 0
   OnDeath:

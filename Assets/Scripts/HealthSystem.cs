@@ -11,9 +11,6 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private bool spawnDamageParticles = true;
     [SerializeField] private GameObject damageParticlesPrefab;
     private ParticleSystem damageParticles;
-    [Space]
-    [SerializeField] private float screenShakeDuration = 0.25f;
-    [SerializeField] private float screenShakeStrenght = 0.5f;
 
     [Header("Variables")]
     [SerializeField] private float maxHealth;
@@ -64,7 +61,7 @@ public class HealthSystem : MonoBehaviour
     public float GetCurrentHealth() => currentHealth;
     public float GetMaxHealth() => maxHealth;
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, float screenShakeDuration = 0.2f, float screenShakeStrenght = 0.5f)
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 

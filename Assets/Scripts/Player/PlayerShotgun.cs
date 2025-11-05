@@ -60,17 +60,18 @@ public class PlayerShotgun : MonoBehaviour
             float distance = Vector3.Distance(firePoint.position, hit.ClosestPoint(firePoint.position));
 
             float damageToApply = DetermineShotgunDamage(distance, data);
+            float screenShakeToApply = DetermineScreenShake(distance, data);
 
             if (damageToApply > 0f)
             {
                 if (hit.TryGetComponent(out HealthSystem health))
                 {
-                    health.TakeDamage(damageToApply);
+                    health.TakeDamage(damageToApply, screenShakeToApply, screenShakeToApply);
                 }
                 else
                 {
                     var parentHealth = hit.GetComponentInParent<HealthSystem>();
-                    if (parentHealth != null) parentHealth.TakeDamage(damageToApply);
+                    if (parentHealth != null) parentHealth.TakeDamage(damageToApply, screenShakeToApply, screenShakeToApply);
                 }
             }
         }
@@ -93,6 +94,27 @@ public class PlayerShotgun : MonoBehaviour
         else if (distance <= data.shotgunMaxRangeD)
         {
             return data.shotgunVeryFarDamage;
+        }
+        return 0f;
+    }
+
+    private float DetermineScreenShake(float distance, PlayerData data)
+    {
+        if (distance <= data.shotgunRangeA)
+        {
+            return data.shotgunScreenShakeStrenghtMaxD;
+        }
+        else if (distance <= data.shotgunRangeB)
+        {
+            return data.shotgunScreenShakeStrenghtC;
+        }
+        else if (distance <= data.shotgunRangeC)
+        {
+            return data.shotgunScreenShakeStrenghtB;
+        }
+        else if (distance <= data.shotgunMaxRangeD)
+        {
+            return data.shotgunScreenShakeStrenghtA;
         }
         return 0f;
     }
