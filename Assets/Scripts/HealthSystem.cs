@@ -5,11 +5,15 @@ public class HealthSystem : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private IEntityController controller;
+    [SerializeField] private CameraShakeSystem cameraShakeSystem;
 
     [Header("Damage FX")]
     [SerializeField] private bool spawnDamageParticles = true;
     [SerializeField] private GameObject damageParticlesPrefab;
     private ParticleSystem damageParticles;
+    [Space]
+    [SerializeField] private float screenShakeDuration = 0.25f;
+    [SerializeField] private float screenShakeStrenght = 0.5f;
 
     [Header("Variables")]
     [SerializeField] private float maxHealth;
@@ -24,6 +28,7 @@ public class HealthSystem : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<IEntityController>();
+        cameraShakeSystem = FindAnyObjectByType<CameraShakeSystem>();
 
         if (controller != null)
         {
@@ -63,9 +68,14 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
-        if(spawnDamageParticles && damageParticles != null)
+        if (spawnDamageParticles && damageParticles != null)
         {
             damageParticles.Play();
+        }
+
+        if(cameraShakeSystem != null)
+        {
+            cameraShakeSystem.Shake(screenShakeDuration, screenShakeStrenght);
         }
 
         OnDamaged?.Invoke(amount);
