@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6648754178801770261}
   - component: {fileID: 807269087577594870}
   - component: {fileID: 4031686677890792304}
+  - component: {fileID: 8714608407310921779}
   - component: {fileID: 3281557293490726996}
   m_Layer: 0
   m_Name: BaseEnemy
@@ -185,6 +186,9 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &807269087577594870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +221,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 807269087577594870}
+--- !u!114 &8714608407310921779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696954026112510574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234237a7c2def0041bef763578113aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 6648754178801770261}
+  renderersToFlash:
+  - {fileID: 4379012799170811687}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.2
 --- !u!114 &3281557293490726996
 MonoBehaviour:
   m_ObjectHideFlags: 0

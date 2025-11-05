@@ -13,6 +13,8 @@ public class HealthSystem : MonoBehaviour
     [Header("Events")]
     public UnityEvent OnDeath;
     public UnityEvent<float> OnHealthChanged;
+    public UnityEvent<float> OnDamaged;
+
 
     private void Awake()
     {
@@ -53,6 +55,9 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
+
+        OnDamaged?.Invoke(amount);
+
         OnHealthChanged?.Invoke(currentHealth);
 
         if (currentHealth <= 0)
