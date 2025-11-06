@@ -25,6 +25,10 @@ MonoBehaviour:
   shotgunRangeB: 5
   shotgunRangeC: 8
   shotgunMaxRangeD: 12
+  shotgunScreenShakeStrenghtA: 0.3
+  shotgunScreenShakeStrenghtB: 1
+  shotgunScreenShakeStrenghtC: 2
+  shotgunScreenShakeStrenghtMaxD: 4
   shotgunMaxDamage: 10
   shotgunCloseDamage: 7
   shotgunFarDamage: 5

@@ -18,6 +18,11 @@ public class PlayerData : EntityData
     public float shotgunRangeC = 8f;
     public float shotgunMaxRangeD = 12f;
     [Space]
+    public float shotgunScreenShakeStrenghtA = 0.15f;
+    public float shotgunScreenShakeStrenghtB = 0.25f;
+    public float shotgunScreenShakeStrenghtC = 0.35f;
+    public float shotgunScreenShakeStrenghtMaxD = 0.5f;
+    [Space]
     
     public float shotgunMaxDamage = 10f;
     public float shotgunCloseDamage = 7f;
