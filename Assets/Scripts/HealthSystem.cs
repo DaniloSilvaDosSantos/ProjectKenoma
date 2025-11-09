@@ -61,7 +61,7 @@ public class HealthSystem : MonoBehaviour
     public float GetCurrentHealth() => currentHealth;
     public float GetMaxHealth() => maxHealth;
 
-    public void TakeDamage(float amount, float screenShakeDuration = 0.2f, float screenShakeStrenght = 0.5f)
+    public void TakeDamage(float amount, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
