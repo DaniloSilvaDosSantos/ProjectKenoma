@@ -2185,6 +2185,7 @@ GameObject:
   - component: {fileID: 1395606919}
   - component: {fileID: 1395606918}
   - component: {fileID: 1395606917}
+  - component: {fileID: 1395606920}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2367,6 +2368,20 @@ MonoBehaviour:
   - {fileID: 1298650870}
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.2
+--- !u!114 &1395606920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395606910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bab7c63ebacdab4c826fdb98d46d8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 10
+  playerCamera: {fileID: 330585545}
 --- !u!1001 &1456541391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2766,7 +2781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f7bf69975de726c4a8207ac8ac574c83, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5927165529688051525, guid: f7bf69975de726c4a8207ac8ac574c83, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3223,6 +3238,10 @@ PrefabInstance:
     - target: {fileID: 5359251208875316990, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
       propertyPath: m_Name
       value: WavesAndRoundsManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359251208875316990, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5808032045682783997, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
       propertyPath: m_LocalPosition.x

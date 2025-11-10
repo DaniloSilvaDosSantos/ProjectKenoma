@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class ConquestPointBehaviour : MonoBehaviour
+public class ConquestPointBehaviour : MonoBehaviour, IInteractable
 {
     [Header("References")]
-    [SerializeField] private Renderer rend;
-    [SerializeField] private Collider col;
+    [SerializeField] private Renderer conquestPointRenderer;
+    [SerializeField] private Collider conquestPointCollider;
 
     private ConquestPointManager conquestPointManager;
 
     void Awake()
     {
-        rend = GetComponentInChildren<Renderer>();
-        col = GetComponentInChildren<Collider>();
+        conquestPointRenderer = GetComponentInChildren<Renderer>();
+        conquestPointCollider = GetComponentInChildren<Collider>();
 
         SetActiveVisual(false);
     }
@@ -23,12 +23,14 @@ public class ConquestPointBehaviour : MonoBehaviour
 
     public void SetActiveVisual(bool state)
     {
-        if (rend != null) rend.enabled = state;
-        if (col != null) col.enabled = state;
+        if (conquestPointRenderer != null) conquestPointRenderer.enabled = state;
+        if (conquestPointCollider != null) conquestPointCollider.enabled = state;
     }
 
     public void OnInteracted()
     {
+        Debug.Log("Conquest Point Has Been Interacted.");
+
         conquestPointManager.PlayerInteractedWithPoint();
     }
 }
