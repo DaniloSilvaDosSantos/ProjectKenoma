@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraShakeSystem : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class CameraShakeSystem : MonoBehaviour
     private Coroutine shakeRoutine;
     private Vector3 originalLocalPos;
     private float currentAmplitude;
+    [Space]
+
+    [Header("ScreenShake")]
+    [SerializeField] private bool isDebugEnabled = false;
+    [SerializeField] private KeyCode shakeInputDebug = KeyCode.C;
+    [SerializeField] private float shakeStrenghtDebug = 1f;
+    [SerializeField] private float shakeDurationDebug = 1f;
 
     void Awake()
     {
@@ -20,9 +28,18 @@ public class CameraShakeSystem : MonoBehaviour
         if (mainCamera == null)
         {
             Debug.Log("Main Camera don't have been found");
-        } 
+        }
 
         originalLocalPos = mainCamera.transform.localPosition;
+    }
+
+    void Update()
+    {
+        if(isDebugEnabled && Input.GetKeyDown(shakeInputDebug))
+        {
+            Debug.Log("Screen Shake Debug");
+            Shake(shakeDurationDebug, shakeStrenghtDebug);
+        }
     }
 
     public void Shake(float duration, float amplitude)
