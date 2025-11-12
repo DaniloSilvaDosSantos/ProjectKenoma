@@ -1,0 +1,22 @@
+- Pooling for SFX;
+
+- Custom Editor for SoundData that permits play direct in the inspector;
+
+- Visual markers in the audio clip timiline in the inspector(custom editor);
+
+- AudioMixer Groups integration;
+
+- Dynamic multi-sections of music(more than one loop, and suport for adaptive music);
+
+- Fade and Crossfade for long SFXs;
+
+- Integration with AudioMixer Snapshots;
+
+- Spatial Audio for 3D games;
+    - Spatial blend;
+    - Doppler;
+    - Rollof;
+
+- Event System;
+
+- 
