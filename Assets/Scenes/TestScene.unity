@@ -2187,6 +2187,7 @@ GameObject:
   - component: {fileID: 1395606917}
   - component: {fileID: 1395606920}
   - component: {fileID: 1395606921}
+  - component: {fileID: 1395606922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2396,7 +2397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
-  maxLevel: 99
+  maxLevel: 999
   totalXp: 0
   xpNeededForNextLevel: 0
   OnLevelUp:
@@ -2408,6 +2409,22 @@ MonoBehaviour:
   OnUpgradeMenuRequested:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1395606922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395606910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ef019127bb1d94a9c20943ff45eacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: a1abd40174d080643be1a9a33055c32e, type: 2}
+  playerUpgradesDB: {fileID: 11400000, guid: a519fe29c79c0bc448b0de78287614f8, type: 2}
+  levitationMagicData: {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
+  magicUpgradesDB: {fileID: 11400000, guid: 3390661ec5155b44689f1ec1958e4d59, type: 2}
 --- !u!1001 &1456541391
 PrefabInstance:
   m_ObjectHideFlags: 0
