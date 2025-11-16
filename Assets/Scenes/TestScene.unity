@@ -2186,6 +2186,7 @@ GameObject:
   - component: {fileID: 1395606918}
   - component: {fileID: 1395606917}
   - component: {fileID: 1395606920}
+  - component: {fileID: 1395606921}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2382,6 +2383,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 10
   playerCamera: {fileID: 330585545}
+--- !u!114 &1395606921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395606910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd12fd132e3a5540910e267ad1a38ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  maxLevel: 99
+  totalXp: 0
+  xpNeededForNextLevel: 0
+  OnLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnXpChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUpgradeMenuRequested:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1456541391
 PrefabInstance:
   m_ObjectHideFlags: 0
