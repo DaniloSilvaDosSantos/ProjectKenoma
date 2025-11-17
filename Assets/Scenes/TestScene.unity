@@ -2349,8 +2349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1395606913}
-  unlockedMagics:
-  - {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
+  unlockedMagics: []
   inputLevitationMagic: 49
 --- !u!114 &1395606919
 MonoBehaviour:
@@ -2426,6 +2425,7 @@ MonoBehaviour:
   levitationMagicData: {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
   magicUpgradesDB: {fileID: 11400000, guid: 3390661ec5155b44689f1ec1958e4d59, type: 2}
   playerHealthSystem: {fileID: 1395606912}
+  playerMagicSystem: {fileID: 1395606918}
   isDebugEnable: 1
   maxHealthUpgradeInput: 117
   movementSpeedUpgradeInput: 105

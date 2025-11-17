@@ -21,6 +21,7 @@ public class PlayerUpgradeManager : MonoBehaviour
     [SerializeField] private MagicData levitationMagicData;
     [SerializeField] private MagicUpgradesData magicUpgradesDB;
     [SerializeField] private HealthSystem playerHealthSystem;
+    [SerializeField] private PlayerMagicSystem playerMagicSystem;
     [Space]
 
     [Header("Debug")]
@@ -37,6 +38,7 @@ public class PlayerUpgradeManager : MonoBehaviour
         ResetUpgrades();
 
         playerHealthSystem = GetComponent<HealthSystem>();
+        playerMagicSystem = GetComponent<PlayerMagicSystem>();
     }
 
     // DEBUG
@@ -166,6 +168,12 @@ public class PlayerUpgradeManager : MonoBehaviour
 
     private void ApplyLevitationUpgrade()
     {
+        if (!playerMagicSystem.IsUnlocked(levitationMagicData))
+        {
+            playerMagicSystem.UnlockMagic(levitationMagicData);
+            return;
+        }
+        
         int level = magicUpgradesDB.levitationLevel;
 
         if (level + 1 < magicUpgradesDB.levitationDurationValues.Length)
