@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   startingHealth: 100
-  movementSpeed: 10
+  movementSpeed: 5
   gravity: -9.81
   mouseSensitivity: 500
   minLookAngle: -90

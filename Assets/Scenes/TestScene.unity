@@ -2425,6 +2425,12 @@ MonoBehaviour:
   playerUpgradesDB: {fileID: 11400000, guid: a519fe29c79c0bc448b0de78287614f8, type: 2}
   levitationMagicData: {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
   magicUpgradesDB: {fileID: 11400000, guid: 3390661ec5155b44689f1ec1958e4d59, type: 2}
+  playerHealthSystem: {fileID: 1395606912}
+  isDebugEnable: 1
+  maxHealthUpgradeInput: 117
+  movementSpeedUpgradeInput: 105
+  shotgunDamageUpgradeInput: 111
+  levitationUpgradeInput: 112
 --- !u!1001 &1456541391
 PrefabInstance:
   m_ObjectHideFlags: 0

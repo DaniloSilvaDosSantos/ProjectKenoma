@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public enum PlayerUpgradeType
 {
@@ -13,17 +12,43 @@ public enum ConquestUpgradeType
     Levitation
 }
 
+[RequireComponent(typeof(HealthSystem))]
 public class PlayerUpgradeManager : MonoBehaviour
 {
     [Header("References")]
-    public PlayerData playerStats;
-    public PlayerUpgradesData playerUpgradesDB;
-    public MagicData levitationMagicData;
-    public MagicUpgradesData magicUpgradesDB;
+    [SerializeField] private PlayerData playerStats;
+    [SerializeField] private PlayerUpgradesData playerUpgradesDB;
+    [SerializeField] private MagicData levitationMagicData;
+    [SerializeField] private MagicUpgradesData magicUpgradesDB;
+    [SerializeField] private HealthSystem playerHealthSystem;
+    [Space]
+
+    [Header("Debug")]
+    [SerializeField] public bool isDebugEnable;
+    [Space]
+    [SerializeField] private KeyCode maxHealthUpgradeInput = KeyCode.U;
+    [SerializeField] private KeyCode movementSpeedUpgradeInput = KeyCode.I;
+    [SerializeField] private KeyCode shotgunDamageUpgradeInput = KeyCode.O;
+    [SerializeField] private KeyCode levitationUpgradeInput = KeyCode.P;
 
     private void Start()
     {
         ApplyAllInitialValues();
+        ResetUpgrades();
+
+        playerHealthSystem = GetComponent<HealthSystem>();
+    }
+
+    // DEBUG
+    void Update()
+    {
+        if (Input.GetKeyDown(maxHealthUpgradeInput) && isDebugEnable) ApplyPlayerUpgrade(PlayerUpgradeType.MaxHealth);
+
+        if (Input.GetKeyDown(movementSpeedUpgradeInput) && isDebugEnable) ApplyPlayerUpgrade(PlayerUpgradeType.MovementSpeed);
+
+        if (Input.GetKeyDown(shotgunDamageUpgradeInput) && isDebugEnable) ApplyPlayerUpgrade(PlayerUpgradeType.ShotgunDamage);
+
+        if (Input.GetKeyDown(levitationUpgradeInput) && isDebugEnable) ApplyConquestUpgrade(ConquestUpgradeType.Levitation);
     }
 
     // APPLYING THE INITIAL VALUES
@@ -31,7 +56,7 @@ public class PlayerUpgradeManager : MonoBehaviour
     public void ApplyAllInitialValues()
     {
         // INITIAL PLAYER STATS
-        
+
         playerStats.maxHealth = playerUpgradesDB.maxHealthValues[0];
 
         playerStats.movementSpeed = playerUpgradesDB.movementSpeedValues[0];
@@ -45,6 +70,20 @@ public class PlayerUpgradeManager : MonoBehaviour
 
         levitationMagicData.levitationDuration = magicUpgradesDB.levitationDurationValues[0];
         levitationMagicData.sphereFinalScale = magicUpgradesDB.sphereFinalScaleValues[0];
+    }
+
+    // RESET FOR THE UPGRADES
+
+    public void ResetUpgrades()
+    {
+        playerUpgradesDB.maxHealthLevel = 0;
+        playerHealthSystem.UpdateMaxHealth(playerUpgradesDB.maxHealthValues[0]);
+        playerUpgradesDB.movementSpeedLevel = 0;
+        playerUpgradesDB.shotgunDamageLevel = 0;
+
+        magicUpgradesDB.levitationLevel = 0;
+
+        ApplyAllInitialValues();
     }
 
     // APPLY THE PLAYER LEVEL UP UPGRADES
@@ -76,6 +115,11 @@ public class PlayerUpgradeManager : MonoBehaviour
             playerUpgradesDB.maxHealthLevel++;
             float newValue = playerUpgradesDB.maxHealthValues[playerUpgradesDB.maxHealthLevel];
             playerStats.maxHealth = newValue;
+
+            playerHealthSystem.UpdateMaxHealth(newValue);
+
+            float amountToHeal = newValue - playerUpgradesDB.maxHealthValues[playerUpgradesDB.maxHealthLevel - 1];
+            playerHealthSystem.Heal(amountToHeal);
         }
     }
 
