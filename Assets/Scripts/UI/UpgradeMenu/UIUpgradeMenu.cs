@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class UpgradeMenuUI : MonoBehaviour
+public class UIUpgradeMenu : MonoBehaviour
 {
     [Header("References")]
     public PlayerUpgradeManager upgradeManager;
@@ -19,7 +19,7 @@ public class UpgradeMenuUI : MonoBehaviour
         menuPanel.SetActive(false);
     }
 
-    public void OpenMenu(bool conquestMenu)
+    public void OpenMenu(bool conquestMenu = false)
     {
         isConquestMenu = conquestMenu;
 

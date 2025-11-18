@@ -3,21 +3,26 @@ using UnityEngine.Events;
 
 public class PlayerLevelSystem : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private UIUpgradeMenu upgradeMenu;
+
     [Header("Level Settings")]
-    public int currentLevel = 1;
-    public int maxLevel = 99;
+    [SerializeField] private int currentLevel = 1;
+    [SerializeField] private int maxLevel = 99;
 
     [Header("XP")]
-    public int totalXp = 0;
-    public int xpNeededForNextLevel;
+    [SerializeField] private int totalXp = 0;
+    [SerializeField] private int xpNeededForNextLevel;
 
     [Header("Events")]
-    public UnityEvent<int> OnLevelUp;
-    public UnityEvent<int> OnXpChanged;
-    public UnityEvent OnUpgradeMenuRequested;
+    [SerializeField] private UnityEvent<int> OnLevelUp;
+    [SerializeField] private UnityEvent<int> OnXpChanged;
+    [SerializeField] private UnityEvent OnUpgradeMenuRequested;
 
     private void Start()
     {
+        upgradeMenu = FindAnyObjectByType<UIUpgradeMenu>().GetComponent<UIUpgradeMenu>();
+
         xpNeededForNextLevel = CalculateXpNeeded(currentLevel);
     }
 
@@ -46,10 +51,9 @@ public class PlayerLevelSystem : MonoBehaviour
 
         xpNeededForNextLevel = CalculateXpNeeded(currentLevel);
 
-        //Time.timeScale = 0f;
         OnUpgradeMenuRequested?.Invoke();
 
-        Debug.Log($"LEVEL UP! Now your level is {currentLevel}");
+        upgradeMenu.OpenMenu(false);
     }
 
     private int CalculateXpNeeded(int level)
