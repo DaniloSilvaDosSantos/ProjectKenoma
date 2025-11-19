@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 public class UIUpgradeOption : MonoBehaviour
 {
     [Header("UI")]
-    public Text titleText;
-    public Button button;
+    public TextMeshProUGUI titleText;
+    public Button upgradeButton;
 
     private UnityAction onClickCallback;
 
@@ -16,8 +17,8 @@ public class UIUpgradeOption : MonoBehaviour
 
         onClickCallback = callback;
 
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => onClickCallback?.Invoke());
+        upgradeButton.onClick.RemoveAllListeners();
+        upgradeButton.onClick.AddListener(() => onClickCallback?.Invoke());
     }
 }
 

@@ -5,7 +5,7 @@ public class UIUpgradeMenu : MonoBehaviour
 {
     [Header("References")]
     public PlayerUpgradeManager upgradeManager;
-    public GameObject menuPanel;
+    public GameObject upgradeMenuPanel;
     public Transform upgradeOptionsHolder;
     public GameObject upgradeOptionPrefab;
 
@@ -16,15 +16,31 @@ public class UIUpgradeMenu : MonoBehaviour
 
     private void Awake()
     {
-        menuPanel.SetActive(false);
+        upgradeMenuPanel.SetActive(false);
+
+        upgradeManager = FindAnyObjectByType<PlayerUpgradeManager>().GetComponent<PlayerUpgradeManager>();
     }
 
     public void OpenMenu(bool conquestMenu = false)
     {
+        if(upgradeManager == null)
+        {
+            Debug.Log("UIUpgradeMenu don't have a reference for the Player Upgrade Manager!");
+            return;
+        }
+
+        if(upgradeOptionPrefab == null)
+        {
+            Debug.Log("UIUpgradeMenu don't have a reference for the upgrade option button prefab!");
+            return;
+        }
+
         isConquestMenu = conquestMenu;
 
         Time.timeScale = 0f;
-        menuPanel.SetActive(true);
+        upgradeMenuPanel.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
 
         GenerateOptions();
     }
@@ -33,8 +49,10 @@ public class UIUpgradeMenu : MonoBehaviour
     {
         foreach (Transform child in upgradeOptionsHolder) Destroy(child.gameObject);
 
-        menuPanel.SetActive(false);
+        upgradeMenuPanel.SetActive(false);
         Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void GenerateOptions()
