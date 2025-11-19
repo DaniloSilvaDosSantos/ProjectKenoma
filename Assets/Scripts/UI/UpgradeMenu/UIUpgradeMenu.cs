@@ -90,7 +90,7 @@ public class UIUpgradeMenu : MonoBehaviour
             GameObject upgradeObject = Instantiate(upgradeOptionPrefab, upgradeOptionsHolder);
             UIUpgradeOption ui = upgradeObject.GetComponent<UIUpgradeOption>();
 
-            string title = upgrade.ToString();
+            string title = StringUtils.SplitPascalCase(upgrade.ToString());
 
             ui.Setup(
                 title,
