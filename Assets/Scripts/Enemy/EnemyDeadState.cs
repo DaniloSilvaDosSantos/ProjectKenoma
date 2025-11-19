@@ -12,6 +12,10 @@ public class EnemyDeadState : EnemyBaseState
 
         controller.isAlive = false;
         Object.Destroy(controller.gameObject, 2f);
+
+        //PLACE HOLDER!
+        Object.FindAnyObjectByType<PlayerLevelSystem>()?.AddXP(controller.enemyData.xpValue);
+
     }
 
     public override void UpdateState(){ }

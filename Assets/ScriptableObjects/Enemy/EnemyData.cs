@@ -8,5 +8,6 @@ public class EnemyData : EntityData
     public float damage = 10f;
     public float attackCooldown = 2f;
     public float attackRange = 2f;
+    public int xpValue = 5;
 }
 

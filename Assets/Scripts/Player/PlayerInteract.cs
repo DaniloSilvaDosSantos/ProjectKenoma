@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInteractConquest : MonoBehaviour
+public class PlayerInteract: MonoBehaviour
 {
     public float interactRange = 10f;
     public Camera playerCamera;

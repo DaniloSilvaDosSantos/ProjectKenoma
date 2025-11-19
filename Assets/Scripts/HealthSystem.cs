@@ -61,6 +61,23 @@ public class HealthSystem : MonoBehaviour
     public float GetCurrentHealth() => currentHealth;
     public float GetMaxHealth() => maxHealth;
 
+    public void UpdateMaxHealth(float newMaxHealth, bool healToFull = false)
+    {
+        maxHealth = newMaxHealth;
+
+        if (healToFull)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth = Mathf.Min(currentHealth, maxHealth);
+        }
+
+        OnHealthChanged?.Invoke(currentHealth);
+    }
+
+
     public void TakeDamage(float amount, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
     {
         currentHealth = Mathf.Max(currentHealth - amount, 0);
