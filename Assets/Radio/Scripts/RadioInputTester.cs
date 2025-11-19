@@ -53,7 +53,7 @@ public class RadioInputTester : MonoBehaviour
 
         if (Input.GetKeyDown(sfxKey))
         {
-            Radio.Instance.PlaySFX("SFX/Passo");
+            Radio.Instance.PlaySFX("SFX/Levitacao");
         }
 
         if(Input.GetKeyDown(sfxKeyCustomAudioSorce))
