@@ -22,7 +22,6 @@ public class EnemyXPDropSystem : MonoBehaviour
             float angle = Random.Range(-45f, 45f);
             Vector3 dir = Quaternion.Euler(0, angle, 0) * baseDir;
 
-            Debug.Log("DropingXP");
             behaviour.Initialize(xpPerDrop, dir);
         }
     }

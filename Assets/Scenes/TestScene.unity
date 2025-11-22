@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 214384189}
   - component: {fileID: 214384188}
   - component: {fileID: 214384187}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585550}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -926,7 +926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456479552}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 760443377}
   - component: {fileID: 760443378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 992679758}
   - component: {fileID: 992679757}
   - component: {fileID: 992679756}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1971,63 +1971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1c3b99bce2d464d8416ddd00481834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1190858545
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0000014603138
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766355916018785675, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513506072273049954, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-      propertyPath: m_Name
-      value: BigBaseEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
 --- !u!1001 &1195227565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2426,7 +2369,7 @@ GameObject:
   - component: {fileID: 1395606920}
   - component: {fileID: 1395606921}
   - component: {fileID: 1395606922}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3209,6 +3152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: escopeta
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dd8360fa9cbb52c43ad56c1ce0bad1d0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3817,4 +3764,3 @@ SceneRoots:
   - {fileID: 1777722211}
   - {fileID: 597087316}
   - {fileID: 727747471}
-  - {fileID: 1190858545}
