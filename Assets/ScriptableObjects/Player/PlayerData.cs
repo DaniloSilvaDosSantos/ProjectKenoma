@@ -9,6 +9,9 @@ public class PlayerData : EntityData
     public float maxLookAngle = 90f;
     [Space]
 
+    [Header("Drop Settings")]
+    public float dropCollectRange = 3.5f;
+
     [Header("Shotgun Settings")]
     public float shotgunHalfAngle = 45f;
     public float shotgunCooldown = 2.5f;

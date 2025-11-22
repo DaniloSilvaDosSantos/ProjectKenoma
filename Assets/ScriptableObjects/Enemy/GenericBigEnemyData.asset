@@ -21,3 +21,4 @@ MonoBehaviour:
   attackCooldown: 3
   attackRange: 4
   xpValue: 10
+  xpDropCount: 2
