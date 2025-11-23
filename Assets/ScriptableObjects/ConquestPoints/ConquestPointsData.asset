@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ConquestPointsData
   m_EditorClassIdentifier: 
   conquestPointTimeToActivate: 60
-  conquestPointActiveDuration: 30
+  conquestPointActiveDuration: 60
