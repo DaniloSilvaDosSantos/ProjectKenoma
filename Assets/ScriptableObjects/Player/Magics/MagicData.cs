@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum MagicType { MagicLevitation, Other }
+public enum MagicType { MagicLevitation, MagicAttraction, Other }
 
 [CreateAssetMenu(fileName = "NewMagicData", menuName = "Game Data/MagicData")]
 public class MagicData : ScriptableObject
@@ -21,5 +21,11 @@ public class MagicData : ScriptableObject
     public float sphereFinalScale = 5f;
     public float sphereGrowSpeed = 4f;
     public float sphereFadeSpeed = 1.5f;
+
+    [Header("Attraction Settings")]
+    public float attractionConeAngle = 40f;
+    public float pullMinDistance = 4f;
+    public float stunDuration = 1f;
+    public float pullForceMultiplier = 1f;
 }
 

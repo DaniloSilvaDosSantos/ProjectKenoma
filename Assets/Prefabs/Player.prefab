@@ -403,6 +403,7 @@ MonoBehaviour:
   controller: {fileID: 3258466772067517662}
   unlockedMagics: []
   inputLevitationMagic: 49
+  inputAttractionMagic: 50
 --- !u!114 &7236273571665168297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +434,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 10
   playerCamera: {fileID: 1850812739175154271}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &8247519937497962823
 MonoBehaviour:
   m_ObjectHideFlags: 0
