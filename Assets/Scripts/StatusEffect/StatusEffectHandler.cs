@@ -14,14 +14,12 @@ public class StatusEffectHandler : MonoBehaviour
 
     private void Update()
     {
-        float dt = Time.deltaTime;
-
         for (int i = activeEffects.Count - 1; i >= 0; i--)
         {
             var eff = activeEffects[i];
-            eff.time += dt;
+            eff.time += Time.deltaTime;
 
-            if (eff.effect.UpdateEveryFrame) eff.effect.OnUpdate(enemy, dt);
+            if (eff.effect.UpdateEveryFrame) eff.effect.OnUpdate(enemy, Time.deltaTime);
 
             if (eff.time >= eff.effect.Duration)
             {
