@@ -13,6 +13,7 @@ public class PlayerMagicSystem : MonoBehaviour
 
     [Header("Inputs To Cast The Magics")]
     [SerializeField] private KeyCode inputLevitationMagic = KeyCode.Alpha1;
+    [SerializeField] private KeyCode inputAttractionMagic = KeyCode.Alpha2;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerMagicSystem : MonoBehaviour
         UpdateCooldowns();
 
         if (Input.GetKeyDown(inputLevitationMagic)) TryCastMagic(MagicType.MagicLevitation);
+        if (Input.GetKeyDown(inputAttractionMagic)) TryCastMagic(MagicType.MagicAttraction);
     }
 
     private void UpdateCooldowns()
@@ -94,6 +96,9 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             case MagicType.MagicLevitation:
                 magicBehaviour = gameObject.AddComponent<MagicLevitation>();
+                break;
+            case MagicType.MagicAttraction:
+                magicBehaviour = gameObject.AddComponent<MagicAttraction>();
                 break;
             default:
                 Debug.LogWarning("Magic type " + data.type + " unrecognized.");
