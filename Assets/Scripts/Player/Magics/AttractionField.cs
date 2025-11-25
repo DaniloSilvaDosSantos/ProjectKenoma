@@ -101,26 +101,34 @@ public class AttractionField : MonoBehaviour
     {
         if (!other.CompareTag("Enemy")) return;
 
-        EnemyController enemy = other.GetComponent<EnemyController>();
-        StatusEffectHandler handler = other.GetComponent<StatusEffectHandler>();
+        EnemyController enemyController = other.GetComponent<EnemyController>();
+        StatusEffectHandler statusEffectHandler = other.GetComponent<StatusEffectHandler>();
+        HealthSystem healthSystem = other.GetComponent<HealthSystem>();
 
-        if (enemy == null || handler == null) return;
-        if (affectedEnemies.Contains(enemy)) return;
+        if (enemyController == null || statusEffectHandler == null) return;
+        if (affectedEnemies.Contains(enemyController)) return;
 
-        Vector3 dirToEnemy = (enemy.transform.position - transform.position).normalized;
+        Vector3 dirToEnemy = (enemyController.transform.position - transform.position).normalized;
         float angle = Vector3.Angle(castDirection, dirToEnemy);
 
         if (angle <= magicData.attractionConeAngle)
         {
-            affectedEnemies.Add(enemy);
+            affectedEnemies.Add(enemyController);
 
-            enemy.isFreezed = true;
-
-            if (enemy.agent != null)
+            if(healthSystem != null)
             {
-                enemy.agent.updatePosition = false;
-                enemy.agent.updateRotation = false;
-                enemy.agent.isStopped = true;
+                float attractionTime = magicData.attractionPullAnimationTime;
+
+                healthSystem.ActivateDoubleDamage(attractionTime);
+            }
+
+            enemyController.isFreezed = true;
+
+            if (enemyController.agent != null)
+            {
+                enemyController.agent.updatePosition = false;
+                enemyController.agent.updateRotation = false;
+                enemyController.agent.isStopped = true;
             }
             else
             {

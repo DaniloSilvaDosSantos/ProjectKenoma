@@ -20,6 +20,17 @@ public class StunnedEffect : IStatusEffect
             enemy.agent.updateRotation = false;
             enemy.agent.isStopped = true;
         }
+
+        HealthSystem healthSystem = enemy.gameObject.GetComponent<HealthSystem>();
+
+        if(healthSystem != null)
+        {
+            healthSystem.ActivateDoubleDamage(Duration);
+        }
+        else
+        {
+            Debug.Log("Enemy doesn't have a Health System");
+        }
     }
 
     public void OnUpdate(EnemyController enemy, float deltaTime) { }
