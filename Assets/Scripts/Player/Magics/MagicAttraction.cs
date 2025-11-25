@@ -1,82 +1,25 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class MagicAttraction : MagicBase
 {
     public override void Cast()
     {
-        Vector3 origin = controller.transform.position;
-        Vector3 forward = playerCamera.transform.forward;
+        Vector3 spawnPos = playerCamera.transform.position;
 
-        float radius = magicData.range;
-        float halfAngle = magicData.attractionConeAngle;
-        float minDistance = magicData.pullMinDistance;
+        Debug.Log("Casting a levitation magic sphere in " + spawnPos);
 
-        Collider[] hits = Physics.OverlapSphere(origin, radius);
-        List<EnemyController> targets = new();
+        GameObject sphere = Instantiate(magicData.prefab, spawnPos, Quaternion.identity);
 
-        foreach (var hit in hits)
+        AttractionField field = sphere.GetComponent<AttractionField>();
+        if (field != null)
         {
-            if (!hit.CompareTag("Enemy")) continue;
+            Vector3 lookDirection = playerCamera.transform.forward;
 
-            if (!hit.TryGetComponent(out EnemyController enemy)) continue;
-
-            Vector3 dirToEnemy = (enemy.transform.position - origin).normalized;
-            float angle = Vector3.Angle(forward, dirToEnemy);
-
-            if (angle <= halfAngle) targets.Add(enemy);
-        }
-
-        if (targets.Count == 0) return;
-
-        foreach (var enemy in targets)
-        {
-            ApplyInstantPull(enemy, origin, minDistance);
-        }
-    }
-
-    private void ApplyInstantPull(EnemyController enemy, Vector3 playerPos, float minDistance)
-    {
-        if (enemy == null) return;
-
-        if (enemy.agent != null)
-        {
-            enemy.agent.enabled = false;
-        }
-
-        enemy.isFreezed = true;
-
-        Rigidbody rb = enemy.GetComponent<Rigidbody>();
-        
-        if (rb == null)
-        {
-            Debug.Log(enemy.gameObject.name + " doesn't have a rigidbody!");
-        }
-
-        rb.isKinematic = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-
-        Vector3 distanceToPlayer = playerPos - enemy.transform.position;
-        float distance = distanceToPlayer.magnitude;
-        Vector3 pullDirection = distanceToPlayer.normalized;
-
-        if (distance <= minDistance)
-        {
-            rb.linearVelocity = Vector3.zero;
+            field.Initialize(magicData, lookDirection, controller);
         }
         else
         {
-            float percent = Mathf.InverseLerp(minDistance, magicData.range, distance);
-
-            float finalForce = percent * magicData.pullForceMultiplier * 10f;
-
-            rb.AddForce(pullDirection * finalForce, ForceMode.Impulse);
-        }
-
-        if (enemy.TryGetComponent(out StatusEffectHandler handler))
-        {
-            Debug.Log(enemy.gameObject.name + " have been stunned!");
-            handler.ApplyStatus(new StunnedEffect(magicData.stunDuration));
+            Debug.Log("The AttractionField reference was not found or there is no reference for the AttractionField prefab!");
         }
     }
 }
