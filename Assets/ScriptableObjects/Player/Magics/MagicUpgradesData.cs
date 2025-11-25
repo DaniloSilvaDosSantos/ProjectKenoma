@@ -7,6 +7,6 @@ public class MagicUpgradesData : ScriptableObject
     public int levitationLevel = 0;
 
     public float[] levitationDurationValues;
-    public float[] sphereFinalScaleValues;
+    public float[] prefabFinalScaleValues;
 }
 

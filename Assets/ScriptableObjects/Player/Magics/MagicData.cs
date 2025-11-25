@@ -10,22 +10,23 @@ public class MagicData : ScriptableObject
     public MagicType type = MagicType.Other;
     public float cooldown = 8f;
     public float range = 20f;
-    public GameObject prefab;
+    public GameObject prefab;    
+    public float prefabStartScale = 0.01f;
+    public float prefabFinalScale = 5f;
+    public float prefabGrowSpeed = 4f;
+    public float prefabFadeSpeed = 1.5f;
 
     [Header("Levitation Settings")]
     public float effectDuration = 9999f;
     public float levitationDuration = 4f;
     public float riseTime = 1f; 
     public float liftHeight = 4f;
-    public float sphereStartScale = 0.01f;
-    public float sphereFinalScale = 5f;
-    public float sphereGrowSpeed = 4f;
-    public float sphereFadeSpeed = 1.5f;
+
 
     [Header("Attraction Settings")]
     public float attractionConeAngle = 40f;
-    public float pullMinDistance = 4f;
-    public float stunDuration = 1f;
-    public float pullForceMultiplier = 1f;
+    public float attractionPullMinDistance = 4f;
+    public float attractionStunDuration = 1f;
+    public float attractionPullAnimationTime = 1f;
 }
 

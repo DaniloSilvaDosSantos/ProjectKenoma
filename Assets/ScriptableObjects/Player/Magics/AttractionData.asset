@@ -15,17 +15,17 @@ MonoBehaviour:
   magicName: Attraction
   type: 1
   cooldown: 7
-  range: 15
-  prefab: {fileID: 0}
+  range: 40
+  prefab: {fileID: 5107480015776808942, guid: 281a9b3b4f706ef45aada2935dad234e, type: 3}
+  prefabStartScale: 0.01
+  prefabFinalScale: 5
+  prefabGrowSpeed: 4
+  prefabFadeSpeed: 1.5
   effectDuration: 9999
   levitationDuration: 4
   riseTime: 1
   liftHeight: 4
-  sphereStartScale: 0.01
-  sphereFinalScale: 5
-  sphereGrowSpeed: 4
-  sphereFadeSpeed: 1.5
   attractionConeAngle: 40
-  pullMinDistance: 4
-  stunDuration: 1
-  pullForceMultiplier: 1
+  attractionPullMinDistance: 4
+  attractionStunDuration: 1
+  attractionPullAnimationTime: 1
