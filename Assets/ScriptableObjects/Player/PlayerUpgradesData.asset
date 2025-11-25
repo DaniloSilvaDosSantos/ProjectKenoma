@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74d8c606055b784e8686ea3b32860b6, type: 3}
+  m_Name: PlayerUpgradesData
+  m_EditorClassIdentifier: 
+  maxHealthLevel: 0
+  maxHealthValues:
+  - 100
+  - 110
+  - 120
+  movementSpeedLevel: 0
+  movementSpeedValues:
+  - 10
+  - 12
+  - 14
+  shotgunDamageLevel: 0
+  shotgunMaxDamageValues:
+  - 10
+  - 12.5
+  - 15
+  shotgunCloseDamageValues:
+  - 7
+  - 8.75
+  - 10.5
+  shotgunFarDamageValues:
+  - 5
+  - 6.25
+  - 7.5
+  shotgunVeryFarDamageValues:
+  - 2
+  - 2.5
+  - 3

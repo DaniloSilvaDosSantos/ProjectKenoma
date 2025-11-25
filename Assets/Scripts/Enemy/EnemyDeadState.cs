@@ -12,6 +12,14 @@ public class EnemyDeadState : EnemyBaseState
 
         controller.isAlive = false;
         Object.Destroy(controller.gameObject, 2f);
+
+        EnemyXPDropSystem dropSystem = Object.FindAnyObjectByType<EnemyXPDropSystem>();
+        PlayerController player = Object.FindAnyObjectByType<PlayerController>();
+
+        if (dropSystem != null && player != null)
+        {
+            dropSystem.DropXP(controller.enemyData, controller.transform, player.transform);
+        }
     }
 
     public override void UpdateState(){ }

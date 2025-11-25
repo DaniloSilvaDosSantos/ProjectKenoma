@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4e594db7240dc47a9e3473ffa0593b, type: 3}
   m_Name: testWave02
   m_EditorClassIdentifier: 
-  numberOfRounds: 2
+  numberOfRounds: 4
   roundDelay: 15
   enemiesToSpawn:
   - enemy: {fileID: 11400000, guid: dfd6ebe25cb0f3c49acd98ce4ee6bbad, type: 2}
-    count: 9
+    count: 13
   - enemy: {fileID: 11400000, guid: 6c17c208ddea76943b1007df4200c3dc, type: 2}
-    count: 3
+    count: 5
