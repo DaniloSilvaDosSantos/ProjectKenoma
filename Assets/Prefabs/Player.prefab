@@ -478,14 +478,16 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: a1abd40174d080643be1a9a33055c32e, type: 2}
   playerUpgradesDB: {fileID: 11400000, guid: a519fe29c79c0bc448b0de78287614f8, type: 2}
   levitationMagicData: {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
+  attractionMagicData: {fileID: 11400000, guid: 060147162db40794399a1088c188d864, type: 2}
   magicUpgradesDB: {fileID: 11400000, guid: 3390661ec5155b44689f1ec1958e4d59, type: 2}
   playerHealthSystem: {fileID: 8847821268409513059}
   playerMagicSystem: {fileID: 2092688555025091544}
   isDebugEnable: 1
-  maxHealthUpgradeInput: 117
-  movementSpeedUpgradeInput: 105
-  shotgunDamageUpgradeInput: 111
-  levitationUpgradeInput: 112
+  maxHealthUpgradeInput: 121
+  movementSpeedUpgradeInput: 117
+  shotgunDamageUpgradeInput: 105
+  levitationUpgradeInput: 111
+  attractionUpgradeInput: 112
 --- !u!1 &7073568658231221035
 GameObject:
   m_ObjectHideFlags: 0

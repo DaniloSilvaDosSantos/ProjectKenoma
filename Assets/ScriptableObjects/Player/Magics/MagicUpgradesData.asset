@@ -21,3 +21,16 @@ MonoBehaviour:
   - 20
   - 25
   - 30
+  attractionLevel: 0
+  attractionConeAngleValues:
+  - 40
+  - 50
+  - 60
+  attractionRangeValues:
+  - 40
+  - 55
+  - 70
+  attractionStunDurationValues:
+  - 1
+  - 1.5
+  - 2

@@ -8,5 +8,12 @@ public class MagicUpgradesData : ScriptableObject
 
     public float[] levitationDurationValues;
     public float[] prefabFinalScaleValues;
+
+    [Header("Attraction Upgrade")]
+    public int attractionLevel = 0;
+
+    public float[] attractionConeAngleValues;
+    public float[] attractionRangeValues;
+    public float[] attractionStunDurationValues;
 }
 
