@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 879300166461847113}
   - component: {fileID: 8125017890894735124}
   - component: {fileID: 7829463482154673100}
+  - component: {fileID: 4731753321629762113}
   m_Layer: 0
   m_Name: BigBaseEnemy
   m_TagString: Enemy
@@ -34,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7513506072273049954}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.0000014603138, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.04, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7911586203e60440946cf2cb2f5dc23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: dfd6ebe25cb0f3c49acd98ce4ee6bbad, type: 2}
+  enemyData: {fileID: 11400000, guid: 6c17c208ddea76943b1007df4200c3dc, type: 2}
   agent: {fileID: 1902635747569460651}
   health: {fileID: 113978847848214760}
   stateMachine: {fileID: 879300166461847113}
@@ -259,6 +260,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2814296184921301263}
+--- !u!114 &4731753321629762113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513506072273049954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832b6eec9122ac9468eaa7466d05452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpDropPrefab: {fileID: 3554417839122063176, guid: ae3f44ade3fab5340bc0abdda9ac200f, type: 3}
 --- !u!1001 &8722251890706063300
 PrefabInstance:
   m_ObjectHideFlags: 0

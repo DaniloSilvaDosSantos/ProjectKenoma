@@ -8,5 +8,9 @@ public class EnemyData : EntityData
     public float damage = 10f;
     public float attackCooldown = 2f;
     public float attackRange = 2f;
+
+    [Header("XP Drop Settings")]
+    public int xpValue = 5;
+    public int xpDropCount = 1;
 }
 

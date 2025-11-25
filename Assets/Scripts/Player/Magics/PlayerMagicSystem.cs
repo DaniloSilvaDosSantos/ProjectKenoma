@@ -7,11 +7,13 @@ public class PlayerMagicSystem : MonoBehaviour
     public PlayerController controller;
     
     [Header("Magics Controll Variables")]
-    public List<MagicData> unlockedMagics = new List<MagicData>();
+    [SerializeField] private List<MagicData> unlockedMagics = new List<MagicData>();
+    public IReadOnlyList<MagicData> UnlockedMagics => unlockedMagics;
     private Dictionary<MagicData, float> cooldownTimers = new Dictionary<MagicData, float>();
 
     [Header("Inputs To Cast The Magics")]
     [SerializeField] private KeyCode inputLevitationMagic = KeyCode.Alpha1;
+    [SerializeField] private KeyCode inputAttractionMagic = KeyCode.Alpha2;
 
     private void Start()
     {
@@ -25,14 +27,40 @@ public class PlayerMagicSystem : MonoBehaviour
         UpdateCooldowns();
 
         if (Input.GetKeyDown(inputLevitationMagic)) TryCastMagic(MagicType.MagicLevitation);
+        if (Input.GetKeyDown(inputAttractionMagic)) TryCastMagic(MagicType.MagicAttraction);
     }
 
     private void UpdateCooldowns()
     {
-        foreach (var key in new List<MagicData>(cooldownTimers.Keys))
+        var keys = new List<MagicData>(cooldownTimers.Keys);
+        foreach (var key in keys)
         {
-            if (cooldownTimers[key] > 0) cooldownTimers[key] -= Time.deltaTime;
+            if (cooldownTimers[key] > 0f) cooldownTimers[key] -= Time.deltaTime;
         }
+    }
+
+    public void UnlockMagic(MagicData magic)
+    {
+        if (magic == null) return;
+
+        if (!unlockedMagics.Contains(magic)) unlockedMagics.Add(magic);
+
+        if (!cooldownTimers.ContainsKey(magic)) cooldownTimers[magic] = 0f;
+
+        Debug.Log("Magic unlocked: " + magic.magicName);
+    }
+
+    public void LockMagic(MagicData magic)
+    {
+        if (magic == null) return;
+
+        unlockedMagics.Remove(magic);
+        cooldownTimers.Remove(magic);
+    }
+
+    public bool IsUnlocked(MagicData magic)
+    {
+        return magic != null && unlockedMagics.Contains(magic);
     }
 
     private void TryCastMagic(MagicType type)
@@ -44,9 +72,15 @@ public class PlayerMagicSystem : MonoBehaviour
             return;
         }
 
-        if (cooldownTimers[magic] > 0)
+        if (!cooldownTimers.TryGetValue(magic, out float timer))
         {
-            Debug.Log(magic.magicName + "still is in a cooldown, cooldown time: " + cooldownTimers[magic]);
+            cooldownTimers[magic] = 0f;
+            timer = 0f;
+        }
+
+        if (timer > 0f)
+        {
+            Debug.Log(magic.magicName + " still is in a cooldown, cooldown time: " + timer);
             return;
         }
 
@@ -62,6 +96,9 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             case MagicType.MagicLevitation:
                 magicBehaviour = gameObject.AddComponent<MagicLevitation>();
+                break;
+            case MagicType.MagicAttraction:
+                magicBehaviour = gameObject.AddComponent<MagicAttraction>();
                 break;
             default:
                 Debug.LogWarning("Magic type " + data.type + " unrecognized.");

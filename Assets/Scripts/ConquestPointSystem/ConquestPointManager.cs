@@ -6,18 +6,21 @@ using System.Collections.Generic;
 public class ConquestPointManager : MonoBehaviour
 {
     [Header("References")]
-    public ConquestPointsData conquestPointsDB;
-    public ConquestPointBehaviour conquestPoint;
+    [SerializeField] private UIUpgradeMenu upgradeMenu;
+    [SerializeField] private ConquestPointsData conquestPointsDB;
+    [SerializeField] private ConquestPointBehaviour conquestPoint;
 
     [Header("SpawnPointsLocations")]
-    public List<Transform> spawnPoints;
+    [SerializeField] private List<Transform> spawnPoints;
 
     [Header("Variables")]
-    public float timeToActivate = 30f;
-    public float activeDuration = 15f;
+    [SerializeField] private float timeToActivate = 30f;
+    [SerializeField] private float activeDuration = 15f;
 
     private void Start()
     {
+        upgradeMenu = FindAnyObjectByType<UIUpgradeMenu>().GetComponent<UIUpgradeMenu>();
+
         if (conquestPointsDB != null)
         {
             timeToActivate = conquestPointsDB.conquestPointTimeToActivate;
@@ -65,6 +68,7 @@ public class ConquestPointManager : MonoBehaviour
     public void PlayerInteractedWithPoint()
     {
         DeactivatePoint();
+        upgradeMenu.OpenMenu(true);
     }
 }
 

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e49cf36113df441a9cfb72a15c97ea, type: 3}
+  m_Name: AttractionData
+  m_EditorClassIdentifier: 
+  magicName: Attraction
+  type: 1
+  cooldown: 7
+  range: 40
+  prefab: {fileID: 5107480015776808942, guid: 281a9b3b4f706ef45aada2935dad234e, type: 3}
+  prefabStartScale: 0.01
+  prefabFinalScale: 5
+  prefabGrowSpeed: 4
+  prefabFadeSpeed: 1.5
+  effectDuration: 9999
+  levitationDuration: 4
+  riseTime: 1
+  liftHeight: 4
+  attractionConeAngle: 40
+  attractionPullMinDistance: 4
+  attractionStunDuration: 1
+  attractionPullAnimationTime: 1

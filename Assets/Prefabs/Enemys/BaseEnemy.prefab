@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4031686677890792304}
   - component: {fileID: 8714608407310921779}
   - component: {fileID: 3281557293490726996}
+  - component: {fileID: 275517484734256053}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -259,6 +260,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 807269087577594870}
+--- !u!114 &275517484734256053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696954026112510574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832b6eec9122ac9468eaa7466d05452e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpDropPrefab: {fileID: 3554417839122063176, guid: ae3f44ade3fab5340bc0abdda9ac200f, type: 3}
 --- !u!1001 &5713759796630416831
 PrefabInstance:
   m_ObjectHideFlags: 0
