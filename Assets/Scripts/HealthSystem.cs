@@ -15,7 +15,9 @@ public class HealthSystem : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
-    
+
+    [SerializeField] private bool isDamageDoubled = false;
+    private float damageDoubleTimer = 0f;
 
     [Header("Events")]
     public UnityEvent OnDeath;
@@ -58,6 +60,18 @@ public class HealthSystem : MonoBehaviour
         currentHealth = value;
     }
 
+    private void Update()
+    {
+        if (isDamageDoubled)
+        {
+            damageDoubleTimer -= Time.deltaTime;
+            if (damageDoubleTimer <= 0f)
+            {
+                isDamageDoubled = false;
+            }
+        }
+    }
+
     public float GetCurrentHealth() => currentHealth;
     public float GetMaxHealth() => maxHealth;
 
@@ -80,6 +94,14 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float amount, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
     {
+        if (isDamageDoubled)
+        {
+            Debug.Log(gameObject.name + " received double damage!");
+
+            amount *= 2f;
+            isDamageDoubled = false;
+        }
+        
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
         if (spawnDamageParticles && damageParticles != null)
@@ -100,6 +122,13 @@ public class HealthSystem : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void ActivateDoubleDamage(float duration)
+    {
+        isDamageDoubled = true;
+
+        if(damageDoubleTimer < duration) damageDoubleTimer = duration;
     }
 
     public void Heal(float amount)
