@@ -71,7 +71,7 @@ public class PlayerUpgradeManager : MonoBehaviour
         // INITIAL MAGICS STATS
 
         levitationMagicData.levitationDuration = magicUpgradesDB.levitationDurationValues[0];
-        levitationMagicData.sphereFinalScale = magicUpgradesDB.sphereFinalScaleValues[0];
+        levitationMagicData.prefabFinalScale = magicUpgradesDB.prefabFinalScaleValues[0];
     }
 
     // RESET FOR THE UPGRADES
@@ -183,7 +183,7 @@ public class PlayerUpgradeManager : MonoBehaviour
             int newLevel = magicUpgradesDB.levitationLevel;
 
             levitationMagicData.levitationDuration = magicUpgradesDB.levitationDurationValues[newLevel];
-            levitationMagicData.sphereFinalScale = magicUpgradesDB.sphereFinalScaleValues[newLevel];
+            levitationMagicData.prefabFinalScale = magicUpgradesDB.prefabFinalScaleValues[newLevel];
         }
     }
 

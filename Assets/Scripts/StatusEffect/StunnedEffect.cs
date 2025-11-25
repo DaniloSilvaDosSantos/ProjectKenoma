@@ -14,7 +14,12 @@ public class StunnedEffect : IStatusEffect
     {
         enemy.isFreezed = true;
 
-        if (enemy.agent != null) enemy.agent.enabled = false;
+        if (enemy.agent != null)
+        {
+            enemy.agent.updatePosition = false;
+            enemy.agent.updateRotation = false;
+            enemy.agent.isStopped = true;
+        }
     }
 
     public void OnUpdate(EnemyController enemy, float deltaTime) { }
@@ -23,7 +28,12 @@ public class StunnedEffect : IStatusEffect
     {
         enemy.isFreezed = false;
 
-        if (enemy.agent != null) enemy.agent.enabled = true;
+        if (enemy.agent != null)
+        {
+            enemy.agent.updatePosition = true;
+            enemy.agent.updateRotation = true;
+            enemy.agent.isStopped = false;
+        }
     }
 }
 
