@@ -297,29 +297,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771433307210135480}
     m_Modifications:
-    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: bc3419eddc0aa1e49978f4d0ae4142cf, type: 2}
-    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -368,6 +356,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
       propertyPath: m_Name
       value: CavaleiteAndandoTeste2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bc3419eddc0aa1e49978f4d0ae4142cf, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1410,8 +1410,8 @@
     "m_ObjectId": "0d0dfd97f5f74d2f99926dc7c3bd9eab",
     "m_Title": "VERTEX DISPLACEMENT",
     "m_Position": {
-        "x": -2438.0,
-        "y": -1244.0
+        "x": -2438.400146484375,
+        "y": -1245.5999755859375
     }
 }
 
@@ -2364,8 +2364,8 @@
     "m_ObjectId": "3290dcbdd07d49c994b6d21c42307ff7",
     "m_Title": "DISTORÇÃO AMBIENTE",
     "m_Position": {
-        "x": -4224.0,
-        "y": -196.0
+        "x": -4224.00048828125,
+        "y": -197.60003662109376
     }
 }
 
@@ -3547,8 +3547,8 @@
     "m_ObjectId": "67b34bec0ef64b909de879e66c422acd",
     "m_Title": "UV SCROLL",
     "m_Position": {
-        "x": -3635.0,
-        "y": -674.0
+        "x": -3635.199951171875,
+        "y": -676.0
     }
 }
 

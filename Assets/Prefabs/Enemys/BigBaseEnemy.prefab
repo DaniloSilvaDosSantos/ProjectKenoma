@@ -331,7 +331,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3474959244548441238}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9211545642930941178}
   m_SourcePrefab: {fileID: 100100000, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
 --- !u!137 &69794646060704959 stripped
 SkinnedMeshRenderer:
@@ -358,6 +364,47 @@ SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -5800155244629423241, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
   m_PrefabInstance: {fileID: 8722251890706063300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8487807761047790229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
+  m_PrefabInstance: {fileID: 8722251890706063300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3474959244548441238
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487807761047790229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3923e18e3519094b9d5ae67c27bc5da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9211545642930941178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487807761047790229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127671fcc0228824cb24b286b1b938cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 3474959244548441238}
+  FPS: 6
 --- !u!4 &9115585385890510895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
