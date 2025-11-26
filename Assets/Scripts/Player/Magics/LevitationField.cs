@@ -5,6 +5,9 @@ using System.Collections;
 [RequireComponent(typeof(SphereCollider))]
 public class LevitationField : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private AudioSource audioSource;
+
     private MagicData magicData;
 
     private float currentScale;
@@ -20,6 +23,8 @@ public class LevitationField : MonoBehaviour
 
     private void Start()
     {
+        Radio.Instance.PlaySFX("SFX/MagicLevitation", audioSource);
+
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.isTrigger = true;
 
