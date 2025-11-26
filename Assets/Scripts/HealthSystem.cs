@@ -6,6 +6,7 @@ public class HealthSystem : MonoBehaviour
     [Header("References")]
     [SerializeField] private IEntityController controller;
     [SerializeField] private CameraShakeSystem cameraShakeSystem;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("Damage FX")]
     [SerializeField] private bool spawnDamageParticles = true;
@@ -101,6 +102,8 @@ public class HealthSystem : MonoBehaviour
             amount *= 2f;
             isDamageDoubled = false;
         }
+
+        Radio.Instance.PlaySFX("SFX/Hit");
         
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
