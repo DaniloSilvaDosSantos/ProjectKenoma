@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69b6badd1b0e3a458b3414f848c8390, type: 3}
+  m_Name: SFXPlayerWalking
+  m_EditorClassIdentifier: 
+  soundID: SFX/PlayerWalking
+  type: 1
+  clips:
+  - clip: {fileID: 8300000, guid: 7f92f7d5ee3a3e84c99880e796b3bbaf, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.2
+    maxVolume: 0.3
+    minPitch: 0.9
+    maxPitch: 1.1
+  - clip: {fileID: 8300000, guid: a6e359acbfa15b542816736863435470, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.2
+    maxVolume: 0.3
+    minPitch: 0.9
+    maxPitch: 1.1
