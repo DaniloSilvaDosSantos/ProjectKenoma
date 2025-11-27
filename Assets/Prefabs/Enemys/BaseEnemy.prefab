@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 3281557293490726996}
   - component: {fileID: 275517484734256053}
   - component: {fileID: -4200588606161010616}
-  - component: {fileID: 6809232856078911199}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -275,20 +274,6 @@ MonoBehaviour:
   - {fileID: 6974650624800384712}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.2
---- !u!114 &6809232856078911199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7696954026112510574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127671fcc0228824cb24b286b1b938cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 7678600307291490109}
-  FPS: 6
 --- !u!1001 &5713759796630416831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,6 +361,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7678600307291490109}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4628925924419174300}
   m_SourcePrefab: {fileID: 100100000, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
 --- !u!137 &782820838583555537 stripped
 SkinnedMeshRenderer:
@@ -419,6 +407,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4628925924419174300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866759052809294062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127671fcc0228824cb24b286b1b938cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 7678600307291490109}
+  FPS: 5
 --- !u!4 &5242721298218289748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4af80ba460433341abbd06e812ca48e, type: 3}
