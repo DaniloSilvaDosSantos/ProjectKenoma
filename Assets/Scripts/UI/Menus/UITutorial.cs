@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class TutorialUI : MonoBehaviour
+public class UITutorial : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private TMP_Text tutorialText;

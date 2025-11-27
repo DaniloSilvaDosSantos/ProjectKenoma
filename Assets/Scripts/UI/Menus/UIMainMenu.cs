@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuUI : MonoBehaviour
+public class UIMainMenu: MonoBehaviour
 {
     [Header("Menus")]
     [SerializeField] private GameObject mainMenu;
