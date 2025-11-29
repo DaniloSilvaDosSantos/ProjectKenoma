@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IEntityController
     public CharacterController characterController;
     public Camera playerCamera;
     public Animator cameraAnimator;
+    [SerializeField] public GameOverMenu gameOverMenu;
 
     [HideInInspector] public PlayerMovement movement;
     [HideInInspector] public PlayerCameraLook cameraLook;
@@ -33,10 +34,21 @@ public class PlayerController : MonoBehaviour, IEntityController
     {        
         if (!isAlive) return;
         isAlive = false;
-        
-        Debug.Log("! ! ! Player is Dead ! ! !");
 
-        // Here in the future will have things like game over UI and etc. 
+        Debug.Log("! ! ! Player is Dead ! ! !");
+        
+        Time.timeScale = 0f;
+
+        if (gameOverMenu != null)
+        {
+            Cursor.lockState = CursorLockMode.None;
+
+            gameOverMenu.gameObject.SetActive(true);
+        }
+        else
+        {
+           Debug.LogWarning("GameOverMenu reference is missing!"); 
+        }
     }
 }
 

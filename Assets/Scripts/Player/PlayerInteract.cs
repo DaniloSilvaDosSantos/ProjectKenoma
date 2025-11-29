@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class PlayerInteract: MonoBehaviour
 {
-    public float interactRange = 10f;
-    public Camera playerCamera;
+    [SerializeField] private float interactRange = 10f;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private LayerMask interactableMask;
 
     void Update()
     {
@@ -11,7 +12,7 @@ public class PlayerInteract: MonoBehaviour
         {
             Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableMask))
             {
                 var interactable = hit.collider.GetComponentInParent<IInteractable>();
 

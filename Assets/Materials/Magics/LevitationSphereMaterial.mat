@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LevitationSphereMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 80846211850f6b34d82d4ad079006da8, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 43a8615147728d148bd6b297bc510e0b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -98,12 +98,16 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Escala_Noise: 94
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _Opacidade: 0.1
     - _Parallax: 0.005
+    - _PoderRefle: 0.02
+    - _Poder_Fresnel: 0.79
     - _QueueControl: 0
     - _QueueOffset: 0.005
     - _ReceiveShadows: 1
@@ -116,9 +120,12 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _poder_interse_o: 1.52
+    - _threshold: 0.28
     m_Colors:
     - _BaseColor: {r: 0.44781843, g: 0, b: 0.46226418, a: 0.47058824}
-    - _Color: {r: 1.8128521, g: 0, b: 3.9396226, a: 0.47058824}
+    - _Color: {r: 0.9967615, g: 0, b: 2.1634257, a: 0.47058824}
+    - _Cor_emissiva: {r: 5.5216823, g: 0, b: 5.2614975, a: 0}
     - _Cruzar_cores: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

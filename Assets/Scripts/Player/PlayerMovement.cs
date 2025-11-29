@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerController controller;
-    private CharacterController charController;
+    [SerializeField] private CharacterController charController;
 
     [Header("Variables")]
     [SerializeField] private Vector3 groundMovementInput;

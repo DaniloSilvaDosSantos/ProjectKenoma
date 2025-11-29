@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerUpgradeType
@@ -9,7 +11,8 @@ public enum PlayerUpgradeType
 
 public enum ConquestUpgradeType
 {
-    Levitation
+    Levitation,
+    Attraction
 }
 
 [RequireComponent(typeof(HealthSystem))]
@@ -19,6 +22,7 @@ public class PlayerUpgradeManager : MonoBehaviour
     [SerializeField] private PlayerData playerStats;
     [SerializeField] private PlayerUpgradesData playerUpgradesDB;
     [SerializeField] private MagicData levitationMagicData;
+    [SerializeField] private MagicData attractionMagicData;
     [SerializeField] private MagicUpgradesData magicUpgradesDB;
     [SerializeField] private HealthSystem playerHealthSystem;
     [SerializeField] private PlayerMagicSystem playerMagicSystem;
@@ -27,10 +31,11 @@ public class PlayerUpgradeManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] public bool isDebugEnable;
     [Space]
-    [SerializeField] private KeyCode maxHealthUpgradeInput = KeyCode.U;
-    [SerializeField] private KeyCode movementSpeedUpgradeInput = KeyCode.I;
-    [SerializeField] private KeyCode shotgunDamageUpgradeInput = KeyCode.O;
-    [SerializeField] private KeyCode levitationUpgradeInput = KeyCode.P;
+    [SerializeField] private KeyCode maxHealthUpgradeInput = KeyCode.Y;
+    [SerializeField] private KeyCode movementSpeedUpgradeInput = KeyCode.U;
+    [SerializeField] private KeyCode shotgunDamageUpgradeInput = KeyCode.I;
+    [SerializeField] private KeyCode levitationUpgradeInput = KeyCode.O;
+    [SerializeField] private KeyCode attractionUpgradeInput = KeyCode.P;
 
     private void Start()
     {
@@ -44,13 +49,18 @@ public class PlayerUpgradeManager : MonoBehaviour
     // DEBUG
     void Update()
     {
-        if (Input.GetKeyDown(maxHealthUpgradeInput) && isDebugEnable) ApplyPlayerUpgrade(PlayerUpgradeType.MaxHealth);
+        if(isDebugEnable)
+        {
+            if (Input.GetKeyDown(maxHealthUpgradeInput)) ApplyPlayerUpgrade(PlayerUpgradeType.MaxHealth);
 
-        if (Input.GetKeyDown(movementSpeedUpgradeInput) && isDebugEnable) ApplyPlayerUpgrade(PlayerUpgradeType.MovementSpeed);
+            if (Input.GetKeyDown(movementSpeedUpgradeInput)) ApplyPlayerUpgrade(PlayerUpgradeType.MovementSpeed);
 
-        if (Input.GetKeyDown(shotgunDamageUpgradeInput) && isDebugEnable) ApplyPlayerUpgrade(PlayerUpgradeType.ShotgunDamage);
+            if (Input.GetKeyDown(shotgunDamageUpgradeInput)) ApplyPlayerUpgrade(PlayerUpgradeType.ShotgunDamage);
 
-        if (Input.GetKeyDown(levitationUpgradeInput) && isDebugEnable) ApplyConquestUpgrade(ConquestUpgradeType.Levitation);
+            if (Input.GetKeyDown(levitationUpgradeInput)) ApplyConquestUpgrade(ConquestUpgradeType.Levitation);
+
+            if (Input.GetKeyDown(attractionUpgradeInput)) ApplyConquestUpgrade(ConquestUpgradeType.Attraction);
+        }
     }
 
     // APPLYING THE INITIAL VALUES
@@ -71,7 +81,11 @@ public class PlayerUpgradeManager : MonoBehaviour
         // INITIAL MAGICS STATS
 
         levitationMagicData.levitationDuration = magicUpgradesDB.levitationDurationValues[0];
-        levitationMagicData.sphereFinalScale = magicUpgradesDB.sphereFinalScaleValues[0];
+        levitationMagicData.prefabFinalScale = magicUpgradesDB.prefabFinalScaleValues[0];
+
+        attractionMagicData.attractionConeAngle = magicUpgradesDB.attractionConeAngleValues[0];
+        attractionMagicData.range = magicUpgradesDB.attractionRangeValues[0];
+        attractionMagicData.attractionStunDuration = magicUpgradesDB.attractionStunDurationValues[0];
     }
 
     // RESET FOR THE UPGRADES
@@ -163,6 +177,9 @@ public class PlayerUpgradeManager : MonoBehaviour
             case ConquestUpgradeType.Levitation:
                 ApplyLevitationUpgrade();
                 break;
+            case ConquestUpgradeType.Attraction:
+                ApplyAttractionUpgrade();
+                break;
         }
     }
 
@@ -183,7 +200,29 @@ public class PlayerUpgradeManager : MonoBehaviour
             int newLevel = magicUpgradesDB.levitationLevel;
 
             levitationMagicData.levitationDuration = magicUpgradesDB.levitationDurationValues[newLevel];
-            levitationMagicData.sphereFinalScale = magicUpgradesDB.sphereFinalScaleValues[newLevel];
+            levitationMagicData.prefabFinalScale = magicUpgradesDB.prefabFinalScaleValues[newLevel];
+        }
+    }
+
+    private void ApplyAttractionUpgrade()
+    {
+        if (!playerMagicSystem.IsUnlocked(attractionMagicData))
+        {
+            playerMagicSystem.UnlockMagic(attractionMagicData);
+            return;
+        }
+
+        int level = magicUpgradesDB.attractionLevel;
+
+        if (level + 1 < magicUpgradesDB.attractionConeAngleValues.Length)
+        {
+            magicUpgradesDB.attractionLevel++;
+
+            int newLevel = magicUpgradesDB.attractionLevel;
+
+            attractionMagicData.attractionConeAngle = magicUpgradesDB.attractionConeAngleValues[newLevel];
+            attractionMagicData.range = magicUpgradesDB.attractionRangeValues[newLevel];
+            attractionMagicData.attractionStunDuration = magicUpgradesDB.attractionStunDurationValues[newLevel];
         }
     }
 
@@ -194,13 +233,13 @@ public class PlayerUpgradeManager : MonoBehaviour
         switch (type)
         {
             case PlayerUpgradeType.MaxHealth:
-                return playerUpgradesDB.maxHealthLevel >= playerUpgradesDB.maxHealthValues.Length;
+                return playerUpgradesDB.maxHealthLevel + 1 >= playerUpgradesDB.maxHealthValues.Length;
 
             case PlayerUpgradeType.MovementSpeed:
-                return playerUpgradesDB.movementSpeedLevel >= playerUpgradesDB.movementSpeedValues.Length;
+                return playerUpgradesDB.movementSpeedLevel + 1 >= playerUpgradesDB.movementSpeedValues.Length;
 
             case PlayerUpgradeType.ShotgunDamage:
-                return playerUpgradesDB.shotgunDamageLevel >= playerUpgradesDB.shotgunMaxDamageValues.Length;
+                return playerUpgradesDB.shotgunDamageLevel + 1 >= playerUpgradesDB.shotgunMaxDamageValues.Length;
         }
 
         return true;
@@ -211,7 +250,10 @@ public class PlayerUpgradeManager : MonoBehaviour
         switch (type)
         {
             case ConquestUpgradeType.Levitation:
-                return magicUpgradesDB.levitationLevel >= magicUpgradesDB.levitationDurationValues.Length;
+                return magicUpgradesDB.levitationLevel + 1 >= magicUpgradesDB.levitationDurationValues.Length;
+            
+            case ConquestUpgradeType.Attraction:
+                return magicUpgradesDB.attractionLevel + 1 >= magicUpgradesDB.attractionConeAngleValues.Length;
         }
 
         return true;

@@ -35,3 +35,13 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 0.8
     maxPitch: 1.2
+  - clip: {fileID: 8300000, guid: 663d19031ed580a498c9e288deb16523, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.9
+    maxVolume: 1
+    minPitch: 0.8
+    maxPitch: 1.2

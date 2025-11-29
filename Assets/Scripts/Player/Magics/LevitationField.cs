@@ -5,6 +5,9 @@ using System.Collections;
 [RequireComponent(typeof(SphereCollider))]
 public class LevitationField : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private AudioSource audioSource;
+
     private MagicData magicData;
 
     private float currentScale;
@@ -20,28 +23,30 @@ public class LevitationField : MonoBehaviour
 
     private void Start()
     {
+        Radio.Instance.PlaySFX("SFX/MagicLevitation", audioSource);
+
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.isTrigger = true;
 
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null) sphereMaterial = renderer.material;
 
-        transform.localScale = Vector3.one * magicData.sphereStartScale;
-        currentScale = magicData.sphereStartScale;
+        transform.localScale = Vector3.one * magicData.prefabStartScale;
+        currentScale = magicData.prefabStartScale;
     }
 
     private void Update()
     {
         if (magicData == null) return;
 
-        if (currentScale < magicData.sphereFinalScale)
+        if (currentScale < magicData.prefabFinalScale)
         {
-            currentScale += magicData.sphereGrowSpeed * Time.deltaTime;
+            currentScale += magicData.prefabGrowSpeed * Time.deltaTime;
             transform.localScale = Vector3.one * currentScale;
         }
         else
         {
-            fade -= magicData.sphereFadeSpeed * Time.deltaTime;
+            fade -= magicData.prefabFadeSpeed * Time.deltaTime;
 
             if (sphereMaterial != null)
             {
