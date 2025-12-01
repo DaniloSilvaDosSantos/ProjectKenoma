@@ -13,13 +13,13 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
-  - _RECEIVE_SHADOWS_OFF
   - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2950
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -54,14 +54,14 @@ Material:
     - _BlendModePreserveSpecular: 0
     - _CastShadows: 0
     - _Cull: 0
-    - _Distor_o: 15.33
+    - _Distor_o: 6.29
     - _DstBlend: 10
     - _DstBlendAlpha: 10
     - _EscalaDistor_o: 14
     - _For_aDoTwirl: 41.61
     - _PODER_DO_NOISE: 0.25
-    - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueControl: 1
+    - _QueueOffset: -50
     - _ReceiveShadows: 0
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
