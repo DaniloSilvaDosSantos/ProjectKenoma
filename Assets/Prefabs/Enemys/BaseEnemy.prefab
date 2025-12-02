@@ -184,7 +184,7 @@ MonoBehaviour:
   cameraShakeSystem: {fileID: 0}
   audioSource: {fileID: 4523757556733281154}
   spawnDamageParticles: 1
-  damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
+  damageParticlesPrefab: {fileID: 5757007380898165271, guid: 90acb89458c218447be3e15f021e3ebf, type: 3}
   maxHealth: 0
   currentHealth: 0
   isDamageDoubled: 0
@@ -498,18 +498,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771433307210135480}
     m_Modifications:
-    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: bc3419eddc0aa1e49978f4d0ae4142cf, type: 2}
-    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.35
@@ -565,14 +553,42 @@ PrefabInstance:
     - target: {fileID: -5800155244629423241, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -3179274358637190664, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
+      objectReference: {fileID: 2100000, guid: bff8a54ffbee9634da022c1a55f7d3b5, type: 2}
+    - target: {fileID: -5346150186667444753, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ae3fea32931f8f245b114d4f4f58006e, type: 2}
+    - target: {fileID: -4551338879278381305, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4209043603712133010, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ae3fea32931f8f245b114d4f4f58006e, type: 2}
     - target: {fileID: -35650395501282791, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e838b44bada5f2f45bfe1564bd07cdd2, type: 2}
+      objectReference: {fileID: 2100000, guid: ae3fea32931f8f245b114d4f4f58006e, type: 2}
     - target: {fileID: 919132149155446097, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
       propertyPath: m_Name
       value: CAVALEITO_Pequeno
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790001992177007483, guid: 3badd520a5d020f4a8e3e7df4d020a63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ae3fea32931f8f245b114d4f4f58006e, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bc3419eddc0aa1e49978f4d0ae4142cf, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e89b031a9288df6489fc9ce74a2b5494, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
