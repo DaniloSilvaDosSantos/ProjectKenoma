@@ -4,18 +4,22 @@ public class MagicUltimate : MagicBase
 {
     public override void Cast()
     {
-        throw new System.NotImplementedException();
-    }
+        controller.playerMovement.isMovementLocked = true;
+        controller.health.SetInvulnerable(true);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+        Vector3 spawnPos = controller.transform.position + controller.transform.forward * magicData.ultimateDistanteFromPlayer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject instance = Instantiate(magicData.prefab, spawnPos, Quaternion.identity);
+
+        UltimateBlackHole blackHole = instance.GetComponent<UltimateBlackHole>();
+
+        if (blackHole != null)
+        {
+            blackHole.Initialize(magicData, controller);
+        }
+        else
+        {
+            Debug.LogWarning("Ultimate prefab does NOT contain UltimateBlackHole script!");
+        }
     }
 }

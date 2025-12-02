@@ -15,6 +15,7 @@ public class PlayerMagicSystem : MonoBehaviour
     [Header("Inputs To Cast The Magics")]
     [SerializeField] private KeyCode inputLevitationMagic = KeyCode.Alpha1;
     [SerializeField] private KeyCode inputAttractionMagic = KeyCode.Alpha2;
+    [SerializeField] private KeyCode inputUltimateMagic = KeyCode.Alpha3;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class PlayerMagicSystem : MonoBehaviour
 
         if (Input.GetKeyDown(inputLevitationMagic)) TryCastMagic(MagicType.MagicLevitation);
         if (Input.GetKeyDown(inputAttractionMagic)) TryCastMagic(MagicType.MagicAttraction);
+        if (Input.GetKeyDown(inputUltimateMagic)) TryCastMagic(MagicType.MagicUltimate);
     }
 
     private void UpdateCooldowns()

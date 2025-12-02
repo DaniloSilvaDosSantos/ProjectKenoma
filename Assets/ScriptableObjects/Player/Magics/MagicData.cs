@@ -49,5 +49,7 @@ public class MagicData : ScriptableObject
 
     [Header("Ultimate Settings")]
     public float ultimateDamage = 9999f;
+    public float ultimateDuration = 3f;
+    public float ultimateDistanteFromPlayer = 20f;
 }
 

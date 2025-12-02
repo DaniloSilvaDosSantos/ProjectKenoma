@@ -73,12 +73,12 @@ public class PlayerShotgun : MonoBehaviour
             {
                 if (hit.TryGetComponent(out HealthSystem health))
                 {
-                    health.TakeDamage(damageToApply, screenShakeToApply, screenShakeToApply);
+                    health.TakeDamage(damageToApply, registerKillForMagic: true, screenShakeToApply, screenShakeToApply);
                 }
                 else
                 {
                     var parentHealth = hit.GetComponentInParent<HealthSystem>();
-                    if (parentHealth != null) parentHealth.TakeDamage(damageToApply, screenShakeToApply, screenShakeToApply);
+                    if (parentHealth != null) parentHealth.TakeDamage(damageToApply, registerKillForMagic: true, screenShakeToApply, screenShakeToApply);
                 }
             }
         }
