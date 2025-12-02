@@ -1,6 +1,18 @@
 using UnityEngine;
 
-public enum MagicType { MagicLevitation, MagicAttraction, Other }
+public enum MagicCooldownType
+{
+    Time,
+    KillCount
+}
+
+public enum MagicType
+{
+    MagicLevitation,
+    MagicAttraction,
+    MagicUltimate,
+    Other
+}
 
 [CreateAssetMenu(fileName = "NewMagicData", menuName = "Game Data/MagicData")]
 public class MagicData : ScriptableObject
@@ -8,7 +20,12 @@ public class MagicData : ScriptableObject
     [Header("General Info")]
     public string magicName = "Unnamed";
     public MagicType type = MagicType.Other;
+
+    [Header("Cooldown Settings")]
     public float cooldown = 8f;
+    public int killsRequired = 50;
+
+    [Header("General Settings")]
     public float range = 20f;
     public GameObject prefab;    
     public float prefabStartScale = 0.01f;
@@ -28,5 +45,8 @@ public class MagicData : ScriptableObject
     public float attractionPullMinDistance = 4f;
     public float attractionStunDuration = 1f;
     public float attractionPullAnimationTime = 1f;
+
+    [Header("Ultimate Settings")]
+    public float ultimateDamage = 9999f;
 }
 
