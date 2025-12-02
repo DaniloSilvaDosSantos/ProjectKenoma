@@ -22,6 +22,7 @@ public class MagicData : ScriptableObject
     public MagicType type = MagicType.Other;
 
     [Header("Cooldown Settings")]
+    public MagicCooldownType cooldownType = MagicCooldownType.Time;
     public float cooldown = 8f;
     public int killsRequired = 50;
 
