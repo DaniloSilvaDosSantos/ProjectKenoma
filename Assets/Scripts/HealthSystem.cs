@@ -19,6 +19,8 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private bool isDamageDoubled = false;
     private float damageDoubleTimer = 0f;
+    [SerializeField] private bool isInvulnerable = false;
+    public bool IsInvulnerable => isInvulnerable;
 
     [Header("Events")]
     public UnityEvent OnDeath;
@@ -93,8 +95,10 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    public void TakeDamage(float amount, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
+    public void TakeDamage(float amount, bool registerKillForMagic = true, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
     {
+        if(isInvulnerable) return;
+
         if (isDamageDoubled)
         {
             Debug.Log(gameObject.name + " received double damage!");
@@ -123,6 +127,11 @@ public class HealthSystem : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            if(registerKillForMagic)
+            {
+                FindAnyObjectByType<PlayerMagicSystem>().RegisterKill();
+            } 
+
             Die();
         }
     }
@@ -138,6 +147,11 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke(currentHealth);
+    }
+
+    public void SetInvulnerable(bool value)
+    {
+        isInvulnerable = value;
     }
 
     private void Die()
