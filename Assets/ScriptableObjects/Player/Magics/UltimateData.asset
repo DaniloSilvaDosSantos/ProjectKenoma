@@ -21,7 +21,7 @@ MonoBehaviour:
   prefab: {fileID: 4569307640317558073, guid: 3cd44eef7d415ea46892d58bd196b7c3, type: 3}
   prefabStartScale: 0.01
   prefabFinalScale: 25
-  prefabGrowSpeed: 25
+  prefabGrowSpeed: 50
   prefabFadeSpeed: 1.5
   effectDuration: 9999
   levitationDuration: 4
