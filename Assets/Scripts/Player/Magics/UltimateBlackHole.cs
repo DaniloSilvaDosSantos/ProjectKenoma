@@ -71,6 +71,8 @@ public class UltimateBlackHole : MonoBehaviour
             yield return null;
         }
 
+        Debug.Log("Ples");
+
         EndUltimate();
         Destroy(gameObject);
     }
