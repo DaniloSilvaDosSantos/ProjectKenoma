@@ -40,9 +40,10 @@ Material:
     m_Floats:
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _poder_fresnel: 6.96
+    - _opacidade: 2.44
+    - _poder_fresnel: 15.4
     m_Colors:
-    - _Color_Fresnel: {r: 25.787144, g: 0, b: 69.46082, a: 0}
+    - _Color_Fresnel: {r: 33.576153, g: 0, b: 90.32453, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1880304159032943

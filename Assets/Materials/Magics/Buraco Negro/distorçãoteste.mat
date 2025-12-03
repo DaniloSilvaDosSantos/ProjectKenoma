@@ -53,12 +53,12 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
     - _CastShadows: 0
-    - _Cull: 0
-    - _Distor_o: 6.29
+    - _Cull: 2
+    - _Distor_o: 0.13
     - _DstBlend: 10
     - _DstBlendAlpha: 10
-    - _EscalaDistor_o: 14
-    - _For_aDoTwirl: 41.61
+    - _EscalaDistor_o: 35
+    - _For_aDoTwirl: 30
     - _PODER_DO_NOISE: 0.25
     - _QueueControl: 1
     - _QueueOffset: -50
@@ -66,7 +66,7 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _TantoDeRota_o: 0.5
+    - _TantoDeRota_o: -1.93
     - _WorkflowMode: 1
     - _ZTest: 6
     - _ZWrite: 0
