@@ -10,16 +10,22 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private List<MagicData> unlockedMagics = new List<MagicData>();
     public IReadOnlyList<MagicData> UnlockedMagics => unlockedMagics;
     private Dictionary<MagicData, float> cooldownTimers = new Dictionary<MagicData, float>();
+    private Dictionary<MagicData, int> killCounters = new Dictionary<MagicData, int>();
 
     [Header("Inputs To Cast The Magics")]
     [SerializeField] private KeyCode inputLevitationMagic = KeyCode.Alpha1;
     [SerializeField] private KeyCode inputAttractionMagic = KeyCode.Alpha2;
+    [SerializeField] private KeyCode inputUltimateMagic = KeyCode.Alpha3;
 
     private void Start()
     {
         controller = GetComponent<PlayerController>();
 
-        foreach (var magic in unlockedMagics) cooldownTimers[magic] = 0f;
+        foreach (var magic in unlockedMagics)
+        {
+            cooldownTimers[magic] = 0f;
+            killCounters[magic] = 0;
+        } 
     }
 
     private void Update()
@@ -28,14 +34,27 @@ public class PlayerMagicSystem : MonoBehaviour
 
         if (Input.GetKeyDown(inputLevitationMagic)) TryCastMagic(MagicType.MagicLevitation);
         if (Input.GetKeyDown(inputAttractionMagic)) TryCastMagic(MagicType.MagicAttraction);
+        if (Input.GetKeyDown(inputUltimateMagic)) TryCastMagic(MagicType.MagicUltimate);
     }
 
     private void UpdateCooldowns()
     {
-        var keys = new List<MagicData>(cooldownTimers.Keys);
-        foreach (var key in keys)
+        foreach (var magic in unlockedMagics)
         {
-            if (cooldownTimers[key] > 0f) cooldownTimers[key] -= Time.deltaTime;
+            if (magic.cooldownType == MagicCooldownType.Time)
+            {
+                if (cooldownTimers[magic] > 0f) cooldownTimers[magic] -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void RegisterKill()
+    {
+        foreach (var magic in unlockedMagics)
+        {
+            if (magic.cooldownType != MagicCooldownType.KillCount) continue;
+
+            if (killCounters[magic] <= magic.killsRequired) killCounters[magic]++;
         }
     }
 
@@ -56,6 +75,7 @@ public class PlayerMagicSystem : MonoBehaviour
 
         unlockedMagics.Remove(magic);
         cooldownTimers.Remove(magic);
+        killCounters.Remove(magic);
     }
 
     public bool IsUnlocked(MagicData magic)
@@ -72,20 +92,35 @@ public class PlayerMagicSystem : MonoBehaviour
             return;
         }
 
-        if (!cooldownTimers.TryGetValue(magic, out float timer))
+        if (magic.cooldownType == MagicCooldownType.Time)
         {
-            cooldownTimers[magic] = 0f;
-            timer = 0f;
+            if (cooldownTimers[magic] > 0f)
+            {
+                Debug.Log(magic.magicName + "still is in cooldown: " + cooldownTimers[magic]);
+                return;
+            }
         }
 
-        if (timer > 0f)
+        if (magic.cooldownType == MagicCooldownType.KillCount)
         {
-            Debug.Log(magic.magicName + " still is in a cooldown, cooldown time: " + timer);
-            return;
+            if (killCounters[magic] < magic.killsRequired)
+            {
+                int remaining = magic.killsRequired - killCounters[magic];
+                Debug.Log(magic.magicName + " requires "+ remaining +" more kills.");
+                return;
+            }
         }
 
         CastMagic(magic);
-        cooldownTimers[magic] = magic.cooldown;
+
+        if (magic.cooldownType == MagicCooldownType.Time)
+        {
+            cooldownTimers[magic] = magic.cooldown;
+        }
+        else if (magic.cooldownType == MagicCooldownType.KillCount)
+        {
+            killCounters[magic] = 0;
+        }
     }
 
     private void CastMagic(MagicData data)
@@ -99,6 +134,9 @@ public class PlayerMagicSystem : MonoBehaviour
                 break;
             case MagicType.MagicAttraction:
                 magicBehaviour = gameObject.AddComponent<MagicAttraction>();
+                break;
+            case MagicType.MagicUltimate:
+                magicBehaviour = gameObject.AddComponent<MagicUltimate>();
                 break;
             default:
                 Debug.LogWarning("Magic type " + data.type + " unrecognized.");
