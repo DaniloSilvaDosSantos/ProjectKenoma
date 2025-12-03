@@ -10,7 +10,7 @@ public class UltimateBlackHole : MonoBehaviour
     private float currentScale;
     private float currentAlpha = 1f;
 
-    private Material sphereMaterial;
+    [SerializeField] private Material sphereMaterial;
     private HashSet<HealthSystem> damagedEnemies = new HashSet<HealthSystem>();
 
     public void Initialize(MagicData magicData, PlayerController caster)
@@ -21,9 +21,6 @@ public class UltimateBlackHole : MonoBehaviour
 
     private void Start()
     {
-        Renderer r = GetComponent<Renderer>();
-        if (r != null) sphereMaterial = r.material;
-
         currentScale = data.prefabStartScale;
         transform.localScale = Vector3.one * currentScale;
 
@@ -43,35 +40,37 @@ public class UltimateBlackHole : MonoBehaviour
 
         currentScale = data.prefabFinalScale;
 
-        float t = 0f;
+        float time = 0f;
 
-        while (t < data.ultimateDuration)
+        while (time < data.ultimateDuration)
         {
-            t += Time.deltaTime;
+            time += Time.deltaTime;
             yield return null;
         }
 
-        t = 0f;
-        while (currentScale > data.prefabStartScale || currentAlpha > 0f)
+        Explode();
+
+        //time = 0f;
+        while (currentScale > data.prefabStartScale /* || currentAlpha > 0f*/)
         {
             currentScale -= data.prefabGrowSpeed * Time.deltaTime;
             currentScale = Mathf.Max(currentScale, data.prefabStartScale);
             transform.localScale = Vector3.one * currentScale;
 
-            if (sphereMaterial != null)
+            /*if (sphereMaterial != null)
             {
                 currentAlpha -= data.prefabFadeSpeed * Time.deltaTime;
                 currentAlpha = Mathf.Clamp01(currentAlpha);
 
-                Color c = sphereMaterial.color;
-                c.a = currentAlpha;
-                sphereMaterial.color = c;
-            }
+                Color color = sphereMaterial.color;
+                color.a = currentAlpha;
+                sphereMaterial.color = color;
+            }*/
 
             yield return null;
         }
 
-        Debug.Log("Ples");
+        Explode();
 
         EndUltimate();
         Destroy(gameObject);

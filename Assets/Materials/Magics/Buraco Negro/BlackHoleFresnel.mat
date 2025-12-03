@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fresnel
+  m_Name: BlackHoleFresnel
   m_Shader: {fileID: -6465566751694194690, guid: 75230cb8d7d827d439b2e7acbc3591de, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
