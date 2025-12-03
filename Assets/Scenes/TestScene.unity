@@ -37172,6 +37172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8847821268409513059, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
+      propertyPath: deathParticlesPrefab
+      value: 
+      objectReference: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
