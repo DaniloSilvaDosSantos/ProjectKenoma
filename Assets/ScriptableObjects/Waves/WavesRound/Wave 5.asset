@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Wave 5
   m_EditorClassIdentifier: 
   numberOfRounds: 4
-  roundDelay: 15
+  roundDelay: 10
   enemiesToSpawn:
   - enemy: {fileID: 11400000, guid: dfd6ebe25cb0f3c49acd98ce4ee6bbad, type: 2}
-    count: 20
-  - enemy: {fileID: 11400000, guid: 6c17c208ddea76943b1007df4200c3dc, type: 2}
     count: 40
+  - enemy: {fileID: 11400000, guid: 6c17c208ddea76943b1007df4200c3dc, type: 2}
+    count: 80

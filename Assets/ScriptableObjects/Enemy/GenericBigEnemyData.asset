@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de053acfe5551b4e91523e3c31d4697, type: 3}
   m_Name: GenericBigEnemyData
   m_EditorClassIdentifier: 
-  maxHealth: 14
-  startingHealth: 14
-  movementSpeed: 4
+  maxHealth: 18
+  startingHealth: 18
+  movementSpeed: 8
   gravity: -9.81
   enemyPrefab: {fileID: 7513506072273049954, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
-  damage: 10
+  damage: 25
   attackCooldown: 3
-  attackRange: 4
-  xpValue: 10
+  attackRange: 5
+  xpValue: 15
   xpDropCount: 2
