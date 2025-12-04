@@ -12,6 +12,8 @@ public class EnemyAttackState : EnemyBaseState
     {
         //Debug.Log("Enemy is attacking");
 
+        controller.animator.SetBool("isAttacking", true);
+
         attackTimer = 0f;
 
         //isAttacking = true;
@@ -44,6 +46,7 @@ public class EnemyAttackState : EnemyBaseState
 
             if (distance > controller.enemyData.attackRange)
             {
+                controller.animator.SetBool("isAttacking", false);
                 stateMachine.ChangeState(new EnemyChaseState(controller, stateMachine));
                 return;
             }
