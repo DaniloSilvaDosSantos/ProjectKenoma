@@ -16,6 +16,6 @@ MonoBehaviour:
   roundDelay: 15
   enemiesToSpawn:
   - enemy: {fileID: 11400000, guid: dfd6ebe25cb0f3c49acd98ce4ee6bbad, type: 2}
-    count: 50
+    count: 60
   - enemy: {fileID: 11400000, guid: 6c17c208ddea76943b1007df4200c3dc, type: 2}
-    count: 10
+    count: 35
