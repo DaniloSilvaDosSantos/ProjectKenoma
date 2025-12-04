@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHealthValues:
   - 100
   - 110
-  - 120
+  - 130
   movementSpeedLevel: 0
   movementSpeedValues:
   - 10
