@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877ee63343a10a643a6508e696933f29, type: 3}
   m_Name: ConquestPointsData
   m_EditorClassIdentifier: 
-  conquestPointTimeToActivate: 10
+  conquestPointTimeToActivate: 60
   conquestPointActiveDuration: 60

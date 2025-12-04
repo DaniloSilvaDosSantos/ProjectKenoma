@@ -10,6 +10,8 @@ public class EnemyDeadState : EnemyBaseState
 
         if (controller.agent != null) controller.agent.isStopped = true;
 
+        controller.animator.SetBool("isDead", true);
+
         controller.isAlive = false;
         Object.Destroy(controller.gameObject, 2f);
 

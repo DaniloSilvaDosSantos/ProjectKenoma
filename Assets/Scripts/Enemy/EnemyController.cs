@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour, IEntityController
     public HealthSystem health;
     public EnemyStateMachine stateMachine;
     public Transform playerTarget;
+    public Animator animator;
 
     [Header("Runtime State")]
     public bool isAlive = true;

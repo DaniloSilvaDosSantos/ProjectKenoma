@@ -8,7 +8,7 @@ public class UltimateBlackHole : MonoBehaviour
     private PlayerController controller;
 
     private float currentScale;
-    private float currentAlpha = 1f;
+    //private float currentAlpha = 1f;
 
     [SerializeField] private Material sphereMaterial;
     private HashSet<HealthSystem> damagedEnemies = new HashSet<HealthSystem>();
