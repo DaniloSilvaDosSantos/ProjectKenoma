@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rigAction
+      name: animKnightDeath
       takeName: rigAction
       internalID: -1028859779161614970
       firstFrame: 0
