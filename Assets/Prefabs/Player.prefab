@@ -417,9 +417,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08472cf0f77f02243b9846ebb88c9ff4, type: 2}
   unlockedMagics:
   - {fileID: 11400000, guid: ba729b60ba4c5af4a81e9784fbf0099d, type: 2}
-  inputLevitationMagic: 49
-  inputAttractionMagic: 50
-  inputUltimateMagic: 51
+  selectedMagic: 0
+  minSelectedMagic: 0
+  maxSelectedMagic: 2
 --- !u!114 &7236273571665168297
 MonoBehaviour:
   m_ObjectHideFlags: 0

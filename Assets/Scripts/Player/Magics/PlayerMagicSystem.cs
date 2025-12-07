@@ -15,10 +15,11 @@ public class PlayerMagicSystem : MonoBehaviour
     private Dictionary<MagicData, float> cooldownTimers = new Dictionary<MagicData, float>();
     private Dictionary<MagicData, int> killCounters = new Dictionary<MagicData, int>();
 
-    [Header("Inputs To Cast The Magics")]
-    [SerializeField] private KeyCode inputLevitationMagic = KeyCode.Alpha1;
-    [SerializeField] private KeyCode inputAttractionMagic = KeyCode.Alpha2;
-    [SerializeField] private KeyCode inputUltimateMagic = KeyCode.Alpha3;
+    [Header("Magic Selection")]
+    [SerializeField] private int selectedMagic = 0;
+
+    [SerializeField] private int minSelectedMagic = (int)MagicType.MagicLevitation;
+    [SerializeField] private int maxSelectedMagic = (int)MagicType.MagicUltimate;
 
     private void Start()
     {
@@ -30,16 +31,54 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             cooldownTimers[magic] = 0f;
             killCounters[magic] = 0;
-        } 
+        }
+
+        selectedMagic = FindNextUnlockedMagic(startIndex: minSelectedMagic, direction: +1);
     }
 
     private void Update()
     {
         UpdateCooldowns();
 
-        if (Input.GetKeyDown(inputLevitationMagic)) TryCastMagic(MagicType.MagicLevitation);
-        if (Input.GetKeyDown(inputAttractionMagic)) TryCastMagic(MagicType.MagicAttraction);
-        if (Input.GetKeyDown(inputUltimateMagic)) TryCastMagic(MagicType.MagicUltimate);
+        HandleMagicSelectionScroll();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            TryCastMagic((MagicType)selectedMagic);
+        }
+    }
+
+    private void HandleMagicSelectionScroll()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll == 0f) return;
+
+        int direction = scroll > 0 ? +1 : -1;
+
+        selectedMagic = FindNextUnlockedMagic(selectedMagic + direction, direction);
+    }
+
+    private int FindNextUnlockedMagic(int startIndex, int direction)
+    {
+        int index = startIndex;
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (index > maxSelectedMagic) index = minSelectedMagic;
+            if (index < minSelectedMagic) index = maxSelectedMagic;
+
+            MagicType type = (MagicType)index;
+
+            MagicData magic = unlockedMagics.Find(m => m.type == type);
+            if (magic != null)
+            {
+                return index;
+            }
+
+            index += direction;
+        }
+
+        return minSelectedMagic;
     }
 
     private void UpdateCooldowns()
