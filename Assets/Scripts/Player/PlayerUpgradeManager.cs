@@ -99,6 +99,7 @@ public class PlayerUpgradeManager : MonoBehaviour
         playerUpgradesDB.shotgunDamageLevel = 0;
 
         magicUpgradesDB.levitationLevel = 0;
+        magicUpgradesDB.attractionLevel = 0;
 
         ApplyAllInitialValues();
     }
