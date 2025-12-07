@@ -10,13 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f69b6badd1b0e3a458b3414f848c8390, type: 3}
-  m_Name: SFXMagicLevitation
+  m_Name: SFXMagicAttraction
   m_EditorClassIdentifier: 
-  soundID: SFX/MagicLevitation
+  soundID: SFX/MagicAttraction
   type: 1
   clips:
-  - clip: {fileID: 8300000, guid: 55ab3b86640256048915ac46175c0a2d, type: 3}
-    weight: 0
+  - clip: {fileID: 8300000, guid: 1c4b502dc9d912446b8986743dbd0c89, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.9
+    maxVolume: 1
+    minPitch: 0.9
+    maxPitch: 1.1
+  - clip: {fileID: 8300000, guid: 5e15e08ad5d16bb47a9bcb5dca7a2d04, type: 3}
+    weight: 1
     loop: 0
     useLoopPoints: 0
     loopStart: 0
