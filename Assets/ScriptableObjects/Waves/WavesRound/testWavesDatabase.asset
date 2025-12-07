@@ -16,6 +16,7 @@ MonoBehaviour:
   maxSpawnDist: 60
   maxAliveEnemies: 80
   waves:
+  - {fileID: 11400000, guid: 54b69b24ef168be41bc3503099e13a54, type: 2}
   - {fileID: 11400000, guid: e8d66c2fa1494f644814e94a125e9aad, type: 2}
   - {fileID: 11400000, guid: 4db0bc8835476654ea0a6231d7c2c1be, type: 2}
   - {fileID: 11400000, guid: ebbf1b8454a6a3545b46f329f8a4a9b9, type: 2}
