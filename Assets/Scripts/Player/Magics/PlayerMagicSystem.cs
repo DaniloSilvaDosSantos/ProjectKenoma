@@ -96,7 +96,8 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             if (cooldownTimers[magic] > 0f)
             {
-                Debug.Log(magic.magicName + "still is in cooldown: " + cooldownTimers[magic]);
+                //Debug.Log(magic.magicName + "still is in cooldown: " + cooldownTimers[magic]);
+                controller.handAnimatorController.PlayFailedCast();
                 return;
             }
         }
@@ -105,8 +106,9 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             if (killCounters[magic] < magic.killsRequired)
             {
-                int remaining = magic.killsRequired - killCounters[magic];
-                Debug.Log(magic.magicName + " requires "+ remaining +" more kills.");
+                //int remaining = magic.killsRequired - killCounters[magic];
+                //Debug.Log(magic.magicName + " requires "+ remaining +" more kills.");
+                controller.handAnimatorController.PlayFailedCast();
                 return;
             }
         }
@@ -131,12 +133,15 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             case MagicType.MagicLevitation:
                 magicBehaviour = gameObject.AddComponent<MagicLevitation>();
+                controller.handAnimatorController.PlayCast();
                 break;
             case MagicType.MagicAttraction:
                 magicBehaviour = gameObject.AddComponent<MagicAttraction>();
+                controller.handAnimatorController.PlayCast();
                 break;
             case MagicType.MagicUltimate:
                 magicBehaviour = gameObject.AddComponent<MagicUltimate>();
+                controller.handAnimatorController.PlayUltimateCast();
                 break;
             default:
                 Debug.LogWarning("Magic type " + data.type + " unrecognized.");

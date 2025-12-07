@@ -305,6 +305,7 @@ MonoBehaviour:
   playerMovement: {fileID: 7267059672755843112}
   playerCamera: {fileID: 1850812739175154271}
   cameraAnimator: {fileID: 3567908685451967251}
+  handAnimatorController: {fileID: 1816950739058631230}
   gameOverMenu: {fileID: 0}
   movement: {fileID: 0}
   cameraLook: {fileID: 0}
@@ -349,8 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShakeSystem: {fileID: 9141712538687420456}
   audioSource: {fileID: 7409776198282123403}
-  spawnDamageParticles: 1
+  spawnParticles: 1
   damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
+  deathParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
   maxHealth: 0
   currentHealth: 0
   isDamageDoubled: 0
@@ -1195,6 +1197,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 259724391480683535}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1816950739058631230}
   m_SourcePrefab: {fileID: 100100000, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
 --- !u!1 &3850610770341194493 stripped
 GameObject:
@@ -1237,6 +1242,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 5147051727332159997}
   FPS: 5
+--- !u!114 &1816950739058631230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850610770341194493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d156868e7627f44baabf9c1e8d4cd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handAnimator: {fileID: 5147051727332159997}
 --- !u!4 &4484405128694771783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}

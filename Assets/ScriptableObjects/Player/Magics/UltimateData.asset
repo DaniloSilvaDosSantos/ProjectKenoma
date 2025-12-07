@@ -16,7 +16,7 @@ MonoBehaviour:
   type: 2
   cooldownType: 1
   cooldown: 8
-  killsRequired: 0
+  killsRequired: 5
   range: 80
   prefab: {fileID: 2547859128948310518, guid: c0831b156dacdab4ab679049c3aa3914, type: 3}
   prefabStartScale: 0.01
