@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicName: Attraction
   type: 1
+  cooldownType: 0
   cooldown: 7
+  killsRequired: 50
   range: 40
   prefab: {fileID: 5107480015776808942, guid: 281a9b3b4f706ef45aada2935dad234e, type: 3}
   prefabStartScale: 0.01
@@ -26,6 +28,9 @@ MonoBehaviour:
   riseTime: 1
   liftHeight: 4
   attractionConeAngle: 40
-  attractionPullMinDistance: 4
+  attractionPullMinDistance: 6
   attractionStunDuration: 1
   attractionPullAnimationTime: 1
+  ultimateDamage: 9999
+  ultimateDuration: 3
+  ultimateDistanteFromPlayer: 20
