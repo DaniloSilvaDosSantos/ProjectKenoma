@@ -76,5 +76,13 @@ public class EnemyController : MonoBehaviour, IEntityController
             Destroy(gameObject, 1f);
         }
     }
+
+    public void EnemyAttackAnimationEvent()
+    {
+        if (stateMachine.CurrentState is EnemyAttackState attackState)
+        {
+            attackState.OnAttackAnimationEnd();
+        }
+    }
 }
 

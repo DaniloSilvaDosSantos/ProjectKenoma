@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyStateMachine : MonoBehaviour
 {
     private EnemyBaseState currentState;
-
+    public EnemyBaseState CurrentState => currentState;
     public EnemyController controller;
 
     public void Initialize(EnemyController controller)

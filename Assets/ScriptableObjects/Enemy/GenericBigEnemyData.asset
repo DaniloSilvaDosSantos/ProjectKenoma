@@ -18,7 +18,7 @@ MonoBehaviour:
   gravity: -9.81
   enemyPrefab: {fileID: 7513506072273049954, guid: c6dcc1d51a8b0af4f8f9ce5426459ce3, type: 3}
   damage: 25
-  attackCooldown: 3
+  attackCooldown: 1
   attackRange: 5
   xpValue: 15
   xpDropCount: 2

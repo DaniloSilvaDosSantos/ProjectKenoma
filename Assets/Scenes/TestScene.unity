@@ -15292,6 +15292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVALEITO_Grande_Morte
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df07daa8b2738774faf332adfde9794d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: df07daa8b2738774faf332adfde9794d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -16135,6 +16139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVALEITO_Grande_Ataque2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6274ec81298a9c2488c7be3bd6c14384, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16333,6 +16341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVALEITO_Grande_Andando
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16470,6 +16482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: aporradamaoUltimateblend
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6890c0daffcb92c4980eaa226a82be56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16589,6 +16605,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 45bffa7679a40f94e999115290fead74, type: 3}
       propertyPath: m_Name
       value: CAVALEITO_Grande_Ataque1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 45bffa7679a40f94e999115290fead74, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21846,6 +21866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVALEITO_Morte
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db3f1fc1da5f0c4448ffc379d220a54b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: db3f1fc1da5f0c4448ffc379d220a54b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -22025,6 +22049,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9285cbe45443deb44a2cb7dc5d46ae49, type: 3}
       propertyPath: m_Name
       value: aporradamaoAtacando
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9285cbe45443deb44a2cb7dc5d46ae49, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27868,6 +27896,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a50c07b19151e294d869c5d69d9c641e, type: 3}
       propertyPath: m_Name
       value: CAVALEITO_Ataque2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a50c07b19151e294d869c5d69d9c641e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38162,6 +38194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVALEITO_Ataque1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 160b3e25167b1f047943baa84e00ec8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38241,6 +38277,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd1615270da6bb34fa186a7e197fecb4, type: 3}
       propertyPath: m_Name
       value: "aporradamaoFazendoN\xE3o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd1615270da6bb34fa186a7e197fecb4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
