@@ -21,7 +21,7 @@ public class UIUpgradeMenu : MonoBehaviour
         upgradeManager = FindAnyObjectByType<PlayerUpgradeManager>().GetComponent<PlayerUpgradeManager>();
     }
 
-    public void OpenMenu(bool conquestMenu = false)
+    public void OpenMenu(bool conquestMenu = false, bool firstTime = false)
     {
         if(upgradeManager == null)
         {
@@ -42,7 +42,7 @@ public class UIUpgradeMenu : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
 
-        GenerateOptions();
+        GenerateOptions(firstTime);
     }
 
     public void CloseMenu()
@@ -55,7 +55,7 @@ public class UIUpgradeMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void GenerateOptions()
+    void GenerateOptions(bool forbidSpecial = false)
     {
         List<System.Enum> availableUpgrades = new List<System.Enum>();
 
@@ -74,9 +74,12 @@ public class UIUpgradeMenu : MonoBehaviour
             }
         }
 
-        foreach (SpecialUpgradeType type in System.Enum.GetValues(typeof(SpecialUpgradeType)))
+        if(!forbidSpecial)
         {
-            availableUpgrades.Add(type);
+            foreach (SpecialUpgradeType type in System.Enum.GetValues(typeof(SpecialUpgradeType)))
+            {
+                availableUpgrades.Add(type);
+            }
         }
 
         // Choicing The Upgrade Options

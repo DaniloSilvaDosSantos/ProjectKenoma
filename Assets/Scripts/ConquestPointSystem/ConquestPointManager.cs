@@ -9,6 +9,7 @@ public class ConquestPointManager : MonoBehaviour
     [SerializeField] private UIUpgradeMenu upgradeMenu;
     [SerializeField] private ConquestPointsData conquestPointsDB;
     [SerializeField] private ConquestPointBehaviour conquestPoint;
+    [SerializeField] private WavesAndRoundSystem wavesSystem;
 
     [Header("SpawnPointsLocations")]
     [SerializeField] private List<Transform> spawnPoints;
@@ -16,10 +17,15 @@ public class ConquestPointManager : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float timeToActivate = 30f;
     [SerializeField] private float activeDuration = 15f;
+    [SerializeField] private bool firstInteractionDone = false;
+    
 
     private void Start()
     {
         upgradeMenu = FindAnyObjectByType<UIUpgradeMenu>().GetComponent<UIUpgradeMenu>();
+        wavesSystem = FindAnyObjectByType<WavesAndRoundSystem>().GetComponent<WavesAndRoundSystem>();
+
+        if(wavesSystem != null) wavesSystem.allowWaves = false;
 
         if (conquestPointsDB != null)
         {
@@ -32,7 +38,8 @@ public class ConquestPointManager : MonoBehaviour
         }
 
         conquestPoint.Init(this);
-        StartCoroutine(Loop());
+
+        ActivatePointFirstTime();
     }
 
     IEnumerator Loop()
@@ -47,6 +54,11 @@ public class ConquestPointManager : MonoBehaviour
 
             DeactivatePoint();
         }
+    }
+
+    private void ActivatePointFirstTime()
+    {
+        conquestPoint.SetActiveVisual(true);
     }
 
     void ActivatePoint()
@@ -68,7 +80,22 @@ public class ConquestPointManager : MonoBehaviour
     public void PlayerInteractedWithPoint()
     {
         DeactivatePoint();
-        upgradeMenu.OpenMenu(true);
+
+        if (!firstInteractionDone)
+        {
+            firstInteractionDone = true;
+
+            if (wavesSystem != null) wavesSystem.allowWaves = true;
+
+            StartCoroutine(Loop());
+
+
+            upgradeMenu.OpenMenu(conquestMenu: true, firstTime:true);
+            return;
+        }
+
+        upgradeMenu.OpenMenu(conquestMenu: true, firstTime:false);
     }
 }
+
 
