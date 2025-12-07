@@ -251,8 +251,8 @@ MonoBehaviour:
   - {fileID: 471454946588927453}
   - {fileID: 4367876759347537834}
   - {fileID: 6235827870451438771}
-  flashColor: {r: 1, g: 0, b: 0.8257227, a: 1}
-  flashDuration: 0.2
+  flashColor: {r: 0.509434, g: 0, b: 0.027968984, a: 1}
+  flashDuration: 0.5
 --- !u!114 &7829463482154673100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,13 +441,53 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5800155244629423241, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5800155244629423241, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ba8e4dd8067d3464c99d26e22eeec04d, type: 2}
+    - target: {fileID: -5800155244629423241, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c792d62cbbe1ac42888ec3412c39c53, type: 2}
+    - target: {fileID: -5346150186667444753, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5346150186667444753, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c792d62cbbe1ac42888ec3412c39c53, type: 2}
+    - target: {fileID: -4209043603712133010, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4209043603712133010, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c792d62cbbe1ac42888ec3412c39c53, type: 2}
+    - target: {fileID: -35650395501282791, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -35650395501282791, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c792d62cbbe1ac42888ec3412c39c53, type: 2}
     - target: {fileID: 919132149155446097, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
       propertyPath: m_Name
       value: CAVALEITO_Grande_Andando
       objectReference: {fileID: 0}
+    - target: {fileID: 8790001992177007483, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790001992177007483, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c792d62cbbe1ac42888ec3412c39c53, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
