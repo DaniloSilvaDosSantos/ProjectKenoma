@@ -10,6 +10,8 @@ public class ConquestPointManager : MonoBehaviour
     [SerializeField] private ConquestPointsData conquestPointsDB;
     [SerializeField] private ConquestPointBehaviour conquestPoint;
     [SerializeField] private WavesAndRoundSystem wavesSystem;
+    [Space]
+    [SerializeField] private GameObject handAura; 
 
     [Header("SpawnPointsLocations")]
     [SerializeField] private List<Transform> spawnPoints;
@@ -38,6 +40,8 @@ public class ConquestPointManager : MonoBehaviour
         }
 
         conquestPoint.Init(this);
+
+        if (!firstInteractionDone && handAura != null) handAura.SetActive(false);
 
         ActivatePointFirstTime();
     }
@@ -85,6 +89,8 @@ public class ConquestPointManager : MonoBehaviour
         {
             firstInteractionDone = true;
 
+            Invoke("ActivateHandAura", 0.1f);
+
             if (wavesSystem != null) wavesSystem.allowWaves = true;
 
             StartCoroutine(Loop());
@@ -95,6 +101,11 @@ public class ConquestPointManager : MonoBehaviour
         }
 
         upgradeMenu.OpenMenu(conquestMenu: true, firstTime:false);
+    }
+
+    private void ActivateHandAura()
+    {
+        if (handAura != null) handAura.SetActive(true);
     }
 }
 
