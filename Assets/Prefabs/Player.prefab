@@ -492,6 +492,7 @@ MonoBehaviour:
   levitationMagicData: {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
   attractionMagicData: {fileID: 11400000, guid: 060147162db40794399a1088c188d864, type: 2}
   magicUpgradesDB: {fileID: 11400000, guid: 3390661ec5155b44689f1ec1958e4d59, type: 2}
+  specialUpgradeData: {fileID: 11400000, guid: 6bdce14016d734a4398f8c1aba3137d5, type: 2}
   playerHealthSystem: {fileID: 8847821268409513059}
   playerMagicSystem: {fileID: 2092688555025091544}
   isDebugEnable: 1
