@@ -74,6 +74,11 @@ public class UIUpgradeMenu : MonoBehaviour
             }
         }
 
+        foreach (SpecialUpgradeType type in System.Enum.GetValues(typeof(SpecialUpgradeType)))
+        {
+            availableUpgrades.Add(type);
+        }
+
         // Choicing The Upgrade Options
         int maxUpgradeOptions = Mathf.Min(upgradesPerRoll, availableUpgrades.Count);
 
@@ -105,6 +110,12 @@ public class UIUpgradeMenu : MonoBehaviour
 
     void ApplyUpgrade(System.Enum upgrade)
     {
+        if (upgrade is SpecialUpgradeType special)
+        {
+            upgradeManager.ApplySpecialUpgrade(special);
+            return;
+        }
+
         if (!isConquestMenu)
         {
             upgradeManager.ApplyPlayerUpgrade((PlayerUpgradeType)upgrade);

@@ -493,7 +493,7 @@ MonoBehaviour:
   - {fileID: 782820838583555537}
   - {fileID: 6974650624800384712}
   flashColor: {r: 0.5943396, g: 0.014017441, b: 0.014017441, a: 1}
-  flashDuration: 0.5
+  flashDuration: 1
 --- !u!1 &8033995504994620441
 GameObject:
   m_ObjectHideFlags: 0

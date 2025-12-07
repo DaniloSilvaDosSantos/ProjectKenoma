@@ -15,6 +15,11 @@ public enum ConquestUpgradeType
     Attraction
 }
 
+public enum SpecialUpgradeType
+{
+    RecoverHealth
+}
+
 [RequireComponent(typeof(HealthSystem))]
 public class PlayerUpgradeManager : MonoBehaviour
 {
@@ -223,6 +228,17 @@ public class PlayerUpgradeManager : MonoBehaviour
             attractionMagicData.attractionConeAngle = magicUpgradesDB.attractionConeAngleValues[newLevel];
             attractionMagicData.range = magicUpgradesDB.attractionRangeValues[newLevel];
             attractionMagicData.attractionStunDuration = magicUpgradesDB.attractionStunDurationValues[newLevel];
+        }
+    }
+
+    public void ApplySpecialUpgrade(SpecialUpgradeType type)
+    {
+        switch (type)
+        {
+            case SpecialUpgradeType.RecoverHealth:
+                float healAmount = playerStats.maxHealth * 0.30f;
+                playerHealthSystem.Heal(healAmount);
+                break;
         }
     }
 
