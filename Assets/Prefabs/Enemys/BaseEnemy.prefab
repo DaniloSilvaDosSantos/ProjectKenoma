@@ -218,6 +218,7 @@ MonoBehaviour:
   stateMachine: {fileID: 4031686677890792304}
   playerTarget: {fileID: 0}
   animator: {fileID: 3574643399269591129}
+  audioSource: {fileID: 4523757556733281154}
   isAlive: 1
   isFreezed: 0
 --- !u!114 &4031686677890792304
@@ -278,7 +279,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 40
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

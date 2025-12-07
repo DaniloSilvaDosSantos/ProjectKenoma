@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour, IEntityController
     public EnemyStateMachine stateMachine;
     public Transform playerTarget;
     public Animator animator;
+    public AudioSource audioSource;
 
     [Header("Runtime State")]
     public bool isAlive = true;
