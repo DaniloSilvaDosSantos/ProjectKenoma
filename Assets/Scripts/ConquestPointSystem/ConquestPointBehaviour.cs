@@ -5,6 +5,7 @@ public class ConquestPointBehaviour : MonoBehaviour, IInteractable
     [Header("References")]
     [SerializeField] private Renderer conquestPointRenderer;
     [SerializeField] private Collider conquestPointCollider;
+    [SerializeField] private ConquestPointFlash flash;
 
     private ConquestPointManager conquestPointManager;
 
@@ -12,6 +13,7 @@ public class ConquestPointBehaviour : MonoBehaviour, IInteractable
     {
         conquestPointRenderer = GetComponentInChildren<Renderer>();
         conquestPointCollider = GetComponentInChildren<Collider>();
+        flash = GetComponentInChildren<ConquestPointFlash>();
 
         SetActiveVisual(false);
     }
@@ -25,6 +27,12 @@ public class ConquestPointBehaviour : MonoBehaviour, IInteractable
     {
         if (conquestPointRenderer != null) conquestPointRenderer.enabled = state;
         if (conquestPointCollider != null) conquestPointCollider.enabled = state;
+
+        if (flash != null)
+        {
+            if (state) flash.StartFlash();
+            else flash.StopFlash();
+        }
     }
 
     public void OnInteracted()

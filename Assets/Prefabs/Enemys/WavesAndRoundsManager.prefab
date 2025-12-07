@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 0}
   player: {fileID: 0}
   minSpawnDist: 20
-  maxSpawnDist: 100
+  maxSpawnDist: 150
   maxAliveEnemies: 80
   currentWaveIndex: 0
   allowWaves: 0
