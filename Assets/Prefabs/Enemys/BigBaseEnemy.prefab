@@ -216,6 +216,7 @@ MonoBehaviour:
   health: {fileID: 113978847848214760}
   stateMachine: {fileID: 879300166461847113}
   playerTarget: {fileID: 0}
+  animator: {fileID: 3474959244548441238}
   isAlive: 1
   isFreezed: 0
 --- !u!114 &879300166461847113
@@ -457,6 +458,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9211545642930941178}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1392886683855561006}
   m_SourcePrefab: {fileID: 100100000, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
 --- !u!137 &69794646060704959 stripped
 SkinnedMeshRenderer:
@@ -524,6 +528,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 3474959244548441238}
   FPS: 5
+--- !u!114 &1392886683855561006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487807761047790229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c52ef2b7469a44c876e3ecb7a18386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2814296184921301263}
 --- !u!4 &9115585385890510895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fcaa3ce6a881548499fcf9fe28a26f5d, type: 3}
