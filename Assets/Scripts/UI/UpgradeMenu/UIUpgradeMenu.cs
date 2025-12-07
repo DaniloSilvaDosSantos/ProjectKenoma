@@ -96,11 +96,11 @@ public class UIUpgradeMenu : MonoBehaviour
         foreach (var upgrade in chosenUpgrades)
         {
             GameObject upgradeObject = Instantiate(upgradeOptionPrefab, upgradeOptionsHolder);
-            UIUpgradeOption ui = upgradeObject.GetComponent<UIUpgradeOption>();
+            UIUpgradeOption uiUpgradeOption = upgradeObject.GetComponent<UIUpgradeOption>();
 
             string title = StringUtils.SplitPascalCase(upgrade.ToString());
 
-            ui.Setup(
+            uiUpgradeOption.Setup(
                 title,
                 () => 
                 {

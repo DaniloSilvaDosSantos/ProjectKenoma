@@ -5,6 +5,9 @@ public class PlayerMagicSystem : MonoBehaviour
 {
     [Header("References")]
     public PlayerController controller;
+    [Space]
+    [SerializeField] private DialogBoxSystem dialogBox;
+    [SerializeField] private List<DialogData> dialogData = new List<DialogData>();
     
     [Header("Magics Controll Variables")]
     [SerializeField] private List<MagicData> unlockedMagics = new List<MagicData>();
@@ -20,6 +23,8 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<PlayerController>();
+
+        dialogBox = FindAnyObjectByType<DialogBoxSystem>().GetComponent<DialogBoxSystem>();
 
         foreach (var magic in unlockedMagics)
         {
@@ -66,7 +71,9 @@ public class PlayerMagicSystem : MonoBehaviour
 
         if (!cooldownTimers.ContainsKey(magic)) cooldownTimers[magic] = 0f;
 
-        Debug.Log("Magic unlocked: " + magic.magicName);
+        //Debug.Log("Magic unlocked: " + magic.magicName);
+
+        if(dialogBox != null) AwakeDialogBox(magic);
     }
 
     public void LockMagic(MagicData magic)
@@ -153,5 +160,20 @@ public class PlayerMagicSystem : MonoBehaviour
         Destroy(magicBehaviour, 0.1f);
     }
 
+    private void AwakeDialogBox(MagicData magic)
+    {
+        DialogData selectedDialog;
+
+        if(magic.magicName == "Levitation")
+        {
+           selectedDialog = dialogData[(int)MagicType.MagicLevitation];
+           dialogBox.StartDialog(selectedDialog); 
+        }
+        else if(magic.magicName == "Attraction")
+        {
+           selectedDialog = dialogData[(int)MagicType.MagicAttraction];
+           dialogBox.StartDialog(selectedDialog); 
+        }  
+    }
 }
 

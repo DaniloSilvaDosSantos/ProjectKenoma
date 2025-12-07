@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerUpgradeType
@@ -27,7 +25,6 @@ public class PlayerUpgradeManager : MonoBehaviour
     [SerializeField] private SpecialUpgradeData specialUpgradeData;
     [SerializeField] private HealthSystem playerHealthSystem;
     [SerializeField] private PlayerMagicSystem playerMagicSystem;
-    [Space]
 
     [Header("Debug")]
     [SerializeField] public bool isDebugEnable;
