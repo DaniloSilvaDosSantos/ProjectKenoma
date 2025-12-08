@@ -3,9 +3,6 @@ using UnityEngine.Events;
 
 public class PlayerLevelSystem : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private UIUpgradeMenu upgradeMenu;
-
     [Header("Level Settings")]
     [SerializeField] private int currentLevel = 1;
     [SerializeField] private int maxLevel = 99;
@@ -17,12 +14,10 @@ public class PlayerLevelSystem : MonoBehaviour
     [Header("Events")]
     [SerializeField] public UnityEvent<int> OnLevelUp;
     [SerializeField] public UnityEvent<int> OnXpChanged;
-    [SerializeField] private UnityEvent OnUpgradeMenuRequested;
+    [SerializeField] public UnityEvent OnUpgradeMenuRequested;
 
     private void Start()
     {
-        upgradeMenu = FindAnyObjectByType<UIUpgradeMenu>().GetComponent<UIUpgradeMenu>();
-
         xpNeededForNextLevel = GetRequiredXpUntilLevel(currentLevel + 1);
     }
 
@@ -38,7 +33,7 @@ public class PlayerLevelSystem : MonoBehaviour
 
     private void CheckLevelUp()
     {
-        while (totalXp >= xpNeededForNextLevel && currentLevel < maxLevel)
+        while (currentLevel < maxLevel && totalXp >= xpNeededForNextLevel)
         {
             LevelUp();
         }
@@ -52,8 +47,6 @@ public class PlayerLevelSystem : MonoBehaviour
         xpNeededForNextLevel = GetRequiredXpUntilLevel(currentLevel + 1);
 
         OnUpgradeMenuRequested?.Invoke();
-
-        upgradeMenu.OpenMenu(false);
     }
 
     private int CalculateXpNeeded(int level)
@@ -61,7 +54,7 @@ public class PlayerLevelSystem : MonoBehaviour
         return 10 * level * level + 15 * level;
     }
 
-    // Helpers For The HUD XP Bar
+
     public int GetTotalXP() => totalXp;
 
     public int GetCurrentLevel() => currentLevel;
@@ -87,4 +80,3 @@ public class PlayerLevelSystem : MonoBehaviour
         return CalculateXpNeeded(currentLevel);
     }
 }
-

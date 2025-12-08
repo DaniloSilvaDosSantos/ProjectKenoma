@@ -44,7 +44,7 @@ public class EnemyAttackState : EnemyBaseState
 
         if (!startedAttackCycle && attackTimer >= controller.enemyData.attackCooldown)
         {
-            Debug.Log("peles");
+            //Debug.Log("peles");
 
             startedAttackCycle = true;
             controller.animator.SetBool("canAttack", true);

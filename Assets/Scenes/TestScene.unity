@@ -28204,6 +28204,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2990161256587304507, guid: 8e3ab634ca2840344b31a0cd341b5ef7, type: 3}
   m_PrefabInstance: {fileID: 4098231957436690209}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1894107519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4105231287162875836, guid: 8e3ab634ca2840344b31a0cd341b5ef7, type: 3}
+  m_PrefabInstance: {fileID: 4098231957436690209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38491efe99f1bbc4f844dabf297e9ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1918958996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38762,6 +38773,10 @@ PrefabInstance:
       propertyPath: levelSystem
       value: 
       objectReference: {fileID: 1395606916}
+    - target: {fileID: 1777846998433503020, guid: 42ac3cd9af89cb747ad57d8387abc3fb, type: 3}
+      propertyPath: upgradeMenu
+      value: 
+      objectReference: {fileID: 1894107519}
     - target: {fileID: 2031116473141612207, guid: 42ac3cd9af89cb747ad57d8387abc3fb, type: 3}
       propertyPath: m_Name
       value: ExperienceBar
