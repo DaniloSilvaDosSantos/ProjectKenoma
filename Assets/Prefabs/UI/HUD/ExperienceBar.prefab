@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 0}
+  m_AnchoredPosition: {x: -735, y: 0}
   m_SizeDelta: {x: 100, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4766412843578419498
@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 3885198137043245638}
   - component: {fileID: 1979761136658106933}
   - component: {fileID: 6363938599955925974}
+  - component: {fileID: 1777846998433503020}
   m_Layer: 5
   m_Name: ExperienceBar
   m_TagString: Untagged
@@ -333,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137257, g: 0.23137257, b: 0.23529413, a: 1}
+  m_Color: {r: 0.23137257, g: 0.23137257, b: 0.23529413, a: 0.54901963}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -350,6 +351,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1777846998433503020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031116473141612207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb626fec4ffe598478390d9e3704e87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSystem: {fileID: 0}
+  fillImage: {fileID: 3764710117341740716}
+  xpText: {fileID: 8572830493149015753}
+  levelText: {fileID: 5344652721658081653}
 --- !u!1 &3556105184484120111
 GameObject:
   m_ObjectHideFlags: 0
