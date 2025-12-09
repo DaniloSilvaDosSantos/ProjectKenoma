@@ -38749,6 +38749,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1972492818010388214, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2092688555025091544, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
       propertyPath: dialogBox
       value: 
@@ -38757,6 +38761,10 @@ PrefabInstance:
       propertyPath: ultimateHUD
       value: 
       objectReference: {fileID: 307557329}
+    - target: {fileID: 2267044315511680538, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2702417607829742533, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -38775,7 +38783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4546555340408488042, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4546555340408488042, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38821,6 +38829,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: cf018b7cc117bb340a9cd161e3613005, type: 2}
+    - target: {fileID: 6655379601327702022, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
+      propertyPath: m_Height
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
