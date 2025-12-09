@@ -364,9 +364,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSystem: {fileID: 0}
+  upgradeMenu: {fileID: 0}
   fillImage: {fileID: 3764710117341740716}
   xpText: {fileID: 8572830493149015753}
   levelText: {fileID: 5344652721658081653}
+  fillSpeed: 0.1
+  maxSpeedMultiplier: 5
+  menuOpenDelay: 0.05
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.25
 --- !u!1 &3556105184484120111
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7770684, g: 0.48220006, b: 0.7924528, a: 1}
+  m_Color: {r: 0.7296619, g: 0.25987896, b: 0.754717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

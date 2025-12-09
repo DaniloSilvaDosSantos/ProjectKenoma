@@ -76,7 +76,7 @@ public class ConquestPointManager : MonoBehaviour
 
     void DeactivatePoint()
     {
-        Debug.Log("Deactivating ConquestPoint");
+        //Debug.Log("Deactivating ConquestPoint");
 
         conquestPoint.SetActiveVisual(false);
     }

@@ -6,19 +6,32 @@ public class PlayerLevelSystem : MonoBehaviour
     [Header("Level Settings")]
     [SerializeField] private int currentLevel = 1;
     [SerializeField] private int maxLevel = 99;
+    public int pendingUpgradeMenus = 0;
 
     [Header("XP")]
     [SerializeField] private int totalXp = 0;
     [SerializeField] private int xpNeededForNextLevel;
 
     [Header("Events")]
-    [SerializeField] public UnityEvent<int> OnLevelUp;
-    [SerializeField] public UnityEvent<int> OnXpChanged;
-    [SerializeField] public UnityEvent OnUpgradeMenuRequested;
+    public UnityEvent<int> OnLevelUp;
+    public UnityEvent<int> OnXpChanged;
+    public UnityEvent OnUpgradeMenuRequested;
+
+    [SerializeField] public UnityEngine.Events.UnityEvent OnLevelUpVisual;
+
+    [Header("Debug")]
+    [SerializeField] private bool isDebug = false;
+    [SerializeField] private KeyCode inputXP = KeyCode.X;
 
     private void Start()
     {
         xpNeededForNextLevel = GetRequiredXpUntilLevel(currentLevel + 1);
+    }
+
+    void Update()
+    {
+        //DEBUG
+        if(isDebug && Input.GetKeyDown(inputXP)) AddXP(20);
     }
 
     public void AddXP(int amount)
@@ -44,9 +57,15 @@ public class PlayerLevelSystem : MonoBehaviour
         currentLevel++;
         OnLevelUp?.Invoke(currentLevel);
 
+        pendingUpgradeMenus++;
+
         xpNeededForNextLevel = GetRequiredXpUntilLevel(currentLevel + 1);
 
+        OnXpChanged?.Invoke(totalXp);
+
         OnUpgradeMenuRequested?.Invoke();
+
+        OnLevelUpVisual?.Invoke();
     }
 
     private int CalculateXpNeeded(int level)

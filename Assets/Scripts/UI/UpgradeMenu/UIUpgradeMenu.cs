@@ -23,6 +23,8 @@ public class UIUpgradeMenu : MonoBehaviour
 
     public void OpenMenu(bool conquestMenu = false, bool firstTime = false)
     {
+        Debug.Log("Opening The Upgrade Menu");
+
         if(upgradeManager == null)
         {
             Debug.Log("UIUpgradeMenu don't have a reference for the Player Upgrade Manager!");

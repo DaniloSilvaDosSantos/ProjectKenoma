@@ -37,7 +37,7 @@ public class ConquestPointBehaviour : MonoBehaviour, IInteractable
 
     public void OnInteracted()
     {
-        Debug.Log("Conquest Point Has Been Interacted.");
+        //Debug.Log("Conquest Point Has Been Interacted.");
 
         conquestPointManager.PlayerInteractedWithPoint();
     }
