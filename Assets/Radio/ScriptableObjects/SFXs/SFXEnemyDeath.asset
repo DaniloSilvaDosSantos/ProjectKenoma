@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SFXEnemyDeath
   m_EditorClassIdentifier: 
   soundID: SFX/EnemyDeath
-  type: 0
+  type: 1
   clips:
   - clip: {fileID: 8300000, guid: 8a59e99e826b0ca4dbd27fe398ef32a4, type: 3}
     weight: 1
