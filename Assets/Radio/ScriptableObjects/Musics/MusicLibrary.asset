@@ -15,3 +15,4 @@ MonoBehaviour:
   soundDatas:
   - {fileID: 11400000, guid: 4f26539d9f1908940b7768f4dc36ce01, type: 2}
   - {fileID: 11400000, guid: b4330d30ad37d3b40a9e4de92579dd25, type: 2}
+  - {fileID: 11400000, guid: 9802f1937164c854392a2a07cd4063ab, type: 2}
