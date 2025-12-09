@@ -8,6 +8,7 @@ public class PlayerMagicSystem : MonoBehaviour
     [Space]
     [SerializeField] private DialogBoxSystem dialogBox;
     [SerializeField] private List<DialogData> dialogData = new List<DialogData>();
+    public MagicAuraColorController auraController;
     
     [Header("Magics Controll Variables")]
     [SerializeField] private List<MagicData> unlockedMagics = new List<MagicData>();
@@ -34,6 +35,8 @@ public class PlayerMagicSystem : MonoBehaviour
         }
 
         selectedMagic = FindNextUnlockedMagic(startIndex: minSelectedMagic, direction: +1);
+
+        UpdateAuraColor();
     }
 
     private void Update()
@@ -56,6 +59,8 @@ public class PlayerMagicSystem : MonoBehaviour
         int direction = scroll > 0 ? +1 : -1;
 
         selectedMagic = FindNextUnlockedMagic(selectedMagic + direction, direction);
+
+        UpdateAuraColor();
     }
 
     private int FindNextUnlockedMagic(int startIndex, int direction)
@@ -213,6 +218,16 @@ public class PlayerMagicSystem : MonoBehaviour
            selectedDialog = dialogData[(int)MagicType.MagicAttraction];
            dialogBox.StartDialog(selectedDialog); 
         }  
+    }
+
+    private void UpdateAuraColor()
+    {
+        if (auraController == null) return;
+
+        MagicData magic = unlockedMagics.Find(m => m.type == (MagicType)selectedMagic);
+        if (magic == null) return;
+
+        auraController.SetAuraColor(magic.magicColor);
     }
 }
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicName: Levitation
   type: 0
+  magicColor: {r: 0.7382014, g: 0.019802418, b: 0.8396226, a: 1}
   cooldownType: 0
   cooldown: 8
   killsRequired: 50

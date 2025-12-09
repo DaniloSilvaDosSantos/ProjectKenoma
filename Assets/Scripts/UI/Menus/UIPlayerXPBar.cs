@@ -103,29 +103,20 @@ public class UIPlayerXPBar : MonoBehaviour
     {
         levelUpQueue.Enqueue(1);
 
-        if (state != XPBarState.LevelUpFillToFull &&
-            state != XPBarState.LevelUpWaitMenu &&
-            state != XPBarState.LevelUpReset)
+        if (state != XPBarState.LevelUpFillToFull && state != XPBarState.LevelUpWaitMenu && state != XPBarState.LevelUpReset)
         {
             StartCoroutine(ProcessLevelUps());
         }
     }
 
-    //====================================================
-    // PROCESSAMENTO DO LEVEL UP
-    //====================================================
-
     private IEnumerator ProcessLevelUps()
     {
         while (levelUpQueue.Count > 0)
         {
-            // 1) Encher barra até 1.0
             state = XPBarState.LevelUpFillToFull;
 
-            // Aguarda ela encher
             yield return new WaitUntil(() => visualFill >= 0.999f);
 
-            // 2) Abrir menu
             state = XPBarState.LevelUpWaitMenu;
 
             if (menuOpenDelay > 0)
@@ -133,18 +124,14 @@ public class UIPlayerXPBar : MonoBehaviour
 
             upgradeMenu.OpenMenu(false);
 
-            // Esperar o menu fechar
             yield return new WaitUntil(() => !upgradeMenu.upgradeMenuPanel.activeSelf);
 
-            levelSystem.pendingUpgradeMenus =
-                Mathf.Max(0, levelSystem.pendingUpgradeMenus - 1);
+            levelSystem.pendingUpgradeMenus = Mathf.Max(0, levelSystem.pendingUpgradeMenus - 1);
 
-            // 3) Resetar barra para o XP real
             RefreshFromRealXP();
             state = XPBarState.LevelUpReset;
 
-            yield return new WaitUntil(() =>
-                Mathf.Abs(visualFill - visualTargetFill) < 0.001f);
+            yield return new WaitUntil(() => Mathf.Abs(visualFill - visualTargetFill) < 0.001f);
 
             levelUpQueue.Dequeue();
         }
@@ -185,8 +172,7 @@ public class UIPlayerXPBar : MonoBehaviour
 
     private void TriggerFlash()
     {
-        if (flashRoutine != null)
-            StopCoroutine(flashRoutine);
+        if (flashRoutine != null) StopCoroutine(flashRoutine);
 
         flashRoutine = StartCoroutine(FlashEffect());
     }

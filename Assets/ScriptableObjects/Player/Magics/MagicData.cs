@@ -21,6 +21,9 @@ public class MagicData : ScriptableObject
     public string magicName = "Unnamed";
     public MagicType type = MagicType.Other;
 
+    [Header("Magic Visual Settings")]
+    public Color magicColor = Color.magenta;
+
     [Header("Cooldown Settings")]
     public MagicCooldownType cooldownType = MagicCooldownType.Time;
     public float cooldown = 8f;
