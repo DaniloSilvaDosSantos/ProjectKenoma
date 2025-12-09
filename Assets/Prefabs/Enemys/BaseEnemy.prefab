@@ -186,7 +186,7 @@ MonoBehaviour:
   audioSource: {fileID: 4523757556733281154}
   spawnParticles: 1
   damageParticlesPrefab: {fileID: 5757007380898165271, guid: 90acb89458c218447be3e15f021e3ebf, type: 3}
-  deathParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
+  deathParticlesPrefab: {fileID: 1166333995984005317, guid: 74469511cdce08141a3a5d7c2af81746, type: 3}
   maxHealth: 0
   currentHealth: 0
   isDamageDoubled: 0
