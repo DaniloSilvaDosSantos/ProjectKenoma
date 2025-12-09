@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 8829154427554173434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conquestPointRenderer: {fileID: 0}
   conquestPointCollider: {fileID: 1148753572671334000}
+  flash: {fileID: 0}
 --- !u!1001 &469794545153059152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ffc6d9bdd4fdbc742a3831c017a159af, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53fd1eb494c90cd43b505b8e0c31f078, type: 2}
     - target: {fileID: 919132149155446097, guid: ffc6d9bdd4fdbc742a3831c017a159af, type: 3}
       propertyPath: m_Name
       value: aporradamaoTotem
