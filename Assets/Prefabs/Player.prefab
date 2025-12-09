@@ -305,7 +305,6 @@ MonoBehaviour:
   playerMovement: {fileID: 7267059672755843112}
   playerCamera: {fileID: 1850812739175154271}
   cameraAnimator: {fileID: 3567908685451967251}
-  handAnimatorController: {fileID: 1816950739058631230}
   gameOverMenu: {fileID: 0}
   movement: {fileID: 0}
   cameraLook: {fileID: 0}
@@ -417,6 +416,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08472cf0f77f02243b9846ebb88c9ff4, type: 2}
   auraController: {fileID: 1160720496670689725}
   ultimateHUD: {fileID: 0}
+  handAnimatorController: {fileID: 1816950739058631230}
+  auraAnimatorController: {fileID: 4303055044077700355}
   unlockedMagics:
   - {fileID: 11400000, guid: ba729b60ba4c5af4a81e9784fbf0099d, type: 2}
   selectedMagic: 0
@@ -950,6 +951,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_Name
       value: AURA
@@ -976,6 +981,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1160720496670689725}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4303055044077700355}
   m_SourcePrefab: {fileID: 100100000, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
 --- !u!4 &2447655248128456938 stripped
 Transform:
@@ -1040,6 +1048,19 @@ MonoBehaviour:
   readyFlashColor: {r: 1, g: 1, b: 1, a: 1}
   readyScaleMultiplier: 1.005
   effectDuration: 1
+--- !u!114 &4303055044077700355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079338265055158864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d156868e7627f44baabf9c1e8d4cd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handAnimator: {fileID: 8067606647663182191}
 --- !u!137 &5957437160553470623 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}

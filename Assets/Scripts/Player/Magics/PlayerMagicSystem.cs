@@ -10,7 +10,9 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private List<DialogData> dialogData = new List<DialogData>();
     [SerializeField] private MagicAuraColorController auraController;
     [SerializeField] private HUDUltimateReady ultimateHUD;
-
+    [Space]
+    public PlayerHandAnimatorController handAnimatorController;
+    public PlayerHandAnimatorController auraAnimatorController;
     
     [Header("Magics Controll Variables")]
     [SerializeField] private List<MagicData> unlockedMagics = new List<MagicData>();
@@ -152,7 +154,8 @@ public class PlayerMagicSystem : MonoBehaviour
             if (cooldownTimers[magic] > 0f)
             {
                 //Debug.Log(magic.magicName + "still is in cooldown: " + cooldownTimers[magic]);
-                controller.handAnimatorController.PlayFailedCast();
+                handAnimatorController.PlayFailedCast();
+                auraAnimatorController.PlayFailedCast();
                 return;
             }
         }
@@ -163,7 +166,8 @@ public class PlayerMagicSystem : MonoBehaviour
             {
                 //int remaining = magic.killsRequired - killCounters[magic];
                 //Debug.Log(magic.magicName + " requires "+ remaining +" more kills.");
-                controller.handAnimatorController.PlayFailedCast();
+                handAnimatorController.PlayFailedCast();
+                auraAnimatorController.PlayFailedCast();
                 return;
             }
         }
@@ -189,15 +193,18 @@ public class PlayerMagicSystem : MonoBehaviour
         {
             case MagicType.MagicLevitation:
                 magicBehaviour = gameObject.AddComponent<MagicLevitation>();
-                controller.handAnimatorController.PlayCast();
+                handAnimatorController.PlayCast();
+                auraAnimatorController.PlayCast();
                 break;
             case MagicType.MagicAttraction:
                 magicBehaviour = gameObject.AddComponent<MagicAttraction>();
-                controller.handAnimatorController.PlayCast();
+                handAnimatorController.PlayCast();
+                auraAnimatorController.PlayCast();
                 break;
             case MagicType.MagicUltimate:
                 magicBehaviour = gameObject.AddComponent<MagicUltimate>();
-                controller.handAnimatorController.PlayUltimateCast();
+                handAnimatorController.PlayUltimateCast();
+                handAnimatorController.PlayUltimateCast();
                 break;
             default:
                 Debug.LogWarning("Magic type " + data.type + " unrecognized.");
