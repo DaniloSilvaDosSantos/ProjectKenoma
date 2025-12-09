@@ -8,7 +8,9 @@ public class PlayerMagicSystem : MonoBehaviour
     [Space]
     [SerializeField] private DialogBoxSystem dialogBox;
     [SerializeField] private List<DialogData> dialogData = new List<DialogData>();
-    public MagicAuraColorController auraController;
+    [SerializeField] private MagicAuraColorController auraController;
+    [SerializeField] private HUDUltimateReady ultimateHUD;
+
     
     [Header("Magics Controll Variables")]
     [SerializeField] private List<MagicData> unlockedMagics = new List<MagicData>();
@@ -43,6 +45,7 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         UpdateCooldowns();
         UpdateAuraColor();
+        UpdateUltimateHUD();
 
         HandleMagicSelectionScroll();
 
@@ -242,5 +245,23 @@ public class PlayerMagicSystem : MonoBehaviour
 
         auraController.SetAuraReadyState(isReady, magic.magicColor);
     }
+
+    private void UpdateUltimateHUD()
+    {
+        if (ultimateHUD == null) return;
+
+        MagicData ultimate = unlockedMagics.Find(m => m.type == MagicType.MagicUltimate);
+
+        if (ultimate == null)
+        {
+            ultimateHUD.SetHUDState(false);
+            return;
+        }
+
+        bool ready = IsMagicReady(ultimate);
+
+        ultimateHUD.SetHUDState(ready);
+    }
+
 }
 

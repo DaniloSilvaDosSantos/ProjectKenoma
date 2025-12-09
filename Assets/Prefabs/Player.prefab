@@ -416,6 +416,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a60f481916a28cd41858c8a85d840800, type: 2}
   - {fileID: 11400000, guid: 08472cf0f77f02243b9846ebb88c9ff4, type: 2}
   auraController: {fileID: 1160720496670689725}
+  ultimateHUD: {fileID: 0}
   unlockedMagics:
   - {fileID: 11400000, guid: ba729b60ba4c5af4a81e9784fbf0099d, type: 2}
   selectedMagic: 0
@@ -1037,8 +1038,8 @@ MonoBehaviour:
   auraRenderers:
   - {fileID: 5957437160553470623}
   readyFlashColor: {r: 1, g: 1, b: 1, a: 1}
-  readyScaleMultiplier: 1.1
-  effectSpeed: 2
+  readyScaleMultiplier: 1.005
+  effectDuration: 1
 --- !u!137 &5957437160553470623 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
