@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicName: Ultimate
   type: 2
+  magicColor: {r: 0.004983983, g: 0.004983983, b: 0.1509434, a: 1}
   cooldownType: 1
   cooldown: 8
-  killsRequired: 0
+  killsRequired: 50
   range: 80
   prefab: {fileID: 2547859128948310518, guid: c0831b156dacdab4ab679049c3aa3914, type: 3}
   prefabStartScale: 0.01

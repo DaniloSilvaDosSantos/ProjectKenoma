@@ -21,8 +21,10 @@ public class UIUpgradeMenu : MonoBehaviour
         upgradeManager = FindAnyObjectByType<PlayerUpgradeManager>().GetComponent<PlayerUpgradeManager>();
     }
 
-    public void OpenMenu(bool conquestMenu = false)
+    public void OpenMenu(bool conquestMenu = false, bool firstTime = false)
     {
+        Debug.Log("Opening The Upgrade Menu");
+
         if(upgradeManager == null)
         {
             Debug.Log("UIUpgradeMenu don't have a reference for the Player Upgrade Manager!");
@@ -42,7 +44,7 @@ public class UIUpgradeMenu : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
 
-        GenerateOptions();
+        GenerateOptions(firstTime);
     }
 
     public void CloseMenu()
@@ -55,7 +57,7 @@ public class UIUpgradeMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void GenerateOptions()
+    void GenerateOptions(bool forbidSpecial = false)
     {
         List<System.Enum> availableUpgrades = new List<System.Enum>();
 
@@ -74,6 +76,14 @@ public class UIUpgradeMenu : MonoBehaviour
             }
         }
 
+        if(!forbidSpecial)
+        {
+            foreach (SpecialUpgradeType type in System.Enum.GetValues(typeof(SpecialUpgradeType)))
+            {
+                availableUpgrades.Add(type);
+            }
+        }
+
         // Choicing The Upgrade Options
         int maxUpgradeOptions = Mathf.Min(upgradesPerRoll, availableUpgrades.Count);
 
@@ -88,11 +98,11 @@ public class UIUpgradeMenu : MonoBehaviour
         foreach (var upgrade in chosenUpgrades)
         {
             GameObject upgradeObject = Instantiate(upgradeOptionPrefab, upgradeOptionsHolder);
-            UIUpgradeOption ui = upgradeObject.GetComponent<UIUpgradeOption>();
+            UIUpgradeOption uiUpgradeOption = upgradeObject.GetComponent<UIUpgradeOption>();
 
             string title = StringUtils.SplitPascalCase(upgrade.ToString());
 
-            ui.Setup(
+            uiUpgradeOption.Setup(
                 title,
                 () => 
                 {
@@ -105,6 +115,12 @@ public class UIUpgradeMenu : MonoBehaviour
 
     void ApplyUpgrade(System.Enum upgrade)
     {
+        if (upgrade is SpecialUpgradeType special)
+        {
+            upgradeManager.ApplySpecialUpgrade(special);
+            return;
+        }
+
         if (!isConquestMenu)
         {
             upgradeManager.ApplyPlayerUpgrade((PlayerUpgradeType)upgrade);

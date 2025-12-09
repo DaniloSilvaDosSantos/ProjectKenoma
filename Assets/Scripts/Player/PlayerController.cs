@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour, IEntityController
     public PlayerMovement playerMovement;
     public Camera playerCamera;
     public Animator cameraAnimator;
-    [SerializeField] public GameOverMenu gameOverMenu;
+    public PlayerHandAnimatorController handAnimatorController;
+    public GameOverMenu gameOverMenu;
 
     [HideInInspector] public PlayerMovement movement;
     [HideInInspector] public PlayerCameraLook cameraLook;

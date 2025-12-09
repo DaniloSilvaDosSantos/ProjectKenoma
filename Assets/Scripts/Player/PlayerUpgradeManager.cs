@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerUpgradeType
@@ -24,9 +22,9 @@ public class PlayerUpgradeManager : MonoBehaviour
     [SerializeField] private MagicData levitationMagicData;
     [SerializeField] private MagicData attractionMagicData;
     [SerializeField] private MagicUpgradesData magicUpgradesDB;
+    [SerializeField] private SpecialUpgradeData specialUpgradeData;
     [SerializeField] private HealthSystem playerHealthSystem;
     [SerializeField] private PlayerMagicSystem playerMagicSystem;
-    [Space]
 
     [Header("Debug")]
     [SerializeField] public bool isDebugEnable;
@@ -98,6 +96,7 @@ public class PlayerUpgradeManager : MonoBehaviour
         playerUpgradesDB.shotgunDamageLevel = 0;
 
         magicUpgradesDB.levitationLevel = 0;
+        magicUpgradesDB.attractionLevel = 0;
 
         ApplyAllInitialValues();
     }
@@ -223,6 +222,17 @@ public class PlayerUpgradeManager : MonoBehaviour
             attractionMagicData.attractionConeAngle = magicUpgradesDB.attractionConeAngleValues[newLevel];
             attractionMagicData.range = magicUpgradesDB.attractionRangeValues[newLevel];
             attractionMagicData.attractionStunDuration = magicUpgradesDB.attractionStunDurationValues[newLevel];
+        }
+    }
+
+    public void ApplySpecialUpgrade(SpecialUpgradeType type)
+    {
+        switch (type)
+        {
+            case SpecialUpgradeType.RecoverHealth:
+                float healAmount = playerStats.maxHealth * specialUpgradeData.recoverHealthPercentage;
+                playerHealthSystem.Heal(healAmount);
+                break;
         }
     }
 

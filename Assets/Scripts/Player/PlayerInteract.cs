@@ -16,7 +16,7 @@ public class PlayerInteract: MonoBehaviour
             {
                 var interactable = hit.collider.GetComponentInParent<IInteractable>();
 
-                Debug.Log(interactable);
+                //Debug.Log(interactable);
 
                 if (interactable != null)
                 {

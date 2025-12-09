@@ -305,6 +305,7 @@ MonoBehaviour:
   playerMovement: {fileID: 7267059672755843112}
   playerCamera: {fileID: 1850812739175154271}
   cameraAnimator: {fileID: 3567908685451967251}
+  handAnimatorController: {fileID: 1816950739058631230}
   gameOverMenu: {fileID: 0}
   movement: {fileID: 0}
   cameraLook: {fileID: 0}
@@ -349,8 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShakeSystem: {fileID: 9141712538687420456}
   audioSource: {fileID: 7409776198282123403}
-  spawnDamageParticles: 1
+  spawnParticles: 1
   damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
+  deathParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
   maxHealth: 0
   currentHealth: 0
   isDamageDoubled: 0
@@ -409,11 +411,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3258466772067517662}
+  dialogBox: {fileID: 0}
+  dialogData:
+  - {fileID: 11400000, guid: a60f481916a28cd41858c8a85d840800, type: 2}
+  - {fileID: 11400000, guid: 08472cf0f77f02243b9846ebb88c9ff4, type: 2}
+  auraController: {fileID: 1160720496670689725}
+  ultimateHUD: {fileID: 0}
   unlockedMagics:
   - {fileID: 11400000, guid: ba729b60ba4c5af4a81e9784fbf0099d, type: 2}
-  inputLevitationMagic: 49
-  inputAttractionMagic: 50
-  inputUltimateMagic: 51
+  selectedMagic: 0
+  minSelectedMagic: 0
+  maxSelectedMagic: 2
 --- !u!114 &7236273571665168297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,9 +467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd12fd132e3a5540910e267ad1a38ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeMenu: {fileID: 0}
   currentLevel: 1
   maxLevel: 999
+  pendingUpgradeMenus: 0
   totalXp: 0
   xpNeededForNextLevel: 0
   OnLevelUp:
@@ -473,6 +481,11 @@ MonoBehaviour:
   OnUpgradeMenuRequested:
     m_PersistentCalls:
       m_Calls: []
+  OnLevelUpVisual:
+    m_PersistentCalls:
+      m_Calls: []
+  isDebug: 1
+  inputXP: 120
 --- !u!114 &6962988999362456633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +503,7 @@ MonoBehaviour:
   levitationMagicData: {fileID: 11400000, guid: 1cca23092e773bf41b284408a30f8cf2, type: 2}
   attractionMagicData: {fileID: 11400000, guid: 060147162db40794399a1088c188d864, type: 2}
   magicUpgradesDB: {fileID: 11400000, guid: 3390661ec5155b44689f1ec1958e4d59, type: 2}
+  specialUpgradeData: {fileID: 11400000, guid: 6bdce14016d734a4398f8c1aba3137d5, type: 2}
   playerHealthSystem: {fileID: 8847821268409513059}
   playerMagicSystem: {fileID: 2092688555025091544}
   isDebugEnable: 1
@@ -524,14 +538,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7073568658231221035}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4938573257770422295}
   m_Father: {fileID: 4546555340408488042}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
 --- !u!95 &3567908685451967251
 Animator:
   serializedVersion: 7
@@ -882,43 +896,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.106
+      value: 0.105999984
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.106
+      value: 0.10599999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.106
+      value: 0.10599999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.78
+      value: -0.78000045
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 0.6000034
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7385943
+      value: 0.73859423
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000027399512
+      value: -0.000027403232
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6725027
+      value: 0.67250276
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.047102887
+      value: -0.047102895
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -959,6 +973,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5992324238914563277}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1160720496670689725}
   m_SourcePrefab: {fileID: 100100000, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
 --- !u!4 &2447655248128456938 stripped
 Transform:
@@ -1006,6 +1023,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 8067606647663182191}
   FPS: 5
+--- !u!114 &1160720496670689725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079338265055158864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4455037cad4a446a1fa4283086d50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  auraRenderers:
+  - {fileID: 5957437160553470623}
+  readyFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  readyScaleMultiplier: 1.005
+  effectDuration: 1
+--- !u!137 &5957437160553470623 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
+  m_PrefabInstance: {fileID: 2773487327554330369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3828172075408671426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1195,6 +1234,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 259724391480683535}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1816950739058631230}
   m_SourcePrefab: {fileID: 100100000, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
 --- !u!1 &3850610770341194493 stripped
 GameObject:
@@ -1237,6 +1279,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 5147051727332159997}
   FPS: 5
+--- !u!114 &1816950739058631230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850610770341194493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d156868e7627f44baabf9c1e8d4cd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handAnimator: {fileID: 5147051727332159997}
 --- !u!4 &4484405128694771783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}

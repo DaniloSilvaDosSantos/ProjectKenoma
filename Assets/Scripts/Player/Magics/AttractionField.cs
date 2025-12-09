@@ -3,7 +3,10 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(SphereCollider))]
 public class AttractionField : MonoBehaviour
-{
+{    
+    [Header("References")]
+    [SerializeField] private AudioSource audioSource;
+
     private MagicData magicData;
     private Vector3 castDirection;
     private PlayerController player;
@@ -26,6 +29,8 @@ public class AttractionField : MonoBehaviour
 
     private void Start()
     {
+        Radio.Instance.PlaySFX("SFX/MagicAttraction", audioSource);
+
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.isTrigger = true;
 

@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: CastFailed
       takeName: idle
       internalID: -5252816984213320552
       firstFrame: 0

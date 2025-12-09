@@ -46,7 +46,7 @@ public class PlayerShotgun : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("Shooting");
+        //Debug.Log("Shooting");
 
         var data = controller.playerData;
 

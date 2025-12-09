@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee756cc2c506cdf459db56c8381a2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeMenu: {fileID: 0}
   conquestPointsDB: {fileID: 11400000, guid: cd82ce7f9eaa353409928ac8e5f52bd1, type: 2}
   conquestPoint: {fileID: 0}
+  wavesSystem: {fileID: 0}
+  handAura: {fileID: 0}
   spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -57,3 +57,4 @@ MonoBehaviour:
   - {fileID: 0}
   timeToActivate: 30
   activeDuration: 15
+  firstInteractionDone: 0

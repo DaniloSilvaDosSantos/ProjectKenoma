@@ -1,16 +1,20 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class UltimateBlackHole : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private Material sphereMaterial;
+
     private MagicData data;
     private PlayerController controller;
 
     private float currentScale;
-    private float currentAlpha = 1f;
-
-    [SerializeField] private Material sphereMaterial;
+    //private float currentAlpha = 1f;
+    
     private HashSet<HealthSystem> damagedEnemies = new HashSet<HealthSystem>();
 
     public void Initialize(MagicData magicData, PlayerController caster)
@@ -23,6 +27,8 @@ public class UltimateBlackHole : MonoBehaviour
     {
         currentScale = data.prefabStartScale;
         transform.localScale = Vector3.one * currentScale;
+
+        Radio.Instance.PlaySFX("SFX/MagicUltimate", audioSource);
 
         StartCoroutine(UltimateRoutine());
     }

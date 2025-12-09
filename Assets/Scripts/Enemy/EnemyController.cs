@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour, IEntityController
     public HealthSystem health;
     public EnemyStateMachine stateMachine;
     public Transform playerTarget;
+    public Animator animator;
+    public AudioSource audioSource;
 
     [Header("Runtime State")]
     public bool isAlive = true;
@@ -73,6 +75,14 @@ public class EnemyController : MonoBehaviour, IEntityController
         else
         {
             Destroy(gameObject, 1f);
+        }
+    }
+
+    public void EnemyAttackAnimationEvent()
+    {
+        if (stateMachine.CurrentState is EnemyAttackState attackState)
+        {
+            attackState.OnAttackAnimationEnd();
         }
     }
 }
