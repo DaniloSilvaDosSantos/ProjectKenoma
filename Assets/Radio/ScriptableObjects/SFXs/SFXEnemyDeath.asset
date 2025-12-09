@@ -15,7 +15,7 @@ MonoBehaviour:
   soundID: SFX/EnemyDeath
   type: 0
   clips:
-  - clip: {fileID: 8300000, guid: 39cae4eea63c5fc4794069fa8d202e18, type: 3}
+  - clip: {fileID: 8300000, guid: 8a59e99e826b0ca4dbd27fe398ef32a4, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 0.9
     maxPitch: 1.1
-  - clip: {fileID: 8300000, guid: eb4e5d885a4b74e4dacc33e3a7303e76, type: 3}
+  - clip: {fileID: 8300000, guid: f91b5977df26ddd4a980c30301fe311d, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     maxVolume: 1
     minPitch: 0.9
     maxPitch: 1.1
-  - clip: {fileID: 8300000, guid: 1020f81f729925846bbdd4e4fc5647a6, type: 3}
+  - clip: {fileID: 8300000, guid: 1775dc0b50826734e891ad62748720b3, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0
