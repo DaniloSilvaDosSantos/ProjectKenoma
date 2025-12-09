@@ -42,6 +42,7 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Update()
     {
         UpdateCooldowns();
+        UpdateAuraColor();
 
         HandleMagicSelectionScroll();
 
@@ -165,6 +166,7 @@ public class PlayerMagicSystem : MonoBehaviour
         }
 
         CastMagic(magic);
+        UpdateAuraColor();
 
         if (magic.cooldownType == MagicCooldownType.Time)
         {
@@ -204,6 +206,15 @@ public class PlayerMagicSystem : MonoBehaviour
         Destroy(magicBehaviour, 0.1f);
     }
 
+    private bool IsMagicReady(MagicData magic)
+    {
+        if (magic.cooldownType == MagicCooldownType.Time) return cooldownTimers[magic] <= 0f;
+
+        if (magic.cooldownType == MagicCooldownType.KillCount) return killCounters[magic] >= magic.killsRequired;
+
+        return false;
+    }
+
     private void AwakeDialogBox(MagicData magic)
     {
         DialogData selectedDialog;
@@ -227,7 +238,9 @@ public class PlayerMagicSystem : MonoBehaviour
         MagicData magic = unlockedMagics.Find(m => m.type == (MagicType)selectedMagic);
         if (magic == null) return;
 
-        auraController.SetAuraColor(magic.magicColor);
+        bool isReady = IsMagicReady(magic);
+
+        auraController.SetAuraReadyState(isReady, magic.magicColor);
     }
 }
 

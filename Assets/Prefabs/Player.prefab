@@ -415,15 +415,12 @@ MonoBehaviour:
   dialogData:
   - {fileID: 11400000, guid: a60f481916a28cd41858c8a85d840800, type: 2}
   - {fileID: 11400000, guid: 08472cf0f77f02243b9846ebb88c9ff4, type: 2}
+  auraController: {fileID: 1160720496670689725}
   unlockedMagics:
   - {fileID: 11400000, guid: ba729b60ba4c5af4a81e9784fbf0099d, type: 2}
   selectedMagic: 0
   minSelectedMagic: 0
   maxSelectedMagic: 2
-  auraController: {fileID: 1160720496670689725}
-  levitationColor: {r: 1, g: 0, b: 1, a: 1}
-  attractionColor: {r: 0.9811321, g: 0.9224987, b: 0.24528302, a: 1}
-  ultimateColor: {r: 0.33962262, g: 0.33802062, b: 0.33802062, a: 1}
 --- !u!114 &7236273571665168297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,39 +899,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.106
+      value: 0.10599999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.106
+      value: 0.10599999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.78
+      value: -0.78000045
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6000004
+      value: 0.6000034
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7385943
+      value: 0.73859423
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000027398866
+      value: -0.000027403232
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6725027
+      value: 0.67250276
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.047102887
+      value: -0.047102895
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1039,6 +1036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   auraRenderers:
   - {fileID: 5957437160553470623}
+  readyFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  readyScaleMultiplier: 1.1
+  effectSpeed: 2
 --- !u!137 &5957437160553470623 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: e8b363fc8682c9b44abddcfc7a7ccc4a, type: 3}
