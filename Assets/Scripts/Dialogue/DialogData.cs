@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class DialogEntry {
     public Color textColor = Color.white;
-    public string text;
+    [TextArea] public string text;
 }
 
 [CreateAssetMenu(menuName = "Dialog/DialogData")]

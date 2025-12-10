@@ -22,6 +22,10 @@ public class DialogBoxSystem : MonoBehaviour
     public float autoStartDelay = 1f;
     [Space]
 
+    [Header("Scene Transition On End")]
+    public bool changeSceneOnEnd = false;
+    public string sceneToLoadOnEnd = "";
+
     private int currentIndex = -1;
     private Vector3 defaultScale;
 
@@ -139,6 +143,18 @@ public class DialogBoxSystem : MonoBehaviour
         //dialogBoxGroup.gameObject.SetActive(false);
 
         onDialogEndCallback?.Invoke();
+
+        if (changeSceneOnEnd && !string.IsNullOrEmpty(sceneToLoadOnEnd))
+        {
+            if (GameController.Instance != null)
+            {
+                GameController.Instance.ChangeScene(sceneToLoadOnEnd);
+            }
+            else
+            {
+                Debug.LogWarning("GameController Instance not found in scene!");
+            }
+        }
     }
 
     private IEnumerator ScaleBox()
