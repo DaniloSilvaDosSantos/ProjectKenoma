@@ -29,7 +29,7 @@ public class RadioInputTester : MonoBehaviour
             }
             else
             {
-                Radio.Instance.PlayMusic("Music/Menu");
+                Radio.Instance.PlayMusic("Music/Game");
                 isMusicPlaying = true;
             }
         }
