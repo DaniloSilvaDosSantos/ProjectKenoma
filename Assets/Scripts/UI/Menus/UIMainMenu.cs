@@ -31,7 +31,7 @@ public class UIMainMenu: MonoBehaviour
         volumeSlider.value = savedVolume;
         AudioListener.volume = savedVolume;
 
-        Radio.Instance.PlayMusic("Music/Game", MusicTransition.Fade, 1f);
+        Radio.Instance.PlayMusic("Music/Menu", MusicTransition.Fade, 1f);
     }
 
     private void OnPlayPressed()

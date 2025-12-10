@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicName: Ultimate
   type: 2
-  magicColor: {r: 0.004983983, g: 0.004983983, b: 0.1509434, a: 1}
+  magicColor: {r: 1, g: 0, b: 0.03598833, a: 1}
   cooldownType: 1
   cooldown: 8
   killsRequired: 50

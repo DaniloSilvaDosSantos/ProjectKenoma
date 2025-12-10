@@ -51,6 +51,6 @@ Material:
     - _quantidade_de_pixel: 51.7
     m_Colors:
     - _Color: {r: 0.16226411, g: 0, b: 0, a: 0}
-    - _Tiling_do_noise: {r: 3.06, g: 0.01, b: 0, a: 0}
+    - _Tiling_do_noise: {r: 2.93, g: 0.01, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
