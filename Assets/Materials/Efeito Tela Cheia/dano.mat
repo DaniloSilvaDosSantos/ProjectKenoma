@@ -45,7 +45,7 @@ Material:
     - _Fullscreen_DstColorBlend: 10
     - _Fullscreen_SrcAlphaBlend: 1
     - _Fullscreen_SrcColorBlend: 5
-    - _Intensidade_vinheta: 1.9999999
+    - _Intensidade_vinheta: 10
     - _Poder_Vinheta: 1.64
     - _Velocidade_do_noise: 0.025
     - _quantidade_de_pixel: 51.7
