@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public string sceneToChange = "";
 
     public bool Fade = false;
+    public float fadeSpeedMultiplier = 2f;
     public int points = 0;
 
     void Awake()
@@ -52,12 +53,12 @@ public class GameController : MonoBehaviour
 
         if (Fade && tempColor.a < 1f)
         {
-            tempColor.a = Mathf.Min(tempColor.a + 1f * Time.deltaTime, 1f);
+            tempColor.a = Mathf.Min(tempColor.a + 1f * fadeSpeedMultiplier * Time.deltaTime, 1f);
             FadeScreen.color = tempColor;
         }
         else if (!Fade && tempColor.a > 0f)
         {
-            tempColor.a = Mathf.Max(tempColor.a - 1f * Time.deltaTime, 0f);
+            tempColor.a = Mathf.Max(tempColor.a - 1f * fadeSpeedMultiplier * Time.deltaTime, 0f);
             FadeScreen.color = tempColor;
         }
     }

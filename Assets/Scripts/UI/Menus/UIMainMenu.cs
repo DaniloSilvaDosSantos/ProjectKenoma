@@ -36,7 +36,7 @@ public class UIMainMenu: MonoBehaviour
 
     private void OnPlayPressed()
     {
-        SceneManager.LoadScene("Tutorial");
+        GameController.Instance.ChangeScene("Tutorial", true);
 
         Radio.Instance.StopMusic(true, 2.5f);
     }
