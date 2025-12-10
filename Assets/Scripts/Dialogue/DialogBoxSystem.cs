@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +8,7 @@ public class DialogBoxSystem : MonoBehaviour
     public CanvasGroup dialogBoxGroup;
     public Image dialogBoxArt;
     public TextMeshProUGUI dialogText;
+    [Space]
 
     public float fadeDuration = 0.2f;
     public float scaleFactor = 1.125f;
@@ -16,6 +16,11 @@ public class DialogBoxSystem : MonoBehaviour
     public float timeToPassDialog = 5f;
 
     [SerializeField] private DialogData dialogData;
+
+    [Header("Auto Start Config")]
+    public bool autoStart = false;
+    public float autoStartDelay = 1f;
+    [Space]
 
     private int currentIndex = -1;
     private Vector3 defaultScale;
@@ -28,6 +33,16 @@ public class DialogBoxSystem : MonoBehaviour
         defaultScale = dialogBoxArt.rectTransform.localScale;
         dialogBoxGroup.alpha = 0f;
         //dialogBoxGroup.gameObject.SetActive(false);
+
+        if (autoStart && dialogData != null)
+        {
+            Invoke("AutoStartRoutine", autoStartDelay);
+        }
+    }
+
+    private void AutoStartRoutine()
+    {
+        StartDialog(dialogData);
     }
 
     public void StartDialog(DialogData data, System.Action onDialogEnd = null)
