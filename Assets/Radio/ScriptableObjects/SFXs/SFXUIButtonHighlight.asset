@@ -15,7 +15,7 @@ MonoBehaviour:
   soundID: SFX/UIButtonHighlight
   type: 1
   clips:
-  - clip: {fileID: 8300000, guid: e685277ae87315746b2b2fae6612a1f3, type: 3}
+  - clip: {fileID: 8300000, guid: 7aaf55696e800ea4f8e7b363ec4e418e, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0

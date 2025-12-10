@@ -15,7 +15,7 @@ MonoBehaviour:
   soundID: SFX/UIButtonPressed
   type: 1
   clips:
-  - clip: {fileID: 8300000, guid: 69d2d9212ab20ca449aaabf693e5079a, type: 3}
+  - clip: {fileID: 8300000, guid: 84ea1d2029f91c443a5808b99241c223, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0

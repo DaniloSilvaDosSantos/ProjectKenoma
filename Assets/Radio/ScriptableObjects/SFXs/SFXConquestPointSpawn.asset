@@ -15,7 +15,7 @@ MonoBehaviour:
   soundID: SFX/ConquestPointSpawn
   type: 1
   clips:
-  - clip: {fileID: 8300000, guid: 52919ce294b64e34a8fdd72d48cf9743, type: 3}
+  - clip: {fileID: 8300000, guid: d978697954c837149b1813575bd19312, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0
