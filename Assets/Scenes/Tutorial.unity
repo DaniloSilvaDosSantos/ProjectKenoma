@@ -582,13 +582,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 1247452088}
   continueButton: {fileID: 2028084972}
-  text1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur
-    accumsan ligula vitae rhoncus. Morbi eu consequat arcu.
-  text2: Sed sagittis purus turpis, non pharetra ligula porta nec. Vestibulum blandit
-    at libero et luctus. Integer placerat libero tellus, vel viverra augue ullamcorper
-    vel.
-  text3: 'Donec urna lacus, ullamcorper eget velit sit amet, efficitur convallis
-    nisl. Donec in tincidunt leo. Sed iaculis vel enim sit amet posuere. '
+  text1: 'Ascension does not come easily.
+
+    Survive long enough to reach the Pleroma.
+
+    Hordes
+    of enemies will try to trap you within the endless cycle of the Kenoma.
+
+    Defeat
+    them to absorb their knowledge and strengthen your spirit.'
+  text2: "Divine Hands will appear as conquest points.\nInteracting with them awakens
+    your inner potential, allowing you to cast spells that propel your journey toward
+    Gnosis.\n\nGreen Aura \u2013 Attraction Spell\nPurple Aura \u2013 Levitation
+    Spell"
+  text3: "By eliminating a large number of enemies, the player gains the opportunity
+    to release all accumulated knowledge in the form of a Black Hole.\nRed Aura \u2013
+    Black Hole"
   currentIndex: 1
 --- !u!114 &2028084972 stripped
 MonoBehaviour:

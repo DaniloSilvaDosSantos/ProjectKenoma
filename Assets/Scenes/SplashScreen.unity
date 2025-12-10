@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &881859619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5065384680447297142, guid: 965418f920b78574bb80478ec5c53684, type: 3}
+  m_PrefabInstance: {fileID: 618332888133379637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1673423384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,6 +411,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3760241279404648766, guid: 965418f920b78574bb80478ec5c53684, type: 3}
+      propertyPath: images.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760241279404648766, guid: 965418f920b78574bb80478ec5c53684, type: 3}
+      propertyPath: 'images.Array.data[2]'
+      value: 
+      objectReference: {fileID: 881859619}
     - target: {fileID: 5559499923523389478, guid: 965418f920b78574bb80478ec5c53684, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -479,6 +498,14 @@ PrefabInstance:
     - target: {fileID: 5559499923523389478, guid: 965418f920b78574bb80478ec5c53684, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775804910111099875, guid: 965418f920b78574bb80478ec5c53684, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 437a05d0fc241634a88ef0b9d47642dd, type: 3}
+    - target: {fileID: 5775804910111099875, guid: 965418f920b78574bb80478ec5c53684, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7226902550200379014, guid: 965418f920b78574bb80478ec5c53684, type: 3}
       propertyPath: m_Name
