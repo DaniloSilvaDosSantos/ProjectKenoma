@@ -10,7 +10,7 @@ public class AnimationEventProxy : MonoBehaviour
     {
         Radio.Instance.PlaySFX("SFX/PlayerWalking", audioSource);
     }
-
+//maconha//
     public void PlayShotgunShot()
     {
         Radio.Instance.PlaySFX("SFX/ShotgunShot", audioSource);
