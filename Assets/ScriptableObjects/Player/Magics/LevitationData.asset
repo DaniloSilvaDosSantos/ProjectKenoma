@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicName: Levitation
   type: 0
+  magicColor: {r: 0.7382014, g: 0.019802418, b: 0.8396226, a: 1}
+  cooldownType: 0
   cooldown: 8
+  killsRequired: 50
   range: 20
   prefab: {fileID: 4569307640317558073, guid: d8acdb4042bf3074d9bcb60fba8dbe85, type: 3}
   prefabStartScale: 0.01
@@ -29,3 +32,6 @@ MonoBehaviour:
   attractionPullMinDistance: 4
   attractionStunDuration: 1
   attractionPullAnimationTime: 1
+  ultimateDamage: 9999
+  ultimateDuration: 3
+  ultimateDistanteFromPlayer: 20

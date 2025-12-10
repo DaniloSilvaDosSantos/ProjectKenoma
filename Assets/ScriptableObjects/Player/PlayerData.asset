@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   startingHealth: 100
-  movementSpeed: 10
+  movementSpeed: 12
   gravity: -9.81
-  mouseSensitivity: 500
+  mouseSensitivity: 800
   minLookAngle: -90
   maxLookAngle: 90
-  dropCollectRange: 6
+  dropCollectRange: 9
   shotgunHalfAngle: 45
   shotgunCooldown: 2.5
   shotgunRangeA: 2
   shotgunRangeB: 5
   shotgunRangeC: 8
-  shotgunMaxRangeD: 12
+  shotgunMaxRangeD: 16
   shotgunScreenShakeStrenghtA: 0.5
   shotgunScreenShakeStrenghtB: 0.75
   shotgunScreenShakeStrenghtC: 1

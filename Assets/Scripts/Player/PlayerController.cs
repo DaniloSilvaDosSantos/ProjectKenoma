@@ -8,9 +8,10 @@ public class PlayerController : MonoBehaviour, IEntityController
 
     [Header("References")]
     public CharacterController characterController;
+    public PlayerMovement playerMovement;
     public Camera playerCamera;
     public Animator cameraAnimator;
-    [SerializeField] public GameOverMenu gameOverMenu;
+    public GameOverMenu gameOverMenu;
 
     [HideInInspector] public PlayerMovement movement;
     [HideInInspector] public PlayerCameraLook cameraLook;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour, IEntityController
     [HideInInspector] public HealthSystem health;
 
     [Header("Runtime State")]
+    public bool isMovementLocked = false;
     public bool isAlive = true;
 
     private void Awake()

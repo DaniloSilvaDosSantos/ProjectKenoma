@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69b6badd1b0e3a458b3414f848c8390, type: 3}
+  m_Name: SFXEnemyDeath
+  m_EditorClassIdentifier: 
+  soundID: SFX/EnemyDeath
+  type: 1
+  clips:
+  - clip: {fileID: 8300000, guid: 8a59e99e826b0ca4dbd27fe398ef32a4, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.9
+    maxVolume: 1
+    minPitch: 0.9
+    maxPitch: 1.1
+  - clip: {fileID: 8300000, guid: f91b5977df26ddd4a980c30301fe311d, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.9
+    maxVolume: 1
+    minPitch: 0.9
+    maxPitch: 1.1
+  - clip: {fileID: 8300000, guid: 1775dc0b50826734e891ad62748720b3, type: 3}
+    weight: 1
+    loop: 0
+    useLoopPoints: 0
+    loopStart: 0
+    loopEnd: 0
+    minVolume: 0.9
+    maxVolume: 1
+    minPitch: 0.9
+    maxPitch: 1.1

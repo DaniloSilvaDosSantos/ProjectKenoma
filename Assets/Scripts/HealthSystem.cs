@@ -9,9 +9,16 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     [Header("Damage FX")]
-    [SerializeField] private bool spawnDamageParticles = true;
+    [SerializeField] private bool spawnParticles = true;
     [SerializeField] private GameObject damageParticlesPrefab;
     private ParticleSystem damageParticles;
+    [Space]
+    [SerializeField] private GameObject deathParticlesPrefab;
+    private ParticleSystem  deathParticles;
+
+    [Header("Vignette FX")]
+    [SerializeField] private Material damageMaterial;
+    [SerializeField] private float maxVinheta = 10f;
 
     [Header("Variables")]
     [SerializeField] private float maxHealth;
@@ -19,6 +26,8 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private bool isDamageDoubled = false;
     private float damageDoubleTimer = 0f;
+    [SerializeField] private bool isInvulnerable = false;
+    public bool IsInvulnerable => isInvulnerable;
 
     [Header("Events")]
     public UnityEvent OnDeath;
@@ -53,6 +62,8 @@ public class HealthSystem : MonoBehaviour
         }
 
         SpawnDamageParticles();
+
+        if(damageMaterial != null) UpdateVignette();
     }
 
     public void Initialize(float value)
@@ -93,8 +104,10 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    public void TakeDamage(float amount, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
+    public void TakeDamage(float amount, bool registerKillForMagic = true, float screenShakeDuration = 0.25f, float screenShakeStrenght = 0.6f)
     {
+        if(isInvulnerable) return;
+
         if (isDamageDoubled)
         {
             Debug.Log(gameObject.name + " received double damage!");
@@ -107,11 +120,6 @@ public class HealthSystem : MonoBehaviour
         
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
-        if (spawnDamageParticles && damageParticles != null)
-        {
-            damageParticles.Play();
-        }
-
         if(cameraShakeSystem != null)
         {
             cameraShakeSystem.Shake(screenShakeDuration, screenShakeStrenght);
@@ -121,9 +129,23 @@ public class HealthSystem : MonoBehaviour
 
         OnHealthChanged?.Invoke(currentHealth);
 
+        if(damageMaterial != null) UpdateVignette();
+
         if (currentHealth <= 0)
         {
+            if(registerKillForMagic)
+            {
+                FindAnyObjectByType<PlayerMagicSystem>().RegisterKill();
+            } 
+
             Die();
+
+            return;
+        }
+
+        if (damageParticles != null)
+        {
+            damageParticles.Play();
         }
     }
 
@@ -140,8 +162,20 @@ public class HealthSystem : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth);
     }
 
+    public void SetInvulnerable(bool value)
+    {
+        isInvulnerable = value;
+    }
+
     private void Die()
     {
+        SpawnDeathParticles();
+
+        if (deathParticles != null)
+        {
+            deathParticles.Play();
+        }
+
         OnDeath?.Invoke();
 
         if (controller != null)
@@ -156,16 +190,36 @@ public class HealthSystem : MonoBehaviour
 
     private void SpawnDamageParticles()
     {
-        if (spawnDamageParticles && damageParticlesPrefab != null)
+        if (spawnParticles && damageParticlesPrefab != null)
         {
             GameObject instance = Instantiate(damageParticlesPrefab, transform.position, transform.rotation);
             instance.transform.SetParent(transform);
             damageParticles = instance.GetComponent<ParticleSystem>();
 
-            if (damageParticles == null)
-            {
-                Debug.LogWarning("damageParticlesPrefab don't have a ParticleSystem!");
-            }
+            if (damageParticles == null) Debug.LogWarning("damageParticlesPrefab don't have a ParticleSystem!");
         }
+    }
+
+    private void SpawnDeathParticles()
+    {
+        if (spawnParticles && deathParticlesPrefab != null)
+        {
+            GameObject instance = Instantiate(deathParticlesPrefab, transform.position, transform.rotation);
+            instance.transform.SetParent(transform);
+            deathParticles = instance.GetComponent<ParticleSystem>();
+
+            if (deathParticles == null) Debug.LogWarning("deathParticlesPrefab não possui um ParticleSystem!");
+        }
+    }
+
+    private void UpdateVignette()
+    {
+        if (damageMaterial == null) return;
+
+        float normalizedHealth = currentHealth / maxHealth;
+
+        float vinheta = Mathf.Lerp(maxVinheta, 0f, normalizedHealth);
+
+        damageMaterial.SetFloat("_Intensidade_vinheta", vinheta);
     }
 }

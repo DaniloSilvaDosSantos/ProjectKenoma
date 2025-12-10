@@ -23,6 +23,7 @@ public class WavesAndRoundSystem : MonoBehaviour
     [Space]
 
     [SerializeField] private int currentWaveIndex;
+    public bool allowWaves = false;
     [SerializeField] private int currentRound;
     [SerializeField] private int totalAliveEnemies;
 
@@ -37,7 +38,7 @@ public class WavesAndRoundSystem : MonoBehaviour
             maxAliveEnemies = wavesDB.maxAliveEnemies;
         }
 
-        StartCoroutine(RunWaves());
+        StartCoroutine(CheckStart());
     }
 
     private void Update()
@@ -55,6 +56,20 @@ public class WavesAndRoundSystem : MonoBehaviour
 
         EnemyData enemyData = pendingSpawns.Dequeue();
         SpawnEnemy(enemyData);
+    }
+
+    IEnumerator CheckStart()
+    {
+        while (!allowWaves) yield return null;
+
+        StartCoroutine(RunWaves());
+
+        while (Time.timeScale < 1f)
+        {
+            yield return null;
+        }
+
+        Radio.Instance.PlayMusic("Music/Game");
     }
 
     private IEnumerator RunWaves()

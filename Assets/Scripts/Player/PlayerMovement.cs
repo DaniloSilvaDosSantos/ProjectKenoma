@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 groundMovementInput;
     [SerializeField] private Vector3 yVelocity;
     [SerializeField] private bool isGrounded;
+    public bool isMovementLocked = false;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
@@ -38,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        if(isMovementLocked)
+        {
+            charController.Move(Vector3.zero);
+            return;
+        }
+
         float gravity = controller.playerData.gravity;
         float speed = controller.playerData.movementSpeed;
 
@@ -60,7 +67,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (controller.cameraAnimator == null) return;
 
-        bool moving = groundMovementInput.magnitude > 0.1f;
-        controller.cameraAnimator.SetBool("isWalking", moving);
+        if(!isMovementLocked)
+        {
+            bool moving = groundMovementInput.magnitude > 0.1f;
+            controller.cameraAnimator.SetBool("isWalking", moving);
+        }
+        else
+        {
+            controller.cameraAnimator.SetBool("isWalking", false);
+        }
+
+        
     }
 }

@@ -47,7 +47,7 @@ public class UITutorial : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("TestScene");
+            GameController.Instance.ChangeScene("BeforeSightPrologue", true);
         }
     }
 }

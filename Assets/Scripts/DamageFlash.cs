@@ -9,19 +9,50 @@ public class DamageFlash : MonoBehaviour
     public List<Renderer> renderersToFlash = new List<Renderer>();
 
     [Header("Flash Settings")]
-    public Color flashColor = Color.white;
+    public Color flashColor = Color.red;
     public float flashDuration = 0.2f;
 
-    private Dictionary<Renderer, Color> originalColors = new Dictionary<Renderer, Color>();
+    private class OriginalMaterialData
+    {
+        public Color originalColor;
+        public float originalAlpha;
+    }
+
+    private Dictionary<Material, OriginalMaterialData> materialData = new Dictionary<Material, OriginalMaterialData>();
     private Coroutine flashRoutine;
 
     private void Awake()
     {
         if (health == null) health = GetComponent<HealthSystem>();
 
-        foreach (var renderer in renderersToFlash)
+        VerifyRenderers(renderersToFlash);
+    }
+
+    private void VerifyRenderers(List<Renderer> renderersToFlash)
+    {
+        foreach (Renderer renderer in renderersToFlash)
         {
-            if (renderer != null) originalColors[renderer] = renderer.material.color;
+            if (renderer == null) continue;
+
+            VerifyMaterialsInRenderer(renderer);
+        }
+    }
+
+    private void VerifyMaterialsInRenderer(Renderer renderer)
+    {
+        foreach (Material material in renderer.materials)
+        {
+            if (IsStandardLitMaterial(material))
+            {
+                if (!materialData.ContainsKey(material))
+                {
+                    materialData[material] = new OriginalMaterialData
+                    {
+                        originalColor = material.color,
+                        originalAlpha = material.color.a
+                    };
+                }
+            }
         }
     }
 
@@ -42,35 +73,61 @@ public class DamageFlash : MonoBehaviour
     }
 
     private IEnumerator Flash()
-{
-    float elapsed = 0f;
-
-    foreach (var renderer in renderersToFlash)
     {
-        renderer.material.color = flashColor; 
-    } 
+        float elapsed = 0f;
 
-    while (elapsed < flashDuration)
-    {
-        float time = elapsed / flashDuration;
 
-        foreach (var renderer in renderersToFlash)
+        foreach (var pair in materialData)
         {
-            Color start = flashColor;
-            Color end = originalColors[renderer];
-            renderer.material.color = Color.Lerp(start, end, time);
+            Material material = pair.Key;
+            Color color = flashColor;
+            color.a = 0f;
+            material.color = color;
         }
 
-        elapsed += Time.deltaTime;
-        yield return null;
+        while (elapsed < flashDuration)
+        {
+            float t = elapsed / flashDuration;
+
+            float alpha = Mathf.Sin(t * Mathf.PI);
+
+            foreach (var pair in materialData)
+            {
+                Material material = pair.Key;
+                OriginalMaterialData original = pair.Value;
+
+                Color color = Color.Lerp(original.originalColor, flashColor, alpha);
+                color.a = Mathf.Lerp(0f, 1f, alpha);
+                material.color = color;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        foreach (var pair in materialData)
+        {
+            Material material = pair.Key;
+            OriginalMaterialData original = pair.Value;
+
+            Color color = original.originalColor;
+            color.a = original.originalAlpha;
+            material.color = color;
+        }
+
+        flashRoutine = null;
     }
 
-    foreach (var renderer in renderersToFlash)
+    private bool IsStandardLitMaterial(Material mat)
     {
-        renderer.material.color = originalColors[renderer];    
-    } 
+        if (mat == null || mat.shader == null) return false;
 
-    flashRoutine = null;
-}
+        string shaderName = mat.shader.name;
 
+        if (shaderName == "Standard") return true;
+
+        if (shaderName == "Universal Render Pipeline/Lit") return true;
+
+        return false;
+    }
 }

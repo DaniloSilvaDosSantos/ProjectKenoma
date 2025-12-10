@@ -9,6 +9,9 @@ public class ConquestPointManager : MonoBehaviour
     [SerializeField] private UIUpgradeMenu upgradeMenu;
     [SerializeField] private ConquestPointsData conquestPointsDB;
     [SerializeField] private ConquestPointBehaviour conquestPoint;
+    [SerializeField] private WavesAndRoundSystem wavesSystem;
+    [Space]
+    [SerializeField] private GameObject handAura; 
 
     [Header("SpawnPointsLocations")]
     [SerializeField] private List<Transform> spawnPoints;
@@ -16,10 +19,15 @@ public class ConquestPointManager : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float timeToActivate = 30f;
     [SerializeField] private float activeDuration = 15f;
+    [SerializeField] private bool firstInteractionDone = false;
+    
 
     private void Start()
     {
         upgradeMenu = FindAnyObjectByType<UIUpgradeMenu>().GetComponent<UIUpgradeMenu>();
+        wavesSystem = FindAnyObjectByType<WavesAndRoundSystem>().GetComponent<WavesAndRoundSystem>();
+
+        if(wavesSystem != null) wavesSystem.allowWaves = false;
 
         if (conquestPointsDB != null)
         {
@@ -32,7 +40,10 @@ public class ConquestPointManager : MonoBehaviour
         }
 
         conquestPoint.Init(this);
-        StartCoroutine(Loop());
+
+        if (!firstInteractionDone && handAura != null) handAura.SetActive(false);
+
+        ActivatePointFirstTime();
     }
 
     IEnumerator Loop()
@@ -49,6 +60,11 @@ public class ConquestPointManager : MonoBehaviour
         }
     }
 
+    private void ActivatePointFirstTime()
+    {
+        conquestPoint.SetActiveVisual(true);
+    }
+
     void ActivatePoint()
     {
         Debug.Log("Activating ConquestPoint");
@@ -60,7 +76,7 @@ public class ConquestPointManager : MonoBehaviour
 
     void DeactivatePoint()
     {
-        Debug.Log("Deactivating ConquestPoint");
+        //Debug.Log("Deactivating ConquestPoint");
 
         conquestPoint.SetActiveVisual(false);
     }
@@ -68,7 +84,29 @@ public class ConquestPointManager : MonoBehaviour
     public void PlayerInteractedWithPoint()
     {
         DeactivatePoint();
-        upgradeMenu.OpenMenu(true);
+
+        if (!firstInteractionDone)
+        {
+            firstInteractionDone = true;
+
+            Invoke("ActivateHandAura", 0.1f);
+
+            if (wavesSystem != null) wavesSystem.allowWaves = true;
+
+            StartCoroutine(Loop());
+
+
+            upgradeMenu.OpenMenu(conquestMenu: true, firstTime:true);
+            return;
+        }
+
+        upgradeMenu.OpenMenu(conquestMenu: true, firstTime:false);
+    }
+
+    private void ActivateHandAura()
+    {
+        if (handAura != null) handAura.SetActive(true);
     }
 }
+
 
