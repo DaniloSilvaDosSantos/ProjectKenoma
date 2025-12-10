@@ -72,6 +72,8 @@ public class ConquestPointManager : MonoBehaviour
         Transform spot = spawnPoints[Random.Range(0, spawnPoints.Count)];
         conquestPoint.transform.position = spot.position;
         conquestPoint.SetActiveVisual(true);
+
+        Radio.Instance.PlaySFX("SFX/ConquestPointSpawn");
     }
 
     void DeactivatePoint()

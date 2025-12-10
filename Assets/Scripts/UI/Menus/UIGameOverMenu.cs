@@ -54,7 +54,10 @@ public class GameOverMenu : MonoBehaviour
         GameController.Instance.UpdateVignette(0f);
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        GameController.Instance.ChangeScene(currentScene, true);
     }
 
     private void OnMainMenuPressed()
@@ -70,7 +73,7 @@ public class GameOverMenu : MonoBehaviour
 
         GameController.Instance.UpdateVignette(0f);
 
-        SceneManager.LoadScene("MainMenu");
+        GameController.Instance.ChangeScene("MainMenu", true);
     }
 }
 
