@@ -51,6 +51,8 @@ public class GameOverMenu : MonoBehaviour
 
         Radio.Instance.StopMusic(true, 1f);
 
+        GameController.Instance.UpdateVignette(0f);
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -65,6 +67,9 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         Radio.Instance.StopMusic(true, 1f);
+
+        GameController.Instance.UpdateVignette(0f);
+
         SceneManager.LoadScene("MainMenu");
     }
 }
