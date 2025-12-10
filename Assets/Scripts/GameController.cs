@@ -1,13 +1,10 @@
-using System.Collections;
-using System.IO;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController gameController;
+    public static GameController Instance { get; private set; }
     [SerializeField] private Image FadeScreen;
 
     public string currentScene = "";
@@ -18,8 +15,14 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        gameController = this;
-        //ChangeScene(sceneToChange);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
