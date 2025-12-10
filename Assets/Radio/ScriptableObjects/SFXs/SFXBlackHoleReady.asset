@@ -15,7 +15,7 @@ MonoBehaviour:
   soundID: SFX/BlackHoleReady
   type: 1
   clips:
-  - clip: {fileID: 8300000, guid: e21284f58b614844882915be382e8890, type: 3}
+  - clip: {fileID: 8300000, guid: d978697954c837149b1813575bd19312, type: 3}
     weight: 1
     loop: 0
     useLoopPoints: 0
