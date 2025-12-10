@@ -352,7 +352,7 @@ MonoBehaviour:
   spawnParticles: 1
   damageParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
   deathParticlesPrefab: {fileID: 6032887620493359245, guid: 559660397db81d74f95627431696501e, type: 3}
-  damageMaterial: {fileID: 2100000, guid: 093e20385165dfb4a92880e35c5d0cc8, type: 2}
+  isPlayer: 1
   maxVinheta: 10
   maxHealth: 0
   currentHealth: 0

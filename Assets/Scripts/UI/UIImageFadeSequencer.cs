@@ -12,6 +12,7 @@ public class FadeSequencer : MonoBehaviour
     public float fadeInDuration = 1f;
     public float visibleDuration = 2f;
     public float fadeOutDuration = 1f;
+    
     public float invisibleDuration = 0.5f;
     [Space]
 
