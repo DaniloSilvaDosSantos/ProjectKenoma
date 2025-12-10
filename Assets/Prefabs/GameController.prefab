@@ -228,3 +228,4 @@ MonoBehaviour:
   Fade: 0
   fadeSpeedMultiplier: 3
   points: 0
+  damageMaterial: {fileID: 2100000, guid: 093e20385165dfb4a92880e35c5d0cc8, type: 2}

@@ -14,16 +14,21 @@ public class GameController : MonoBehaviour
     public float fadeSpeedMultiplier = 2f;
     public int points = 0;
 
+    [Header("Vignette FX")]
+    public Material damageMaterial;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
-        {
+        {//
             Destroy(gameObject);
             return;
         }
         
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        UpdateVignette(0f);
     }
 
     void Update()
@@ -87,5 +92,10 @@ public class GameController : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    public void UpdateVignette(float vinhetaValue)
+    {
+        damageMaterial.SetFloat("_Intensidade_vinheta", vinhetaValue);
     }
 }
