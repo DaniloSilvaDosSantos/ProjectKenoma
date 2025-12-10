@@ -119,8 +119,7 @@ public class UIPlayerXPBar : MonoBehaviour
 
             state = XPBarState.LevelUpWaitMenu;
 
-            if (menuOpenDelay > 0)
-                yield return new WaitForSecondsRealtime(menuOpenDelay);
+            if (menuOpenDelay > 0) yield return new WaitForSecondsRealtime(menuOpenDelay);
 
             upgradeMenu.OpenMenu(false);
 

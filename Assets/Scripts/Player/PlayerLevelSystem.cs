@@ -41,6 +41,8 @@ public class PlayerLevelSystem : MonoBehaviour
         totalXp += amount;
         OnXpChanged?.Invoke(totalXp);
 
+        Radio.Instance.PlaySFX("SFX/PickXP");
+
         CheckLevelUp();
     }
 

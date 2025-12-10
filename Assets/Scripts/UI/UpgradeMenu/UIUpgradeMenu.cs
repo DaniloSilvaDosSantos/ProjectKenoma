@@ -45,6 +45,8 @@ public class UIUpgradeMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         GenerateOptions(firstTime);
+
+        Radio.Instance.PlaySFX("SFX/LevelUp");
     }
 
     public void CloseMenu()
