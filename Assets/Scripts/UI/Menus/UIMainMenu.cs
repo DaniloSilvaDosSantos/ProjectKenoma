@@ -30,11 +30,15 @@ public class UIMainMenu: MonoBehaviour
         float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 0.6f);
         volumeSlider.value = savedVolume;
         AudioListener.volume = savedVolume;
+
+        Radio.Instance.PlayMusic("Music/Game", MusicTransition.Fade, 1f);
     }
 
     private void OnPlayPressed()
     {
-        SceneManager.LoadScene("Tutorial");
+        GameController.Instance.ChangeScene("Tutorial", true);
+
+        Radio.Instance.StopMusic(true, 2.5f);
     }
 
     private void OnOptionsPressed()

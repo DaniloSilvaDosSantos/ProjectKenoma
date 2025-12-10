@@ -49,6 +49,8 @@ public class GameOverMenu : MonoBehaviour
             Debug.Log("Player Upgrade System reference is missing!");
         }
 
+        Radio.Instance.StopMusic(true, 1f);
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -61,6 +63,8 @@ public class GameOverMenu : MonoBehaviour
         }
 
         Time.timeScale = 1f;
+
+        Radio.Instance.StopMusic(true, 1f);
         SceneManager.LoadScene("MainMenu");
     }
 }

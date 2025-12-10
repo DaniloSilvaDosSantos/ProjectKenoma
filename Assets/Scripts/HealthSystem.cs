@@ -16,6 +16,10 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private GameObject deathParticlesPrefab;
     private ParticleSystem  deathParticles;
 
+    [Header("Vignette FX")]
+    [SerializeField] private Material damageMaterial;
+    [SerializeField] private float maxVinheta = 10f;
+
     [Header("Variables")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
@@ -58,6 +62,8 @@ public class HealthSystem : MonoBehaviour
         }
 
         SpawnDamageParticles();
+
+        if(damageMaterial != null) UpdateVignette();
     }
 
     public void Initialize(float value)
@@ -122,6 +128,8 @@ public class HealthSystem : MonoBehaviour
         OnDamaged?.Invoke(amount);
 
         OnHealthChanged?.Invoke(currentHealth);
+
+        if(damageMaterial != null) UpdateVignette();
 
         if (currentHealth <= 0)
         {
@@ -204,4 +212,14 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    private void UpdateVignette()
+    {
+        if (damageMaterial == null) return;
+
+        float normalizedHealth = currentHealth / maxHealth;
+
+        float vinheta = Mathf.Lerp(maxVinheta, 0f, normalizedHealth);
+
+        damageMaterial.SetFloat("_Intensidade_vinheta", vinheta);
+    }
 }
