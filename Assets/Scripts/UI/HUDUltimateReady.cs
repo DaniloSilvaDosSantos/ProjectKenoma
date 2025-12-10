@@ -19,6 +19,11 @@ public class HUDUltimateReady : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        Radio.Instance.PlaySFX("SFX/ConquestPointSpawn");
+    }
+
     private void Update()
     {
         if (!isFlashing) return;
