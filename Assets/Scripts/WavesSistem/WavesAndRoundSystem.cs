@@ -63,6 +63,13 @@ public class WavesAndRoundSystem : MonoBehaviour
         while (!allowWaves) yield return null;
 
         StartCoroutine(RunWaves());
+
+        while (Time.timeScale < 1f)
+        {
+            yield return null;
+        }
+
+        Radio.Instance.PlayMusic("Music/Game");
     }
 
     private IEnumerator RunWaves()
