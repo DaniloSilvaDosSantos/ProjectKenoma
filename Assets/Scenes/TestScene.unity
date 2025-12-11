@@ -39422,6 +39422,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1850812739175154271, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
+      propertyPath: field of view
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 2092688555025091544, guid: 7a779ec953d45c542a0607795b5f2296, type: 3}
       propertyPath: dialogBox
       value: 
