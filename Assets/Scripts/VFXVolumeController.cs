@@ -24,6 +24,9 @@ public class VFXVolumeController : MonoBehaviour
     [Header("Black Hole Cast")]
     public float blackHoleTargetChromaticIntensity = 1f;
 
+    [Header("Ending Level")]
+    public float endingLevelBloomTargetIntensity = 10f;
+
     void Awake()
     {
         volume = GetComponent<Volume>();
@@ -117,4 +120,29 @@ public class VFXVolumeController : MonoBehaviour
         chromaticAberration.intensity.Override(start);
     }
 
-}
+    // Ending Level Animation //
+
+    public void PlayEndingLevel(float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(EndingLevelRoutine(duration));
+    }
+
+    IEnumerator EndingLevelRoutine(float duration)
+    {
+        float start = defaultBloomIntensity;
+        float target = endingLevelBloomTargetIntensity;
+
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / duration;
+            bloom.intensity.Override(Mathf.Lerp(start, target, t));
+            yield return null;
+        }
+
+        bloom.intensity.Override(target);
+    }
+    }
