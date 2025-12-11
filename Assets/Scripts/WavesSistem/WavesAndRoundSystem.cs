@@ -56,12 +56,17 @@ public class WavesAndRoundSystem : MonoBehaviour
 
         if (waveTimerRunning)
         {
-            waveTimer += Time.deltaTime;
+            waveTimer -= Time.deltaTime;
+
+            if (waveTimer < 0f) waveTimer = 0f;
+
             UpdateWaveTimerUI();
         }
 
         TrySpawnPending();
     }
+
+    
 
     private void UpdateWaveTimerUI()
     {
@@ -97,6 +102,23 @@ public class WavesAndRoundSystem : MonoBehaviour
         Radio.Instance.PlayMusic("Music/Game");
     }
 
+    private float CalculateTotalCooldown()
+    {
+        if (wavesDB == null || wavesDB.waves == null) return 0f;
+
+        float total = 0f;
+
+        foreach (var wave in wavesDB.waves)
+        {
+            if (wave == null) continue;
+
+            total += wave.roundDelay * wave.numberOfRounds;
+        }
+
+        return total;
+    }
+
+
     private IEnumerator RunWaves()
     {
         if (wavesDB == null || wavesDB.waves == null || wavesDB.waves.Length == 0)
@@ -105,8 +127,9 @@ public class WavesAndRoundSystem : MonoBehaviour
             yield break;
         }
 
-        waveTimer = 0f;
+        waveTimer = CalculateTotalCooldown();
         waveTimerRunning = true;
+
 
         for (currentWaveIndex = 0; currentWaveIndex < wavesDB.waves.Length; currentWaveIndex++)
         {
