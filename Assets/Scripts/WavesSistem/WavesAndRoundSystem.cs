@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
+using TMPro;
 
 public class WavesAndRoundSystem : MonoBehaviour
 {
@@ -21,6 +21,11 @@ public class WavesAndRoundSystem : MonoBehaviour
     private Queue<EnemyData> pendingSpawns = new Queue<EnemyData>();
     [Space]
     [Space]
+
+    [Header("Wave Timer")]
+    [SerializeField] private TextMeshProUGUI waveTimerText;
+    [SerializeField] private bool waveTimerRunning = false;
+    [SerializeField] private float waveTimer = 0f;
 
     [SerializeField] private int currentWaveIndex;
     public bool allowWaves = false;
@@ -45,7 +50,23 @@ public class WavesAndRoundSystem : MonoBehaviour
     {
         totalAliveEnemies = EnemyCounter.aliveEnemies;
 
+        if (waveTimerRunning)
+        {
+            waveTimer += Time.deltaTime;
+            UpdateWaveTimerUI();
+        }
+
         TrySpawnPending();
+    }
+
+    private void UpdateWaveTimerUI()
+    {
+        if (waveTimerText != null)
+        {
+            int minutes = Mathf.FloorToInt(waveTimer / 60f);
+            int seconds = Mathf.FloorToInt(waveTimer % 60f);
+            waveTimerText.text = $"{minutes:0}:{seconds:00}";
+        }
     }
 
     private void TrySpawnPending()
@@ -80,6 +101,9 @@ public class WavesAndRoundSystem : MonoBehaviour
             yield break;
         }
 
+        waveTimer = 0f;
+        waveTimerRunning = true;
+
         for (currentWaveIndex = 0; currentWaveIndex < wavesDB.waves.Length; currentWaveIndex++)
         {
             WaveData wave = wavesDB.waves[currentWaveIndex];
@@ -98,6 +122,8 @@ public class WavesAndRoundSystem : MonoBehaviour
         }
 
         Debug.Log("! ALL WAVES FINISHED !");
+
+        waveTimerRunning = false;
     }
 
     private void SpawnRound(WaveData wave, int roundIndex)

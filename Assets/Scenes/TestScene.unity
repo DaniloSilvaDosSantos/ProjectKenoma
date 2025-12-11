@@ -195,6 +195,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 500495101}
   m_SourcePrefab: {fileID: 100100000, guid: 97c08de414493eb4faa193bef8c14af3, type: 3}
+--- !u!224 &69259404 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+  m_PrefabInstance: {fileID: 7022970857340064116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &69259405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2991476754623804997, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+  m_PrefabInstance: {fileID: 7022970857340064116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &70443142
 GameObject:
   m_ObjectHideFlags: 0
@@ -16897,6 +16913,7 @@ RectTransform:
   - {fileID: 1894107518}
   - {fileID: 1266956624}
   - {fileID: 307557326}
+  - {fileID: 69259404}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -40016,6 +40033,103 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b084b83fc76b7864982944c512cac804, type: 3}
+--- !u!1001 &7022970857340064116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 727747471}
+    m_Modifications:
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677518225774984211, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705945578837676723, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8b1fc83d35ab49489e6c8382fef9515, type: 3}
 --- !u!1001 &7401722860658661087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40028,6 +40142,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1395606911}
+    - target: {fileID: 4251379131220172812, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
+      propertyPath: waveTimerText
+      value: 
+      objectReference: {fileID: 69259405}
     - target: {fileID: 4251379131220172812, guid: b8eaa0fd70247704f93dfbf384d120da, type: 3}
       propertyPath: 'spawners.Array.data[0]'
       value: 

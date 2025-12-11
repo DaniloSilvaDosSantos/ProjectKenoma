@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee4e594db7240dc47a9e3473ffa0593b, type: 3}
-  m_Name: Wave 6
+  m_Name: wave 7
   m_EditorClassIdentifier: 
-  numberOfRounds: 4
-  roundDelay: 10
+  numberOfRounds: 8
+  roundDelay: 5
   enemiesToSpawn:
-  - enemy: {fileID: 11400000, guid: dfd6ebe25cb0f3c49acd98ce4ee6bbad, type: 2}
-    count: 40
   - enemy: {fileID: 11400000, guid: 6c17c208ddea76943b1007df4200c3dc, type: 2}
-    count: 120
+    count: 40

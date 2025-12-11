@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: testWavesDatabase
   m_EditorClassIdentifier: 
   minSpawnDist: 20
-  maxSpawnDist: 60
+  maxSpawnDist: 80
   maxAliveEnemies: 80
   waves:
+  - {fileID: 11400000, guid: 84d4d9d21c6c87845a342f42a09b6325, type: 2}
   - {fileID: 11400000, guid: 54b69b24ef168be41bc3503099e13a54, type: 2}
   - {fileID: 11400000, guid: e8d66c2fa1494f644814e94a125e9aad, type: 2}
   - {fileID: 11400000, guid: 4db0bc8835476654ea0a6231d7c2c1be, type: 2}
@@ -23,3 +24,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a714a239c5becc44ad868389b6bb80e, type: 2}
   - {fileID: 11400000, guid: 17c484af6f1d0d04a876b38e57ee2d06, type: 2}
   - {fileID: 11400000, guid: a199f4360ff0530478eb2970cb9c6047, type: 2}
+  - {fileID: 11400000, guid: 81d6654869c2f1349a46bf2e75ccbfa8, type: 2}
