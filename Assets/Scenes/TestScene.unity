@@ -39802,6 +39802,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8684232352685916964, guid: 8e3ab634ca2840344b31a0cd341b5ef7, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684232352685916964, guid: 8e3ab634ca2840344b31a0cd341b5ef7, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684232352685916964, guid: 8e3ab634ca2840344b31a0cd341b5ef7, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
