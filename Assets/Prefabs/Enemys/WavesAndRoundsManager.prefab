@@ -57,7 +57,12 @@ MonoBehaviour:
   minSpawnDist: 20
   maxSpawnDist: 150
   maxAliveEnemies: 80
+  waveTimerText: {fileID: 0}
+  waveTimerRunning: 0
+  waveTimer: 0
   currentWaveIndex: 0
   allowWaves: 0
   currentRound: 0
   totalAliveEnemies: 0
+  endPrefab: {fileID: 2547859128948310518, guid: c0831b156dacdab4ab679049c3aa3914, type: 3}
+  prefabSpawnDistance: 30

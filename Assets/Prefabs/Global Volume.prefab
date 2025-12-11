@@ -55,6 +55,7 @@ MonoBehaviour:
   startingBloomInitialIntensity: 3
   startingVignetteInitialIntensity: 1
   blackHoleTargetChromaticIntensity: 1
+  endingLevelBloomTargetIntensity: 100
 --- !u!114 &3313114266275172825
 MonoBehaviour:
   m_ObjectHideFlags: 0

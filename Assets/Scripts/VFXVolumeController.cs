@@ -144,5 +144,7 @@ public class VFXVolumeController : MonoBehaviour
         }
 
         bloom.intensity.Override(target);
+
+        GameController.Instance.ChangeScene("MainMenu", true);
     }
-    }
+}

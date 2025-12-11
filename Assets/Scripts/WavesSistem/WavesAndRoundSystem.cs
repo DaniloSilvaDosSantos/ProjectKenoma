@@ -32,6 +32,10 @@ public class WavesAndRoundSystem : MonoBehaviour
     [SerializeField] private int currentRound;
     [SerializeField] private int totalAliveEnemies;
 
+    [Header("End of Waves Settings")]
+    [SerializeField] public GameObject endPrefab;
+    [SerializeField] public float prefabSpawnDistance = 20f;
+
     private void Start()
     {
         player = FindAnyObjectByType<PlayerController>().gameObject.transform;
@@ -124,6 +128,8 @@ public class WavesAndRoundSystem : MonoBehaviour
         Debug.Log("! ALL WAVES FINISHED !");
 
         waveTimerRunning = false;
+
+        HandleEndOfWaves();
     }
 
     private void SpawnRound(WaveData wave, int roundIndex)
@@ -173,5 +179,51 @@ public class WavesAndRoundSystem : MonoBehaviour
 
         EnemySpawner chosen = validSpawner[Random.Range(0, validSpawner.Count)];
         chosen.SpawnEnemy(enemyData.enemyPrefab);
+    }
+
+    private void HandleEndOfWaves()
+    {
+        Debug.Log("Starting The End Wave");
+
+        Radio.Instance.StopMusic(true, 5f);
+
+        FindAnyObjectByType<VFXVolumeController>()?.PlayEndingLevel(7f);
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemie in enemies)
+        {
+            HealthSystem healthSystem = enemie.GetComponent<HealthSystem>();
+            if (healthSystem != null)
+            {
+                healthSystem.TakeDamage(9999f, false, 0, 0);
+            }
+        }
+
+        GameObject playerObj = GameObject.Find("Player");
+        if (playerObj != null)
+        {
+            PlayerShotgun shotgun = playerObj.GetComponent<PlayerShotgun>();
+            if (shotgun != null) shotgun.enabled = false;
+
+            PlayerInteract interact = playerObj.GetComponent<PlayerInteract>();
+            if (interact != null) interact.enabled = false;
+
+            PlayerLevelSystem level = playerObj.GetComponent<PlayerLevelSystem>();
+            if (level != null) level.enabled = false;
+        }
+
+        UIPlayerXPBar xpBar = FindAnyObjectByType<UIPlayerXPBar>();
+        if (xpBar != null)
+        {
+            xpBar.enabled = false;
+        }
+
+        if (endPrefab != null && player != null)
+        {
+            Vector3 spawnPos = player.position + player.forward * prefabSpawnDistance;
+            Instantiate(endPrefab, spawnPos, Quaternion.identity);
+        }
+
+        this.enabled = false;
     }
 }
