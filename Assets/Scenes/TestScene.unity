@@ -16944,6 +16944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832575519}
+  - component: {fileID: 832575520}
   - component: {fileID: 832575518}
   m_Layer: 0
   m_Name: Global Volume
@@ -16984,6 +16985,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832575520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832575517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb6f5b786a370f47a8ab7761e7b5f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 832575518}
+  bloom: {fileID: 0}
+  vignette: {fileID: 0}
+  chromaticAberration: {fileID: 0}
+  defaultBloomIntensity: 0
+  defaultVignetteIntensity: 0.25
+  defaultChromaticAberrationIntensity: 0.1
+  startingBloomInitialIntensity: 5
+  startingVignetteInitialIntensity: 1
 --- !u!108 &871241712 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 2527706179025175962, guid: 43cc405c504c8204bb469e2798b7e62d, type: 3}
@@ -40193,6 +40215,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -8709982977058184005, guid: 5465fb512ae6d7c4485d9c25d7b5ae5b, type: 3}
+    - target: {fileID: 7527654933722999588, guid: dec737751979165498de31db80ebcb69, type: 3}
+      propertyPath: delayDialog
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6373111337020365826, guid: dec737751979165498de31db80ebcb69, type: 3}
