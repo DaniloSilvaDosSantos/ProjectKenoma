@@ -32,6 +32,8 @@ public class UIMainMenu: MonoBehaviour
         AudioListener.volume = savedVolume;
 
         Radio.Instance.PlayMusic("Music/Menu", MusicTransition.Fade, 1f);
+    
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void OnPlayPressed()
