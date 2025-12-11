@@ -582,22 +582,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 1247452088}
   continueButton: {fileID: 2028084972}
-  text1: 'Ascension does not come easily.
+  text1: To escape the endless cycles of Kenoma, you must survive and defeat hordes
+    of enemies. Then, after absorbing enough knowledge and strengthening your spirit,
+    you will be worthy of ascending to Pleroma.
+  text2: 'Conquest points will appear at random. Interact with them to awaken your
+    inner potential, propelling your journey towards Gnosis.
 
-    Survive long enough to reach the Pleroma.
-
-    Hordes
-    of enemies will try to trap you within the endless cycle of the Kenoma.
-
-    Defeat
-    them to absorb their knowledge and strengthen your spirit.'
-  text2: "Divine Hands will appear as conquest points.\nInteracting with them awakens
-    your inner potential, allowing you to cast spells that propel your journey toward
-    Gnosis.\n\nGreen Aura \u2013 Attraction Spell\nPurple Aura \u2013 Levitation
-    Spell"
-  text3: "By eliminating a large number of enemies, the player gains the opportunity
-    to release all accumulated knowledge in the form of a Black Hole.\nRed Aura \u2013
-    Black Hole"
+    The <color=#09f725>green
+    aura</color> casts an attraction spell, while the <color=#e909f7>purple aura</color>
+    casts a levitation spell.'
+  text3: After eliminating a large number of enemies, a <color=#f70909>red aura</color>
+    is able to manifest. With that, you can cast a spell to unleash all of your accumulated
+    knowledge in the form of a black hole.
   currentIndex: 1
 --- !u!114 &2028084972 stripped
 MonoBehaviour:
