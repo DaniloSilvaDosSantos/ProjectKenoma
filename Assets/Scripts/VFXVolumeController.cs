@@ -21,6 +21,9 @@ public class VFXVolumeController : MonoBehaviour
     public float startingBloomInitialIntensity = 10f;
     public float startingVignetteInitialIntensity = 1f;
 
+    [Header("Black Hole Cast")]
+    public float blackHoleTargetChromaticIntensity = 1f;
+
     void Awake()
     {
         volume = GetComponent<Volume>();
@@ -34,6 +37,8 @@ public class VFXVolumeController : MonoBehaviour
 
         PlayStartingToSee(4f, 2f);
     }
+
+    // Starting To See Animation //
 
     public void PlayStartingToSee(float bloomDuration, float vignetteDuration)
     {
@@ -76,4 +81,40 @@ public class VFXVolumeController : MonoBehaviour
         bloom.intensity.Override(defaultBloomIntensity);
         vignette.intensity.Override(defaultVignetteIntensity);
     }
+
+    // Black Hole Animation
+
+    public void PlayBlackHoleCast(float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(BlackHoleCastRoutine(duration));
+    }
+
+    IEnumerator BlackHoleCastRoutine(float duration)
+    {
+        float start = defaultChromaticAberrationIntensity;
+        float target = blackHoleTargetChromaticIntensity;
+        float half = duration * 0.5f;
+
+        float timer = 0f;
+        while (timer < half)
+        {
+            timer += Time.deltaTime;
+            float t = timer / half;
+            chromaticAberration.intensity.Override(Mathf.Lerp(start, target, t));
+            yield return null;
+        }
+
+        timer = 0f;
+        while (timer < half)
+        {
+            timer += Time.deltaTime;
+            float t = timer / half;
+            chromaticAberration.intensity.Override(Mathf.Lerp(target, start, t));
+            yield return null;
+        }
+
+        chromaticAberration.intensity.Override(start);
+    }
+
 }

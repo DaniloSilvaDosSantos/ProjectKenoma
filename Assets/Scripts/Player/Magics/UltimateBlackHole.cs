@@ -30,6 +30,8 @@ public class UltimateBlackHole : MonoBehaviour
 
         Radio.Instance.PlaySFX("SFX/MagicUltimate", audioSource);
 
+        FindAnyObjectByType<VFXVolumeController>()?.PlayBlackHoleCast(2f);
+
         StartCoroutine(UltimateRoutine());
     }
 
